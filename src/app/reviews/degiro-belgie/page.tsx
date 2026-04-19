@@ -6,6 +6,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('degiro')!
 
@@ -62,6 +63,8 @@ export default function DegiroReviewPage() {
             Bovendien is een jaarlijkse NBB-aangifte buitenlandse rekening vereist.
           </p>
         </div>
+
+        <ScoreBreakdown broker={broker} />
 
         <div className="mb-8">
           <BrokerCard broker={broker} variant="full" source="degiro-review" />

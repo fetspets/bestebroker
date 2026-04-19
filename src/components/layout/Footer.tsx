@@ -25,6 +25,9 @@ export function Footer() {
             <p className="mt-3 text-sm text-gray-400 leading-relaxed">
               Eerlijke, Nederlandstalige vergelijking van brokers voor Belgische beleggers. Fact-checked, onafhankelijk, transparant.
             </p>
+            <a href="mailto:info@bestebroker.be" className="mt-3 inline-block text-sm text-gray-400 hover:text-white transition-colors">
+              info@bestebroker.be
+            </a>
           </div>
 
           {/* Brokers */}
@@ -37,6 +40,7 @@ export function Footer() {
                 ['/reviews/bolero', 'Bolero'],
                 ['/reviews/medirect', 'MeDirect'],
                 ['/reviews/trade-republic-belgie', 'Trade Republic'],
+                ['/reviews/keytrade-belgie', 'Keytrade Bank'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="text-gray-400 hover:text-white transition-colors">{label}</Link>
@@ -72,10 +76,12 @@ export function Footer() {
                 ['/tools/welke-broker-past-bij-mij', 'Welke broker past bij mij?'],
                 ['/belgie/meerwaardebelasting-broker', 'Meerwaardebelasting'],
                 ['/belgie/tob-uitleg', 'TOB uitgelegd'],
+                ['/belgie/etf-kopen-beginners', 'ETF kopen beginners'],
                 ['/boeken', 'Boeken'],
                 ['/over-mij', 'Over mij'],
                 ['/disclaimer', 'Disclaimer'],
                 ['/methodologie', 'Methodologie'],
+                ['/sitemap.xml', 'Sitemap'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="text-gray-400 hover:text-white transition-colors">{label}</Link>
@@ -88,6 +94,8 @@ export function Footer() {
         <div className="mt-12 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} BesteBroker.be — Alle rechten voorbehouden
+            <span className="mx-2">·</span>
+            Laatst bijgewerkt: april 2026
           </p>
           <p className="text-xs text-gray-500">
             Wij ontvangen een vergoeding via affiliate links. Dit kost jou niets extra.{' '}

@@ -41,6 +41,30 @@ const faqJsonLd = {
         text: 'DEGIRO valt onder het German Investor Protection Fund (EdW) voor €20.000. Belgische brokers bieden €100.000 bescherming. Bovendien is securities lending verplicht in het basisaccount van DEGIRO, wat tegenpartijrisico meebrengt.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'Hoeveel goedkoper is DEGIRO dan Bolero?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bij Playlist-ETFs (onder €250) is Bolero zelfs goedkoper: €2,50 vs €3 bij DEGIRO. Bij hogere bedragen (€300-€1.000) is Bolero duurder: €5 vs €3. Bij €1.000+/trade is DEGIRO significant goedkoper: €3 vs €7,50. Reken ook de waarde van fiscale administratie mee: Bolero doet alles, DEGIRO niets.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Moet ik als DEGIRO-gebruiker zelf de meerwaardebelasting aangeven?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ja. DEGIRO handelt geen enkele Belgische belasting af. Je bent zelf verantwoordelijk voor de aangifte van de meerwaardebelasting (10% op meerwaarden boven €10.000), TOB (0,12% per transactie) en roerende voorheffing op dividenden.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Kan ik bij Bolero automatisch maandelijks beleggen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bolero heeft Invest & Repeat: een herhalende aankooporder. Maar let op: Bolero debiteert je rekening niet automatisch. Je moet zelf voldoende geld op je Bolero-rekening zetten. Bij Saxo werkt AutoInvest volledig automatisch inclusief debitering.',
+      },
+    },
   ],
 }
 
@@ -146,6 +170,96 @@ export default function DegiroVsBoleroPage() {
             en de balans kantelt snel.
           </p>
         </div>
+
+        {/* Wie wint in jouw situatie? */}
+        <section className="mb-10">
+          <h2 className="font-display text-2xl font-bold text-primary mb-5">Wie wint in jouw situatie?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="card border-t-4 border-t-orange-400">
+              <p className="text-xs font-semibold text-orange-600 mb-2">Starter</p>
+              <p className="font-semibold text-primary mb-2">Kleine maandelijkse bedragen (&lt;€250)</p>
+              <p className="text-sm text-gray-600">Bolero Playlist kost slechts €2,50 — goedkoper dan DEGIRO (€3). Bovendien geen fiscale zorgen. <strong>Winnaar: Bolero</strong></p>
+            </div>
+            <div className="card border-t-4 border-t-green-400">
+              <p className="text-xs font-semibold text-green-700 mb-2">Actieve belegger</p>
+              <p className="font-semibold text-primary mb-2">Hogere bedragen (€300–€1.000), doe-het-zelf fiscaal</p>
+              <p className="text-sm text-gray-600">Bij €300/trade is DEGIRO €2 goedkoper per transactie. Maar reken de uren fiscale administratie mee. <strong>Winnaar: situatieafhankelijk</strong></p>
+            </div>
+            <div className="card border-t-4 border-t-blue-400">
+              <p className="text-xs font-semibold text-blue-700 mb-2">Fiscaal comfort-zoeker</p>
+              <p className="font-semibold text-primary mb-2">Wil niets regelen, automatisch alles</p>
+              <p className="text-sm text-gray-600">Bolero regelt TOB, RV, Reynders én meerwaardebelasting. Nul securities lending. <strong>Winnaar: Bolero</strong></p>
+            </div>
+          </div>
+        </section>
+
+        {/* Kostenvergelijking */}
+        <section className="card mb-10">
+          <h2 className="font-display text-xl font-bold text-primary mb-4">Kostenvergelijking (1 trade/maand)</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead className="border-b border-gray-100">
+                <tr>
+                  <th className="text-left py-3 text-gray-600 font-semibold">Maandelijks bedrag</th>
+                  <th className="text-center py-3 font-semibold text-orange-600">DEGIRO</th>
+                  <th className="text-center py-3 font-semibold text-red-600">Bolero (Playlist)</th>
+                  <th className="text-center py-3 text-gray-600 font-semibold">Verschil/jaar</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                <tr>
+                  <td className="py-2.5 font-medium text-gray-700">€150/maand</td>
+                  <td className="py-2.5 text-center text-gray-600">€3/trade</td>
+                  <td className="py-2.5 text-center text-gray-600">€2,50/trade</td>
+                  <td className="py-2.5 text-center text-green-700 font-medium">Bolero €6 goedkoper/jaar</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 font-medium text-gray-700">€300/maand</td>
+                  <td className="py-2.5 text-center text-gray-600">€3/trade</td>
+                  <td className="py-2.5 text-center text-gray-600">€5/trade</td>
+                  <td className="py-2.5 text-center text-orange-700 font-medium">DEGIRO €24 goedkoper/jaar</td>
+                </tr>
+                <tr>
+                  <td className="py-2.5 font-medium text-gray-700">€1.000/maand</td>
+                  <td className="py-2.5 text-center text-gray-600">€3/trade</td>
+                  <td className="py-2.5 text-center text-gray-600">€7,50/trade</td>
+                  <td className="py-2.5 text-center text-orange-700 font-medium">DEGIRO €54 goedkoper/jaar</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-400 mt-3">Exclusief fiscale administratietijd. Bij DEGIRO berekening en aangifte TOB + MWB zelf doen.</p>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-10">
+          <h2 className="font-display text-2xl font-bold text-primary mb-5">Veelgestelde vragen</h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: 'Is DEGIRO of Bolero beter voor Belgische beleggers?',
+                a: 'Voor de meeste Belgische beleggers is Bolero beter: volledige fiscale afhandeling, geen securities lending, €100K bescherming. DEGIRO is interessant voor ervaren beleggers die fiscale administratie niet erg vinden en op kosten willen besparen bij hogere bedragen.',
+              },
+              {
+                q: 'Hoeveel goedkoper is DEGIRO dan Bolero?',
+                a: 'Bij bedragen onder €250 is Bolero zelfs goedkoper (€2,50 vs €3). Daarboven is DEGIRO goedkoper: €3 vs €5 (€250–€1.000) of €7,50 (>€1.000). Reken ook de waarde van jouw tijd mee voor de fiscale administratie.',
+              },
+              {
+                q: 'Moet ik als DEGIRO-gebruiker zelf de meerwaardebelasting aangeven?',
+                a: 'Ja. DEGIRO doet niets automatisch. Je moet zelf TOB, roerende voorheffing én de meerwaardebelasting (10% boven €10.000 meerwaarde/jaar) berekenen en aangeven.',
+              },
+              {
+                q: 'Is DEGIRO veilig?',
+                a: 'DEGIRO valt onder €20.000 beleggersbescherming (Duits fonds, EdW). Belgische brokers bieden €100.000. Bovendien is securities lending verplicht in het basisaccount van DEGIRO, wat tegenpartijrisico meebrengt.',
+              },
+            ].map(({ q, a }) => (
+              <div key={q} className="card">
+                <p className="font-semibold text-primary mb-2">{q}</p>
+                <p className="text-sm text-gray-600">{a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* CTAs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">

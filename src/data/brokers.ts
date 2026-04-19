@@ -44,6 +44,14 @@ export interface Broker {
     fiscaal: number
     veiligheid: number
   }
+  methodologyScores: {
+    fiscaleAfhandeling: number   // weging 30%
+    transactiekosten: number     // weging 25%
+    bewaarloon: number           // weging 15%
+    veiligheid: number           // weging 15%
+    functionaliteit: number      // weging 10%
+    transparantie: number        // weging 5%
+  }
   pros: string[]
   cons: string[]
   bestFor: string[]
@@ -92,6 +100,14 @@ export const brokers: Broker[] = [
       regulator: ['DFSA', 'FSMA', 'NBB'],
     },
     subScores: { kosten: 3.5, gebruiksgemak: 3.5, fiscaal: 5.0, veiligheid: 4.5 },
+    methodologyScores: {
+      fiscaleAfhandeling: 5.0,
+      transactiekosten: 3.5,
+      bewaarloon: 5.0,
+      veiligheid: 4.5,
+      functionaliteit: 4.0,
+      transparantie: 4.0,
+    },
     pros: [
       'Regelt TOB, roerende voorheffing, Reynders én meerwaardebelasting automatisch',
       'AutoInvest: automatisch maandelijks beleggen voor €2/maand',
@@ -148,6 +164,14 @@ export const brokers: Broker[] = [
       regulator: ['FSMA'],
     },
     subScores: { kosten: 2.5, gebruiksgemak: 4.5, fiscaal: 4.5, veiligheid: 5.0 },
+    methodologyScores: {
+      fiscaleAfhandeling: 4.5,
+      transactiekosten: 2.5,
+      bewaarloon: 5.0,
+      veiligheid: 5.0,
+      functionaliteit: 3.5,
+      transparantie: 4.5,
+    },
     pros: [
       'Geen securities lending — jouw effecten blijven altijd van jou',
       'Invest & Repeat: automatisch herhalende orders',
@@ -204,6 +228,14 @@ export const brokers: Broker[] = [
       regulator: ['FSMA', 'NBB'],
     },
     subScores: { kosten: 5.0, gebruiksgemak: 3.0, fiscaal: 4.0, veiligheid: 4.5 },
+    methodologyScores: {
+      fiscaleAfhandeling: 4.5,
+      transactiekosten: 5.0,
+      bewaarloon: 5.0,
+      veiligheid: 4.5,
+      functionaliteit: 1.5,
+      transparantie: 3.0,
+    },
     pros: [
       'ETF-transacties zijn volledig gratis (sinds augustus 2025)',
       'Alle Belgische belastingen automatisch afgehandeld',
@@ -259,6 +291,14 @@ export const brokers: Broker[] = [
       regulator: ['BaFin', 'AFM', 'DNB'],
     },
     subScores: { kosten: 4.5, gebruiksgemak: 3.5, fiscaal: 1.0, veiligheid: 2.5 },
+    methodologyScores: {
+      fiscaleAfhandeling: 1.0,
+      transactiekosten: 4.0,
+      bewaarloon: 4.5,
+      veiligheid: 2.5,
+      functionaliteit: 3.5,
+      transparantie: 3.0,
+    },
     pros: [
       'Lage transactiekosten (€1 + €2 handling voor veel ETFs)',
       'Groot aanbod van markten en instrumenten',
@@ -314,6 +354,14 @@ export const brokers: Broker[] = [
       regulator: ['BaFin'],
     },
     subScores: { kosten: 4.5, gebruiksgemak: 4.0, fiscaal: 1.0, veiligheid: 2.5 },
+    methodologyScores: {
+      fiscaleAfhandeling: 1.0,
+      transactiekosten: 5.0,
+      bewaarloon: 5.0,
+      veiligheid: 2.5,
+      functionaliteit: 4.0,
+      transparantie: 2.0,
+    },
     pros: [
       'Laagste vaste transactiekost: €1 per trade',
       'Gratis spaarplannen voor ETFs en aandelen',
@@ -369,6 +417,14 @@ export const brokers: Broker[] = [
       regulator: ['FSMA', 'NBB'],
     },
     subScores: { kosten: 1.5, gebruiksgemak: 3.5, fiscaal: 4.5, veiligheid: 5.0 },
+    methodologyScores: {
+      fiscaleAfhandeling: 5.0,
+      transactiekosten: 1.0,
+      bewaarloon: 2.0,
+      veiligheid: 5.0,
+      functionaliteit: 2.0,
+      transparantie: 4.0,
+    },
     pros: [
       'Volledig Belgisch (onderdeel van Crelan groep)',
       'Alle belastingen automatisch afgehandeld',

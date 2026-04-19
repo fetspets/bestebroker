@@ -5,6 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('bolero')!
 
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
   description:
     'Bolero review voor Belgische beleggers in 2026. KBC-dochter met automatische belastingafhandeling, geen securities lending en Invest & Repeat spaarplannen.',
   openGraph: {
-    title: 'Bolero Review 2026',
+    title: 'Bolero Review 2026 — KBC-Broker voor Belgische Beleggers',
+    description: 'Bolero review voor Belgische beleggers in 2026. KBC-dochter met automatische belastingafhandeling, geen securities lending en Invest & Repeat spaarplannen.',
     url: 'https://bestebroker.be/reviews/bolero',
     locale: 'nl_BE',
     type: 'article',
@@ -53,6 +55,8 @@ export default function BoleroReviewPage() {
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
+
+        <ScoreBreakdown broker={broker} />
 
         <div className="mb-8">
           <BrokerCard broker={broker} variant="full" source="bolero-review" />
@@ -117,16 +121,21 @@ export default function BoleroReviewPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { href: '/vergelijking/degiro-vs-bolero', label: 'DEGIRO vs Bolero' },
-            { href: '/vergelijking/bolero-vs-saxo', label: 'Bolero vs Saxo' },
-          ].map(({ href, label }) => (
-            <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
-              <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
-            </Link>
-          ))}
-        </div>
+        <section className="mt-8">
+          <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: '/vergelijking/degiro-vs-bolero', label: 'DEGIRO vs Bolero — wie wint?' },
+              { href: '/vergelijking/bolero-vs-saxo', label: 'Bolero vs Saxo — welke is beter?' },
+              { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken' },
+              { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026 uitgelegd' },
+            ].map(({ href, label }) => (
+              <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
+                <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   )
