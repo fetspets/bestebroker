@@ -5,6 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('trade-republic')!
 
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
   description:
     'Trade Republic review voor Belgische beleggers. €1 per transactie en gratis spaarplannen — maar nul fiscale ondersteuning. Alles wat je moet weten.',
   openGraph: {
-    title: 'Trade Republic België Review 2026',
+    title: 'Trade Republic België Review 2026 — €1 per Trade, Maar Zelf Belastingen',
+    description: 'Trade Republic review voor Belgische beleggers. €1 per transactie en gratis spaarplannen — maar nul fiscale ondersteuning. Alles wat je moet weten.',
     url: 'https://bestebroker.be/reviews/trade-republic-belgie',
     locale: 'nl_BE',
     type: 'article',
@@ -63,6 +65,8 @@ export default function TradeRepublicReviewPage() {
             Bovendien vereist een rekening bij Trade Republic een jaarlijkse NBB-aangifte buitenlandse rekening.
           </p>
         </div>
+
+        <ScoreBreakdown broker={broker} />
 
         <div className="mb-8">
           <BrokerCard broker={broker} variant="full" source="tr-review" />
@@ -118,16 +122,21 @@ export default function TradeRepublicReviewPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { href: '/belgie/buitenlandse-broker-nbb-aangifte', label: 'NBB-aangifte buitenlandse rekening' },
-            { href: '/broker-meerwaardebelasting-2026', label: 'Meerwaardebelasting 2026 — wie regelt het?' },
-          ].map(({ href, label }) => (
-            <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
-              <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
-            </Link>
-          ))}
-        </div>
+        <section className="mt-8">
+          <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: '/belgie/buitenlandse-broker-nbb-aangifte', label: 'NBB-aangifte buitenlandse rekening' },
+              { href: '/broker-meerwaardebelasting-2026', label: 'Meerwaardebelasting 2026 — wie regelt het?' },
+              { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026 uitgelegd' },
+              { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken — beste keuze?' },
+            ].map(({ href, label }) => (
+              <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
+                <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   )

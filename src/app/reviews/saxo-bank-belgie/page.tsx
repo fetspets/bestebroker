@@ -6,6 +6,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('saxo')!
 
@@ -87,6 +88,8 @@ export default function SaxoReviewPage() {
             <p className="text-sm text-gray-600">FSMA + NBB geregistreerd</p>
           </div>
         </div>
+
+        <ScoreBreakdown broker={broker} />
 
         {/* BrokerCard */}
         <div className="mb-8">

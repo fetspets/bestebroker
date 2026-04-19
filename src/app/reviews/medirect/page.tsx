@@ -5,6 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('medirect')!
 
@@ -53,6 +54,8 @@ export default function MeDirectReviewPage() {
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
+
+        <ScoreBreakdown broker={broker} />
 
         <div className="mb-8">
           <BrokerCard broker={broker} variant="full" source="medirect-review" />
@@ -104,16 +107,21 @@ export default function MeDirectReviewPage() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { href: '/vergelijking/saxo-vs-medirect', label: 'Saxo vs MeDirect' },
-            { href: '/goedkoopste-broker-belgie', label: 'Goedkoopste broker vergelijking' },
-          ].map(({ href, label }) => (
-            <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
-              <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
-            </Link>
-          ))}
-        </div>
+        <section className="mt-8">
+          <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { href: '/vergelijking/saxo-vs-medirect', label: 'Saxo vs MeDirect — AutoInvest vs gratis ETFs' },
+              { href: '/goedkoopste-broker-belgie', label: 'Goedkoopste broker in België 2026' },
+              { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken' },
+              { href: '/belgie/etf-kopen-beginners', label: 'Hoe koop je een ETF in België?' },
+            ].map(({ href, label }) => (
+              <Link key={href} href={href} className="card hover:shadow-md transition-shadow group">
+                <p className="font-semibold text-primary group-hover:text-accent transition-colors">{label} →</p>
+              </Link>
+            ))}
+          </div>
+        </section>
       </div>
     </>
   )
