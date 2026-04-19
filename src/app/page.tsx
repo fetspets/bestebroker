@@ -23,7 +23,6 @@ const stats = [
   { value: '6', label: 'brokers vergeleken' },
   { value: '100%', label: 'Nederlandstalig' },
   { value: '2026', label: 'fiscaal bijgewerkt' },
-  { value: '0', label: 'verborgen agenda' },
 ]
 
 export default function HomePage() {
@@ -40,7 +39,7 @@ export default function HomePage() {
             De beste broker in België — <span className="text-accent">eerlijk vergeleken</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-            100% Nederlandstalig · Belgische fiscale diepgang · Geen verborgen agenda.
+            100% Nederlandstalig · Belgische fiscale diepgang.
             Wij vergelijken TOB, meerwaardebelasting, bewaarloon en meer — zodat jij de juiste keuze maakt.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
