@@ -33,19 +33,6 @@ export default function WelkeBrokerPage() {
 
       <BrokerWizard />
 
-      <div className="mt-12 pt-8 border-t border-gray-200 prose-custom max-w-2xl mx-auto">
-        <h2 className="text-center">Waarom wij dit gratis aanbieden</h2>
-        <p>
-          Wij ontvangen een affiliate vergoeding als je via onze links een account opent.
-          Dat motiveert ons om je naar de <em>beste</em> broker te sturen — niet de duurste.
-          Een broker die slecht bij jou past en waarvoor je snel stopt, levert ons ook niets op.
-        </p>
-        <p>
-          Wil je de volledige onderbouwing zien? Lees onze{' '}
-          <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>{' '}
-          en <Link href="/beste-broker-belgie" className="text-accent hover:underline">volledige vergelijking</Link>.
-        </p>
-      </div>
     </div>
   )
 }

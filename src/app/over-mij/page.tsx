@@ -279,16 +279,6 @@ export default function OverMijPage() {
         </section>
 
         {/* Disclaimer block */}
-        <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-10 text-sm text-gray-700">
-          <p className="font-semibold text-gray-800 mb-2">Transparantie</p>
-          <p>
-            Deze site werkt met affiliate links. Als je via onze links een brokeraccount opent of een
-            boek koopt bij bol.com, ontvangen we een vergoeding. Dit kost jou niets extra en beïnvloedt
-            onze vergelijkingen niet — brokers die slechter scoren worden niet beter beschreven omdat ze
-            een programma aanbieden. Meer info in ons{' '}
-            <Link href="/disclaimer" className="text-accent hover:underline">transparantiebeleid</Link>.
-          </p>
-        </div>
 
         {/* Internal links */}
         <nav className="grid grid-cols-1 sm:grid-cols-2 gap-4">

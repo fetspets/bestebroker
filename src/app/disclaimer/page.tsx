@@ -40,34 +40,11 @@ export default function DisclaimerPage() {
         </section>
 
         <section>
-          <h2>2. Affiliate links & vergoedingen</h2>
+          <h2>2. Redactionele onafhankelijkheid</h2>
           <p>
-            BesteBroker.be werkt met <strong>affiliate partnerships</strong> met de brokers en bol.com
-            die op deze site worden vermeld. Dit betekent:
+            Onze brokerbeoordelingen en vergelijkingen zijn volledig onafhankelijk.
+            Onze methodologie is publiek beschikbaar op de <Link href="/methodologie" className="text-accent hover:underline">methodologie-pagina</Link>.
           </p>
-          <ul>
-            <li>Als je via een link op deze site een brokeraccount opent, ontvangen wij een vergoeding van de betreffende broker.</li>
-            <li>Als je via een link op deze site een boek koopt op bol.com, ontvangen wij een kleine commissie.</li>
-            <li>Dit kost jou <strong>niets extra</strong> — de prijs voor jou is identiek aan wanneer je rechtstreeks naar de broker of bol.com gaat.</li>
-          </ul>
-          <p>
-            Alle affiliate links zijn gemarkeerd met <code>rel=&quot;sponsored&quot;</code> zoals vereist door Google.
-            Op pagina&#39;s met affiliate links tonen wij altijd een zichtbare disclosure boven de fold.
-          </p>
-        </section>
-
-        <section>
-          <h2>3. Redactionele onafhankelijkheid</h2>
-          <p>
-            Onze brokerbeoordelingen en vergelijkingen worden <strong>niet beïnvloed door affiliate relaties</strong>.
-            Dit betekent concreet:
-          </p>
-          <ul>
-            <li>Een broker met een affiliatelink wordt niet beter beoordeeld vanwege die link.</li>
-            <li>Een broker zonder affiliatelink wordt niet slechter beoordeeld.</li>
-            <li>Brokers die naar onze mening niet geschikt zijn voor de meeste Belgische beleggers (zoals Trade Republic) krijgen een lagere score, ook al hebben ze een affiliateprogramma.</li>
-            <li>Onze methodologie is publiek beschikbaar op de <Link href="/methodologie" className="text-accent hover:underline">methodologie-pagina</Link>.</li>
-          </ul>
         </section>
 
         <section>

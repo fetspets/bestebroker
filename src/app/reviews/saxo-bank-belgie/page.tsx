@@ -169,7 +169,6 @@ export default function SaxoReviewPage() {
             <div>
               <p className="font-semibold text-primary mb-1">Klaar om te beginnen met Saxo Bank?</p>
               <p className="text-sm text-gray-600">Open een gratis account — het onboarding-proces duurt ongeveer 15 minuten.</p>
-              <p className="text-xs text-gray-400 mt-1">Affiliate: wij ontvangen een vergoeding. Zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
             </div>
             <a
               href={brokerLink(broker.affiliateUrl, 'saxo-review-cta')}

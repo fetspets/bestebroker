@@ -113,7 +113,6 @@ export default function BoleroReviewPage() {
             <div>
               <p className="font-semibold text-primary mb-1">Bolero account openen</p>
               <p className="text-sm text-gray-600">Onboarding mogelijk via itsme — in enkele minuten klaar.</p>
-              <p className="text-xs text-gray-400 mt-1">Affiliate link — zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'bolero-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
               Open account →

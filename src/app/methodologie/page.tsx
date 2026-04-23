@@ -105,20 +105,6 @@ export default function MethodologiePage() {
           </p>
         </section>
 
-        <section>
-          <h2>Affiliate links en onze onafhankelijkheid</h2>
-          <p>
-            Wij werken met affiliate relaties. Een broker die een affiliateprogramma aanbiedt,
-            scoort <strong>niet beter</strong> in onze vergelijking. Een broker zonder
-            affiliateprogramma scoort <strong>niet slechter</strong>.
-          </p>
-          <p>
-            Als bewijs: Trade Republic, dat een affiliateprogramma heeft, scoort bij ons 3.2/5 —
-            lager dan Saxo (4.4/5) en Bolero (4.1/5) — omdat het geen Belgische belastingen afhandelt
-            en securities lending standaard actief heeft. Dit is een bewuste keuze die onze
-            redactionele integriteit onderstreept.
-          </p>
-        </section>
 
         <section>
           <h2>Hoe wij met veranderende wetgeving omgaan</h2>

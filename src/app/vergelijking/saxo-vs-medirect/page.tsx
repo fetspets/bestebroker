@@ -200,7 +200,6 @@ export default function SaxoVsMeDirectPage() {
             )
           ))}
         </div>
-        <p className="text-xs text-gray-400 mb-8">Affiliate links — zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
       </div>
     </>
   )

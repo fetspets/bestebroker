@@ -97,10 +97,6 @@ export function Footer() {
             <span className="mx-2">·</span>
             Laatst bijgewerkt: april 2026
           </p>
-          <p className="text-xs text-gray-500">
-            Wij ontvangen een vergoeding via affiliate links. Dit kost jou niets extra.{' '}
-            <Link href="/disclaimer" className="text-gray-400 hover:text-white underline">Meer info</Link>
-          </p>
         </div>
       </div>
     </footer>

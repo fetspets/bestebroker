@@ -198,7 +198,6 @@ export default function SaxoVsDegiroPage() {
             )
           ))}
         </div>
-        <p className="text-xs text-gray-400 mb-8">Affiliate links — zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[

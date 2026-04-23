@@ -114,7 +114,6 @@ export default function TradeRepublicReviewPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">Trade Republic account openen</p>
-              <p className="text-xs text-gray-400 mt-1">Affiliate link — zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'tr-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
               Open account →

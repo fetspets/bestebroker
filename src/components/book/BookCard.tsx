@@ -108,10 +108,6 @@ export function BookCard({ book, variant = 'full' }: Props) {
               Bekijk op bol.com →
             </a>
           </div>
-          <p className="text-xs text-gray-400 mt-1">
-            Wij ontvangen een kleine commissie via bol.com. Meer info in onze{' '}
-            <Link href="/disclaimer" className="underline">disclaimer</Link>.
-          </p>
         </div>
       </div>
     </article>

@@ -40,11 +40,6 @@ export default function BoekenPage() {
         </p>
         <div className="flex items-center gap-3">
           <LastUpdated date="2026-04-01" />
-          <span className="text-gray-300">·</span>
-          <p className="text-sm text-gray-500">
-            Wij ontvangen een kleine commissie via bol.com. Meer info in onze{' '}
-            <a href="/disclaimer" className="text-accent hover:underline">disclaimer</a>.
-          </p>
         </div>
       </header>
 

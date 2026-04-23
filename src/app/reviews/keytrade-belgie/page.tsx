@@ -144,7 +144,6 @@ export default function KeytradeReviewPage() {
             <div>
               <p className="font-semibold text-primary mb-1">Keytrade Bank account openen</p>
               <p className="text-sm text-gray-600">Volledig Belgische broker — alle belastingen automatisch geregeld.</p>
-              <p className="text-xs text-gray-400 mt-1">Affiliate link — zie <Link href="/disclaimer" className="underline">disclaimer</Link>.</p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'keytrade-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
               Open account →

@@ -255,12 +255,6 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
           </Link>
         </div>
       )}
-      {showAffiliate && (
-        <p className="text-xs text-gray-400 mt-2">
-          Affiliate: wij ontvangen een vergoeding als je via bovenstaande link een account opent. Zie{' '}
-          <Link href="/disclaimer" className="underline">disclaimer</Link>.
-        </p>
-      )}
     </article>
   )
 }
