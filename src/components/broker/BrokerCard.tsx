@@ -105,20 +105,22 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
             {rank}
           </div>
         )}
-        <img
-          src={`/img/logos/${broker.id}.svg`}
-          alt={broker.name}
-          className="flex-shrink-0 w-10 h-10 object-contain"
-        />
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div>
               <h3 className="font-display font-semibold text-primary">{broker.name}</h3>
               <p className="text-sm text-gray-600 mt-0.5">{broker.tagline}</p>
             </div>
-            <span className={`flex-shrink-0 text-xs font-semibold px-2 py-0.5 rounded ${typeBadgeClass(broker.type)}`}>
-              {broker.type}
-            </span>
+            <div className="flex flex-col items-end gap-1 flex-shrink-0">
+              <img
+                src={`/img/logos/${broker.id}.svg`}
+                alt={broker.name}
+                className="w-12 h-8 object-contain"
+              />
+              <span className={`text-xs font-semibold px-2 py-0.5 rounded ${typeBadgeClass(broker.type)}`}>
+                {broker.type}
+              </span>
+            </div>
           </div>
           <div className="mt-3 flex items-center gap-3 flex-wrap">
             <StarRating rating={broker.rating} />
@@ -151,11 +153,6 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
               {rank}
             </div>
           )}
-          <img
-            src={`/img/logos/${broker.id}.svg`}
-            alt={broker.name}
-            className="flex-shrink-0 w-12 h-12 object-contain"
-          />
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className="font-display font-bold text-xl text-primary">{broker.name}</h2>
@@ -170,7 +167,14 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
             </p>
           </div>
         </div>
-        <StarRating rating={broker.rating} />
+        <div className="flex flex-col items-end gap-2 flex-shrink-0">
+          <img
+            src={`/img/logos/${broker.id}.svg`}
+            alt={broker.name}
+            className="w-14 h-10 object-contain"
+          />
+          <StarRating rating={broker.rating} />
+        </div>
       </div>
 
       <SubScores s={broker.subScores} />
