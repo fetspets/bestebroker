@@ -92,10 +92,6 @@ export default function DisclaimerPage() {
             Dit beïnvloedt onze selectie niet — boeken die wij niet nuttig vinden worden niet aanbevolen,
             ongeacht of er een commissie aan verbonden is.
           </p>
-          <p>
-            Voor &quot;De hangmatbelegger&quot; geldt een specifieke nota: de auteur is co-oprichter van Curvo,
-            een concurrent van de brokers die wij vergelijken. Wij vermelden dit expliciet op de boekpagina.
-          </p>
         </section>
 
         <section>

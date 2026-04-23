@@ -42,8 +42,6 @@ export const books: Book[] = [
     whyBelgium:
       'Specifiek geschreven voor de Belgische context: TOB, roerende voorheffing en Belgische brokers komen uitgebreid aan bod.',
     contextualPages: ['/beste-broker-belgie', '/tools/brokerkosten-calculator'],
-    authorNote:
-      'Noot: de auteur is co-oprichter van Curvo, een concurrent van de brokers die wij vergelijken. Wij bevelen dit boek aan op basis van de inhoudskwaliteit — niet de broker-aanbevelingen in het boek.',
     lastVerified: '2026-04-01',
   },
   {
