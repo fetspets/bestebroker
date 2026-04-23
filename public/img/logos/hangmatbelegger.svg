@@ -1,0 +1,10 @@
+<svg viewBox="0 0 120 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="180" rx="4" fill="#2D6A4F"/>
+  <rect x="8" y="8" width="104" height="164" rx="3" fill="none" stroke="#52B788" stroke-width="1"/>
+  <text x="60" y="60" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" text-anchor="middle" fill="#B7E4C7">🛌</text>
+  <text x="60" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">De</text>
+  <text x="60" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">Hangmat-</text>
+  <text x="60" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="white" text-anchor="middle">belegger</text>
+  <line x1="20" y1="135" x2="100" y2="135" stroke="#52B788" stroke-width="0.5"/>
+  <text x="60" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="9" fill="#B7E4C7" text-anchor="middle">Jonas Deprez</text>
+</svg>

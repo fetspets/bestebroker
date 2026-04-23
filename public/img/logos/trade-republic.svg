@@ -1,0 +1,5 @@
+<svg viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="60" rx="8" fill="#0A0A0A"/>
+  <text x="80" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle" letter-spacing="2">TRADE</text>
+  <text x="80" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle" letter-spacing="2">REPUBLIC</text>
+</svg>

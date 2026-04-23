@@ -156,11 +156,18 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                 className={`hover:bg-gray-50 transition-colors ${highlightId === broker.id ? 'bg-teal-50 border-l-4 border-l-accent' : ''}`}
               >
                 <td className="px-4 py-3">
-                  <div>
-                    <Link href={`/reviews/${broker.slug}`} className="font-semibold text-primary hover:text-accent">
-                      {broker.name}
-                    </Link>
-                    <p className="text-xs text-gray-500 mt-0.5 max-w-[180px] truncate">{broker.tagline}</p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={`/img/logos/${broker.id}.svg`}
+                      alt={broker.name}
+                      className="w-8 h-8 object-contain flex-shrink-0"
+                    />
+                    <div>
+                      <Link href={`/reviews/${broker.slug}`} className="font-semibold text-primary hover:text-accent">
+                        {broker.name}
+                      </Link>
+                      <p className="text-xs text-gray-500 mt-0.5 max-w-[180px] truncate">{broker.tagline}</p>
+                    </div>
                   </div>
                 </td>
                 <td className="px-4 py-3 text-center">
@@ -218,11 +225,18 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
             className={`card ${highlightId === broker.id ? 'border-accent border-2' : ''}`}
           >
             <div className="flex items-start justify-between mb-3">
-              <div>
-                <Link href={`/reviews/${broker.slug}`} className="font-display font-semibold text-primary hover:text-accent">
-                  {broker.name}
-                </Link>
-                <p className="text-xs text-gray-500 mt-0.5">{broker.tagline}</p>
+              <div className="flex items-center gap-3">
+                <img
+                  src={`/img/logos/${broker.id}.svg`}
+                  alt={broker.name}
+                  className="w-10 h-10 object-contain flex-shrink-0"
+                />
+                <div>
+                  <Link href={`/reviews/${broker.slug}`} className="font-display font-semibold text-primary hover:text-accent">
+                    {broker.name}
+                  </Link>
+                  <p className="text-xs text-gray-500 mt-0.5">{broker.tagline}</p>
+                </div>
               </div>
               <span className="text-accent font-bold">{broker.rating.toFixed(1)}/5</span>
             </div>

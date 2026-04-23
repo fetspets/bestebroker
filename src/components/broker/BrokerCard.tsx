@@ -105,6 +105,11 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
             {rank}
           </div>
         )}
+        <img
+          src={`/img/logos/${broker.id}.svg`}
+          alt={broker.name}
+          className="flex-shrink-0 w-10 h-10 object-contain"
+        />
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div>
@@ -146,6 +151,11 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
               {rank}
             </div>
           )}
+          <img
+            src={`/img/logos/${broker.id}.svg`}
+            alt={broker.name}
+            className="flex-shrink-0 w-12 h-12 object-contain"
+          />
           <div>
             <div className="flex items-center gap-2 flex-wrap">
               <h2 className="font-display font-bold text-xl text-primary">{broker.name}</h2>
