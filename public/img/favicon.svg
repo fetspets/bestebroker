@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#152744"/>
+  <!-- Green border ring -->
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#3dd96c" stroke-width="5.5"/>
+  <!-- White B letter -->
+  <text x="37" y="68" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="52" fill="white">B</text>
+  <!-- Green upward trend line -->
+  <polyline
+    points="20,74 36,55 50,63 67,33"
+    fill="none"
+    stroke="#3dd96c"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Arrowhead -->
+  <polyline
+    points="57,27 67,33 61,43"
+    fill="none"
+    stroke="#3dd96c"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
