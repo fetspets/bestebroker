@@ -6,6 +6,16 @@ const nextConfig = {
       { protocol: 'https', hostname: 'media.bol.com' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.bestebroker.be' }],
+        destination: 'https://bestebroker.be/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
