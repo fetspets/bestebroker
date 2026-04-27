@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Fraunces, DM_Sans } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import './globals.css'
@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bestebroker.be'),
+  metadataBase: new URL('https://www.bestebroker.be'),
   title: {
     default: 'Beste Broker België 2026 — Eerlijke Vergelijking | BesteBroker.be',
     template: '%s | BesteBroker.be',

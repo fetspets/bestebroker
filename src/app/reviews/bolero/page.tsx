@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bolero Review 2026 — KBC-Broker voor Belgische Beleggers',
     description: 'Bolero review voor Belgische beleggers in 2026. KBC-dochter met automatische belastingafhandeling, geen securities lending en Invest & Repeat spaarplannen.',
-    url: 'https://bestebroker.be/reviews/bolero',
+    url: 'https://www.bestebroker.be/reviews/bolero',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/bolero' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/bolero' },
 }
 
 const jsonLd = [
@@ -29,7 +29,7 @@ const jsonLd = [
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'Bolero', url: 'https://bolero.be' },
     reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,

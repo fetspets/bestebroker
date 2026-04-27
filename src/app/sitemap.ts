@@ -1,8 +1,8 @@
-import type { MetadataRoute } from 'next'
+﻿import type { MetadataRoute } from 'next'
 import { brokers } from '@/data/brokers'
 import { books } from '@/data/books'
 
-const BASE_URL = 'https://bestebroker.be'
+const BASE_URL = 'https://www.bestebroker.be'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     'Eerlijke review van Saxo Bank voor Belgische beleggers in 2026. Kosten, meerwaardebelasting-aanpak, AutoInvest, securities lending en onze conclusie.',
   openGraph: {
     title: 'Saxo Bank België Review 2026',
-    url: 'https://bestebroker.be/reviews/saxo-bank-belgie',
+    url: 'https://www.bestebroker.be/reviews/saxo-bank-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/saxo-bank-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/saxo-bank-belgie' },
 }
 
 const jsonLd = [
@@ -37,8 +37,8 @@ const jsonLd = [
       ratingValue: broker.rating.toFixed(1),
       bestRating: '5',
     },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
-    publisher: { '@type': 'Organization', name: 'BesteBroker.be', url: 'https://bestebroker.be' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
+    publisher: { '@type': 'Organization', name: 'BesteBroker.be', url: 'https://www.bestebroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,
     reviewBody: 'Saxo Bank is de meest complete Belgische broker voor ETF-beleggers. Alle belastingen worden automatisch afgehandeld, AutoInvest maakt maandelijks beleggen eenvoudig, en de kosten zijn concurrerend.',

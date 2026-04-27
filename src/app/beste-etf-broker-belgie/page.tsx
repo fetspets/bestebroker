@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'Welke broker is het beste voor ETF-beleggers in België? Vergelijking van kosten, spaarplannen en belastingafhandeling voor breed gespreide indexfondsen.',
   openGraph: {
     title: 'Beste ETF-Broker België 2026',
-    url: 'https://bestebroker.be/beste-etf-broker-belgie',
+    url: 'https://www.bestebroker.be/beste-etf-broker-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/beste-etf-broker-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/beste-etf-broker-belgie' },
 }
 
 const etfBrokers = brokers.filter(b => ['saxo', 'bolero', 'medirect', 'degiro', 'trade-republic'].includes(b.id))

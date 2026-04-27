@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ETF kopen in België — Stap voor stap voor beginners (2026)',
     description: 'Stap-voor-stap gids om je eerste ETF te kopen als Belgische belegger: welke ETF, welke broker, en hoe zit het met de TOB.',
-    url: 'https://bestebroker.be/belgie/etf-kopen-beginners',
+    url: 'https://www.bestebroker.be/belgie/etf-kopen-beginners',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/etf-kopen-beginners' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/etf-kopen-beginners' },
 }
 
 const faqJsonLd = {

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Bolero vs Saxo Bank 2026 — KBC-Dochter vs Deense Bank',
     description: 'Bolero of Saxo? Beide zijn Belgisch, regelen alle belastingen automatisch en bieden spaarplannen. Maar er zijn duidelijke verschillen in kosten en functies.',
-    url: 'https://bestebroker.be/vergelijking/bolero-vs-saxo',
+    url: 'https://www.bestebroker.be/vergelijking/bolero-vs-saxo',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/vergelijking/bolero-vs-saxo' },
+  alternates: { canonical: 'https://www.bestebroker.be/vergelijking/bolero-vs-saxo' },
 }
 
 const rows = [

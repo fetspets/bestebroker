@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     'Als je belegt via DEGIRO of Trade Republic moet je jaarlijks een buitenlandse rekening aangeven bij de NBB. Wij leggen stap voor stap uit hoe dat werkt.',
   openGraph: {
     title: 'NBB-aangifte buitenlandse broker 2026',
-    url: 'https://bestebroker.be/belgie/buitenlandse-broker-nbb-aangifte',
+    url: 'https://www.bestebroker.be/belgie/buitenlandse-broker-nbb-aangifte',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/buitenlandse-broker-nbb-aangifte' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/buitenlandse-broker-nbb-aangifte' },
 }
 
 const faqJsonLd = {

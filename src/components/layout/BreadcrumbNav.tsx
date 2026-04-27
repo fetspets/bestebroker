@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 
 export interface BreadcrumbItem {
   label: string
@@ -32,7 +32,7 @@ export function BreadcrumbNav({ items }: Props) {
   )
 }
 
-export function breadcrumbJsonLd(items: BreadcrumbItem[], baseUrl = 'https://bestebroker.be') {
+export function breadcrumbJsonLd(items: BreadcrumbItem[], baseUrl = 'https://www.bestebroker.be') {
   const allItems = [{ label: 'Home', href: '/' }, ...items]
   return {
     '@context': 'https://schema.org',

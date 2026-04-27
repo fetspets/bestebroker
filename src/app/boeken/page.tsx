@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { books } from '@/data/books'
 import { BookCard } from '@/components/book/BookCard'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     'De beste Nederlandstalige en Engelstalige beleggingsboeken voor Belgische beleggers. Van beginners tot gevorderden, van mindset tot ETF-strategie.',
   openGraph: {
     title: 'Beste Beleggingsboeken voor Belgische Beleggers',
-    url: 'https://bestebroker.be/boeken',
+    url: 'https://www.bestebroker.be/boeken',
     locale: 'nl_BE',
     type: 'website',
   },
-  alternates: { canonical: 'https://bestebroker.be/boeken' },
+  alternates: { canonical: 'https://www.bestebroker.be/boeken' },
 }
 
 const categories = [

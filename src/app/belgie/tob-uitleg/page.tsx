@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     'Wat is de TOB (Taks op Beursverrichtingen)? Hoeveel betaal je per ETF-transactie, wie regelt het automatisch en hoe doe je aangifte als dat nodig is?',
   openGraph: {
     title: 'TOB — Taks op Beursverrichtingen uitgelegd',
-    url: 'https://bestebroker.be/belgie/tob-uitleg',
+    url: 'https://www.bestebroker.be/belgie/tob-uitleg',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/tob-uitleg' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/tob-uitleg' },
 }
 
 const faqJsonLd = {

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     'Eerlijke DEGIRO-review voor Belgische beleggers. Lage kosten maar geen fiscale afhandeling: TOB, meerwaardebelasting en NBB-aangifte doe je zelf.',
   openGraph: {
     title: 'DEGIRO België Review 2026',
-    url: 'https://bestebroker.be/reviews/degiro-belgie',
+    url: 'https://www.bestebroker.be/reviews/degiro-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/degiro-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/degiro-belgie' },
 }
 
 const jsonLd = [
@@ -29,7 +29,7 @@ const jsonLd = [
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'DEGIRO', url: 'https://www.degiro.be' },
     reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,

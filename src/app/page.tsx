@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Beste Broker België 2026',
     description: 'Eerlijke, Nederlandstalige vergelijking van brokers voor Belgische beleggers.',
-    url: 'https://bestebroker.be',
+    url: 'https://www.bestebroker.be',
     type: 'website',
     locale: 'nl_BE',
   },
-  alternates: { canonical: 'https://bestebroker.be' },
+  alternates: { canonical: 'https://www.bestebroker.be' },
 }
 
 const topBrokers = brokers.slice(0, 3)

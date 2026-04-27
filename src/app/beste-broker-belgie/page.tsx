@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { BrokerComparisonTable } from '@/components/broker/BrokerComparisonTable'
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Beste Broker België 2026',
     description: 'Vergelijking van 6 brokers voor Belgische beleggers — inclusief meerwaardebelasting 2026.',
-    url: 'https://bestebroker.be/beste-broker-belgie',
+    url: 'https://www.bestebroker.be/beste-broker-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/beste-broker-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/beste-broker-belgie' },
 }
 
 const jsonLd = {

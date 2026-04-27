@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     description: `Review van "${book.title}" door ${book.author}. ${book.shortDescription}`,
     openGraph: {
       title: `${book.title} — Review`,
-      url: `https://bestebroker.be/boeken/${book.slug}`,
+      url: `https://www.bestebroker.be/boeken/${book.slug}`,
       locale: 'nl_BE',
       type: 'article',
     },
-    alternates: { canonical: `https://bestebroker.be/boeken/${book.slug}` },
+    alternates: { canonical: `https://www.bestebroker.be/boeken/${book.slug}` },
   }
 }
 

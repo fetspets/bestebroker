@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Meerwaardebelasting 2026 — Alles wat Belgische beleggers moeten weten',
     description: 'Wat is de meerwaardebelasting 2026, hoe werkt de €10.000 vrijstelling, en welke broker regelt het automatisch? Alles uitgelegd voor Belgische beleggers.',
-    url: 'https://bestebroker.be/belgie/meerwaardebelasting-2026-uitleg',
+    url: 'https://www.bestebroker.be/belgie/meerwaardebelasting-2026-uitleg',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/meerwaardebelasting-2026-uitleg' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/meerwaardebelasting-2026-uitleg' },
 }
 
 const faqJsonLd = {

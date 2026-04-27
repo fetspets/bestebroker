@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     'Transparante uitleg over hoe BesteBroker.be brokers beoordeelt, welke criteria wij hanteren en hoe wij omgaan met affiliate relaties.',
   openGraph: {
     title: 'Methodologie | BesteBroker.be',
-    url: 'https://bestebroker.be/methodologie',
+    url: 'https://www.bestebroker.be/methodologie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/methodologie' },
+  alternates: { canonical: 'https://www.bestebroker.be/methodologie' },
 }
 
 const criteria = [

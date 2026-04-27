@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     'Overzicht van welke Belgische broker de meerwaardebelasting (10%) automatisch inhoudt in 2026 en wat dit betekent voor jouw beleggingsstrategie.',
   openGraph: {
     title: 'Meerwaardebelasting 2026 — Welke broker regelt het?',
-    url: 'https://bestebroker.be/broker-meerwaardebelasting-2026',
+    url: 'https://www.bestebroker.be/broker-meerwaardebelasting-2026',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/broker-meerwaardebelasting-2026' },
+  alternates: { canonical: 'https://www.bestebroker.be/broker-meerwaardebelasting-2026' },
 }
 
 const faqJsonLd = {

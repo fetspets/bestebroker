@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Keytrade Bank Review 2026 — Belgische Broker voor Langetermijnbeleggers',
     description: 'Keytrade Bank review voor Belgische beleggers in 2026. Volledig Belgische broker met automatische belastingafhandeling, geen securities lending, maar hogere kosten.',
-    url: 'https://bestebroker.be/reviews/keytrade-belgie',
+    url: 'https://www.bestebroker.be/reviews/keytrade-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/keytrade-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/keytrade-belgie' },
 }
 
 const jsonLd = [
@@ -29,7 +29,7 @@ const jsonLd = [
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'Keytrade Bank', url: 'https://www.keytradebank.be' },
     reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,

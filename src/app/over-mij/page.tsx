@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { author } from '@/data/author'
 
@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     'Stef begon op zijn 25ste met beleggen om zijn koopkracht te beschermen. Ontdek waarom hij deze vergelijkingssite bouwde voor Belgische beleggers.',
   openGraph: {
     title: 'Over Stef — Oprichter BesteBroker.be',
-    url: 'https://bestebroker.be/over-mij',
+    url: 'https://www.bestebroker.be/over-mij',
     locale: 'nl_BE',
     type: 'profile',
   },
-  alternates: { canonical: 'https://bestebroker.be/over-mij' },
+  alternates: { canonical: 'https://www.bestebroker.be/over-mij' },
 }
 
 const personJsonLd = {

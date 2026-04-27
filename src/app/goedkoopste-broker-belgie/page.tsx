@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'Welke broker heeft de laagste kosten voor Belgische beleggers in 2026? Vergelijking van transactiekosten, bewaarloon en TOB voor ETFs en aandelen.',
   openGraph: {
     title: 'Goedkoopste Broker België 2026',
-    url: 'https://bestebroker.be/goedkoopste-broker-belgie',
+    url: 'https://www.bestebroker.be/goedkoopste-broker-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/goedkoopste-broker-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/goedkoopste-broker-belgie' },
 }
 
 const sortedByFee = [...brokers].sort((a, b) => a.fees.transactionFeeMin - b.fees.transactionFeeMin)

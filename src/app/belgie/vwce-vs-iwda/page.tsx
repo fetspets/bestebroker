@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'VWCE vs IWDA — Welke ETF kiezen als Belgische belegger?',
     description: 'Vergelijking van VWCE en IWDA: TER, spreiding, TOB-impact en conclusie voor Belgische buy-and-hold beleggers in 2026.',
-    url: 'https://bestebroker.be/belgie/vwce-vs-iwda',
+    url: 'https://www.bestebroker.be/belgie/vwce-vs-iwda',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/vwce-vs-iwda' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/vwce-vs-iwda' },
 }
 
 const faqJsonLd = {

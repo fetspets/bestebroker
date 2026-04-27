@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBookById } from '@/data/books'
 import { BookCard } from '@/components/book/BookCard'
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     'Review van "De Hangmatbelegger" door Jonas Deprez. Hét Nederlandstalige standaardwerk over passief beleggen in België. Inclusief noot over de auteur.',
   openGraph: {
     title: 'De Hangmatbelegger — Review',
-    url: 'https://bestebroker.be/boeken/de-hangmatbelegger',
+    url: 'https://www.bestebroker.be/boeken/de-hangmatbelegger',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/boeken/de-hangmatbelegger' },
+  alternates: { canonical: 'https://www.bestebroker.be/boeken/de-hangmatbelegger' },
 }
 
 const bookJsonLd = {

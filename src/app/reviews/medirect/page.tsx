@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'MeDirect review 2026: gratis ETF-aankopen, Belgische belastingafhandeling en geen securities lending. Ideaal voor buy-and-hold ETF-beleggers.',
   openGraph: {
     title: 'MeDirect Review 2026',
-    url: 'https://bestebroker.be/reviews/medirect',
+    url: 'https://www.bestebroker.be/reviews/medirect',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/medirect' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/medirect' },
 }
 
 const jsonLd = [
@@ -28,7 +28,7 @@ const jsonLd = [
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'MeDirect', url: 'https://www.medirect.be' },
     reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,

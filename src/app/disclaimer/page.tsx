@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 
@@ -8,11 +8,11 @@ export const metadata: Metadata = {
     'Lees onze volledige disclaimer over affiliate links, risicowaarschuwingen en redactionele onafhankelijkheid op BesteBroker.be.',
   openGraph: {
     title: 'Disclaimer & Transparantiebeleid | BesteBroker.be',
-    url: 'https://bestebroker.be/disclaimer',
+    url: 'https://www.bestebroker.be/disclaimer',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/disclaimer' },
+  alternates: { canonical: 'https://www.bestebroker.be/disclaimer' },
 }
 
 export default function DisclaimerPage() {

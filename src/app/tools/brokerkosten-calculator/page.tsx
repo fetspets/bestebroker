@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { brokers } from '@/data/brokers'
 import { BrokerCostCalculator } from '@/components/tools/BrokerCostCalculator'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
     'Bereken welke Belgische broker jou het meeste kost over 10, 20 of 30 jaar. Inclusief transactiekosten, bewaarloon en meerwaardebelasting (10%, vrijstelling €10K).',
   openGraph: {
     title: 'Brokerkosten Calculator 2026',
-    url: 'https://bestebroker.be/tools/brokerkosten-calculator',
+    url: 'https://www.bestebroker.be/tools/brokerkosten-calculator',
     locale: 'nl_BE',
     type: 'website',
   },
-  alternates: { canonical: 'https://bestebroker.be/tools/brokerkosten-calculator' },
+  alternates: { canonical: 'https://www.bestebroker.be/tools/brokerkosten-calculator' },
 }
 
 export default function BrokerkostenCalculatorPage() {

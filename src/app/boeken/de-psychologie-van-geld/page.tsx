@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBookById } from '@/data/books'
 import { BookCard } from '@/components/book/BookCard'
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     'Review van "De psychologie van geld" door Morgan Housel. Waarom gedrag belangrijker is dan kennis bij beleggen — en wat dat betekent voor Belgische beleggers.',
   openGraph: {
     title: 'De Psychologie van Geld — Review',
-    url: 'https://bestebroker.be/boeken/de-psychologie-van-geld',
+    url: 'https://www.bestebroker.be/boeken/de-psychologie-van-geld',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/boeken/de-psychologie-van-geld' },
+  alternates: { canonical: 'https://www.bestebroker.be/boeken/de-psychologie-van-geld' },
 }
 
 const bookJsonLd = {

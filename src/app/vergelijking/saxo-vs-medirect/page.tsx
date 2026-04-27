@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Saxo vs MeDirect 2026 — AutoInvest vs Gratis ETF-Transacties',
     description: 'Saxo Bank of MeDirect? Beide zijn Belgische brokers. MeDirect heeft gratis ETF-transacties, Saxo heeft AutoInvest. Wij vergelijken voor Belgische beleggers.',
-    url: 'https://bestebroker.be/vergelijking/saxo-vs-medirect',
+    url: 'https://www.bestebroker.be/vergelijking/saxo-vs-medirect',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/vergelijking/saxo-vs-medirect' },
+  alternates: { canonical: 'https://www.bestebroker.be/vergelijking/saxo-vs-medirect' },
 }
 
 const rows = [

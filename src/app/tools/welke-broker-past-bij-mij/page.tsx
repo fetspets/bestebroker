@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { BrokerWizard } from '@/components/tools/BrokerWizard'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 import Link from 'next/link'
@@ -9,11 +9,11 @@ export const metadata: Metadata = {
     'Beantwoord 4 vragen en ontdek welke broker het beste bij jouw situatie past. Gratis, onafhankelijk en specifiek voor Belgische beleggers.',
   openGraph: {
     title: 'Welke broker past bij mij?',
-    url: 'https://bestebroker.be/tools/welke-broker-past-bij-mij',
+    url: 'https://www.bestebroker.be/tools/welke-broker-past-bij-mij',
     locale: 'nl_BE',
     type: 'website',
   },
-  alternates: { canonical: 'https://bestebroker.be/tools/welke-broker-past-bij-mij' },
+  alternates: { canonical: 'https://www.bestebroker.be/tools/welke-broker-past-bij-mij' },
 }
 
 export default function WelkeBrokerPage() {

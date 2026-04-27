@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Saxo vs DEGIRO 2026 — Fiscaal Compleet vs Goedkoop',
     description: 'Saxo Bank of DEGIRO? Vergelijking van kosten, belastingafhandeling en gemak voor Belgische beleggers. Inclusief meerwaardebelasting 2026.',
-    url: 'https://bestebroker.be/vergelijking/saxo-vs-degiro',
+    url: 'https://www.bestebroker.be/vergelijking/saxo-vs-degiro',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/vergelijking/saxo-vs-degiro' },
+  alternates: { canonical: 'https://www.bestebroker.be/vergelijking/saxo-vs-degiro' },
 }
 
 const rows = [

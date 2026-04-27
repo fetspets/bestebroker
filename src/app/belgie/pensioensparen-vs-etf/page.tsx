@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pensioensparen of ETF beleggen? Wat is beter voor Belgen?',
     description: 'Vergelijking van pensioensparen en ETF beleggen voor Belgische beleggers: fiscaal voordeel, rendement en de optimale combinatiestrategie.',
-    url: 'https://bestebroker.be/belgie/pensioensparen-vs-etf',
+    url: 'https://www.bestebroker.be/belgie/pensioensparen-vs-etf',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/belgie/pensioensparen-vs-etf' },
+  alternates: { canonical: 'https://www.bestebroker.be/belgie/pensioensparen-vs-etf' },
 }
 
 const faqJsonLd = {

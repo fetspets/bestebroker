@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     'DEGIRO of Bolero? Wij vergelijken kosten, fiscale afhandeling, securities lending en gebruiksgemak voor Belgische beleggers in 2026.',
   openGraph: {
     title: 'DEGIRO vs Bolero 2026',
-    url: 'https://bestebroker.be/vergelijking/degiro-vs-bolero',
+    url: 'https://www.bestebroker.be/vergelijking/degiro-vs-bolero',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/vergelijking/degiro-vs-bolero' },
+  alternates: { canonical: 'https://www.bestebroker.be/vergelijking/degiro-vs-bolero' },
 }
 
 const faqJsonLd = {

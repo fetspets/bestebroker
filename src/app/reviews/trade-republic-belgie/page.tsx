@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Trade Republic België Review 2026 — €1 per Trade, Maar Zelf Belastingen',
     description: 'Trade Republic review voor Belgische beleggers. €1 per transactie en gratis spaarplannen — maar nul fiscale ondersteuning. Alles wat je moet weten.',
-    url: 'https://bestebroker.be/reviews/trade-republic-belgie',
+    url: 'https://www.bestebroker.be/reviews/trade-republic-belgie',
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://bestebroker.be/reviews/trade-republic-belgie' },
+  alternates: { canonical: 'https://www.bestebroker.be/reviews/trade-republic-belgie' },
 }
 
 const jsonLd = [
@@ -29,7 +29,7 @@ const jsonLd = [
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'Trade Republic', url: 'https://traderepublic.com/be' },
     reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
-    author: { '@type': 'Person', name: 'Stef', url: 'https://bestebroker.be/over-mij' },
+    author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,
