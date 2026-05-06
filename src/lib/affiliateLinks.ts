@@ -4,6 +4,7 @@
  */
 
 export function bolLink(rawBolUrl: string): string {
+  if (rawBolUrl.startsWith('https://partner.bol.com/')) return rawBolUrl
   const tag = process.env.BOL_AFFILIATE_TAG
   if (!tag) return rawBolUrl
   try {
