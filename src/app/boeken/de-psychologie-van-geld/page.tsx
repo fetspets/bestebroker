@@ -6,7 +6,7 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { bolLink } from '@/lib/affiliateLinks'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 
-const book = getBookById('psychologie-geld-nl')!
+const book = getBookById('psychology-of-money-nl')!
 
 export const metadata: Metadata = {
   title: 'De Psychologie van Geld — Review & Samenvatting | BesteBroker.be',

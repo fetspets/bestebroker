@@ -11,7 +11,7 @@ const book = getBookById('hangmatbelegger')!
 export const metadata: Metadata = {
   title: 'De Hangmatbelegger — Review & Samenvatting voor Belgische Beleggers',
   description:
-    'Review van "De Hangmatbelegger" door Jonas Deprez. Hét Nederlandstalige standaardwerk over passief beleggen in België. Inclusief noot over de auteur.',
+    'Review van "De Hangmatbelegger" door Yoran Brondsema & Tim Nijsmans. Hét Nederlandstalige standaardwerk over passief beleggen in België — inclusief Belgische fiscaliteit.',
   openGraph: {
     title: 'De Hangmatbelegger — Review',
     url: 'https://www.bestebroker.be/boeken/de-hangmatbelegger',
@@ -55,10 +55,10 @@ export default function HangmatbeleggerPage() {
 
         {/* Author note — prominent */}
         <div className="mb-6 p-4 bg-amber-50 border border-amber-300 rounded-xl text-sm text-amber-900">
-          <strong>ℹ Transparantienota:</strong> de auteur Jonas Deprez is co-oprichter van{' '}
+          <strong>ℹ Transparantienota:</strong> co-auteur Yoran Brondsema is mede-oprichter van{' '}
           <strong>Curvo</strong>, een Belgisch beleggingsplatform dat concurreert met de brokers die wij
           vergelijken. Wij bevelen dit boek aan op basis van de <em>inhoudskwaliteit</em> — niet op basis
-          van zijn broker-aanbevelingen. Lees de broker-aanbevelingen in het boek kritisch.
+          van de broker-aanbevelingen. Lees die kritisch.
         </div>
 
         <div className="mb-8">
