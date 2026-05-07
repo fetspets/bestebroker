@@ -36,6 +36,7 @@ export const books: Book[] = [
     pricePaperback: 24.99,
     priceEbook: 13.99,
     bolUrl: 'https://www.bol.com/nl/nl/p/de-hangmatbelegger/9300000067953494/',
+    coverImageUrl: 'https://media.s-bol.com/mnWOQjjM6n93/oGzGrX/548x840.jpg',
     targetAudience: ['beginners', 'etf-beleggers', 'belgisch-specifiek'],
     shortDescription:
       'Hét Nederlandstalige standaardwerk voor Belgische passieve beleggers. Stap voor stap uitleg over ETFs, brokers en de Belgische fiscaliteit.',
@@ -56,6 +57,7 @@ export const books: Book[] = [
     priceEur: 15.0,
     pricePaperback: 15.0,
     bolUrl: 'https://www.bol.com/nl/nl/p/de-psychologie-van-geld/9300000021963485/',
+    coverImageUrl: 'https://media.s-bol.com/z9rA1nOQVVBq/5QwvDrY/541x840.jpg',
     targetAudience: ['beginners', 'mindset'],
     shortDescription:
       'Waarom nemen slimme mensen slechte financiële beslissingen? Morgan Housel legt uit hoe emoties en cognitieve fouten je beleggingsresultaten bepalen.',
@@ -76,6 +78,7 @@ export const books: Book[] = [
     priceEur: 22.95,
     pricePaperback: 22.95,
     bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fthe-psychology-of-money-nederlandse-editie%2F9300000227182389%2F&name=The%20Psychology%20of%20Money%2C%20Morgan%20Housel',
+    coverImageUrl: 'https://media.s-bol.com/YKNm6G4xpyJ2/8qj05ng/543x840.jpg',
     targetAudience: ['mindset', 'gevorderd'],
     shortDescription:
       'The original English edition of the classic on behavioral finance. Timeless lessons on wealth, greed, and happiness.',
@@ -96,6 +99,7 @@ export const books: Book[] = [
     priceEur: 23.99,
     pricePaperback: 23.99,
     bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fde-intelligente-belegger%2F9300000042258650%2F&name=De%20intelligente%20belegger%2C%20Benjamin%20Graham',
+    coverImageUrl: 'https://media.s-bol.com/kODRwBv7BAl5/pQXNXk1/781x1200.jpg',
     targetAudience: ['gevorderd'],
     shortDescription:
       'Het fundament van value investing, door de leermeester van Warren Buffett. Tijdloze principes die elke serieuze belegger zou moeten kennen.',
@@ -116,6 +120,7 @@ export const books: Book[] = [
     priceEur: 19.99,
     pricePaperback: 19.99,
     bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fje-bent-jong-en-je-wilt-beleggen%2F9300000045248790%2F&name=Je%20bent%20jong%20en%20je%20wilt...%20beleggen%2C%20C%C3%A9dric%20Proost',
+    coverImageUrl: 'https://media.s-bol.com/JgZr73EWOAqg/PNwXzA6/550x711.jpg',
     targetAudience: ['beginners', 'belgisch-specifiek', 'jongeren'],
     shortDescription:
       'Geschreven voor Belgische jongeren die hun eerste stappen willen zetten in de wereld van beleggen. Praktisch, concreet en zonder jargon.',
@@ -136,6 +141,7 @@ export const books: Book[] = [
     priceEur: 24.99,
     pricePaperback: 24.99,
     bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fpersonal-finance-met-thomas-guenter%2F9300000182167949%2F&name=Personal%20finance%20met%20Thomas%20Guenter%2C%20Thomas%20Guenter',
+    coverImageUrl: 'https://media.s-bol.com/pvglL3VENp4X/R6m68X0/550x711.jpg',
     targetAudience: ['belgisch-specifiek', 'gevorderd'],
     shortDescription:
       'Thomas Guenter (bekend van Spaargids) behandelt de volledige Belgische personal finance: sparen, beleggen, pensioensparen, vastgoed en belastingen.',
@@ -156,6 +162,7 @@ export const books: Book[] = [
     priceEur: 34.95,
     pricePaperback: 34.95,
     bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fdoe-je-zo-3-beleggen-doe-je-zo%2F9300000242238317%2F&name=Doe%20je%20zo!%203%20-%20Beleggen%20doe%20je%20zo!%2C%20DoopieCash',
+    coverImageUrl: 'https://media.s-bol.com/XK9zLR4NJn5A/WnKPWOW/846x1200.jpg',
     targetAudience: ['etf-beleggers'],
     shortDescription:
       'Uitgebreid handboek over passief beleggen via indexfondsen en ETFs. Derde editie met bijgewerkte informatie over nieuwe producten en regels.',
@@ -176,6 +183,7 @@ export const books: Book[] = [
     priceEur: 22.99,
     pricePaperback: 22.99,
     bolUrl: 'https://www.bol.com/be/nl/s/?searchtext=9789463930703',
+    coverImageUrl: 'https://media.s-bol.com/YA6NYpwPwgKK/68l6xpN/550x778.jpg',
     targetAudience: ['jongeren', 'gevorderd', 'belgisch-specifiek'],
     shortDescription:
       'Gids naar financiële onafhankelijkheid en vroeg pensioen (FIRE): budgetteren, beleggen, sparen en crypto voor Belgische lezers.',
@@ -196,6 +204,7 @@ export const books: Book[] = [
     priceEur: 22.99,
     pricePaperback: 22.99,
     bolUrl: 'https://www.bol.com/be/nl/s/?searchtext=9789401498128',
+    coverImageUrl: 'https://media.s-bol.com/pvgl7JPlL0XV/jRjQZL5/548x840.jpg',
     targetAudience: ['mindset', 'belgisch-specifiek'],
     shortDescription:
       'Over de psychologie van geld: ontdek je geldtype, doorbreek blokkades en bouw een gezonde relatie met geld op.',

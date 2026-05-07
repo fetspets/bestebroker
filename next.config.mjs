@@ -4,6 +4,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.bol.com' },
       { protocol: 'https', hostname: 'media.bol.com' },
+      { protocol: 'https', hostname: 'media.s-bol.com' },
     ],
   },
 }
