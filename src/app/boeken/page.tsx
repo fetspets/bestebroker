@@ -43,6 +43,24 @@ export default function BoekenPage() {
         </div>
       </header>
 
+      {/* Quiz CTA */}
+      <section className="mb-10 p-5 md:p-6 rounded-2xl border-2 border-accent/30 bg-gradient-to-r from-accent/10 to-accent/5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">Gratis · 2 minuten</p>
+            <h2 className="font-display text-lg font-bold text-primary mb-1">
+              Weet je niet welk boek bij jou past?
+            </h2>
+            <p className="text-sm text-gray-600">
+              Beantwoord 10 vragen en ontdek jouw persoonlijke aanbeveling uit 12 boeken.
+            </p>
+          </div>
+          <a href="/boeken/quiz" className="btn-primary whitespace-nowrap flex-shrink-0">
+            Doe de quiz →
+          </a>
+        </div>
+      </section>
+
       {/* All books grid */}
       <section className="mb-12">
         <h2 className="font-display text-2xl font-bold text-primary mb-6">Alle aanbevolen boeken</h2>
