@@ -189,7 +189,7 @@ export const books: Book[] = [
     priceEur: 24.99,
     pricePaperback: 24.99,
     priceEbook: 13.99,
-    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fs%2F%3Fsearchtext%3DMeer%20geld%2C%20minder%20stress&name=Bol',
+    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fmeer-geld-minder-stress%2F9300000179177528%2F&name=Meer%20geld%2C%20minder%20stress%2C%20Charlotte%20Van%20Brabander',
     coverImageUrl: 'https://media.s-bol.com/pvgl7JPlL0XV/jRjQZL5/548x840.jpg',
     targetAudience: ['mindset', 'belgisch-specifiek'],
     shortDescription:
