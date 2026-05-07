@@ -189,7 +189,7 @@ export const books: Book[] = [
     priceEur: 24.99,
     pricePaperback: 24.99,
     priceEbook: 13.99,
-    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fmeer-geld-minder-stress%2F9300000179177528%2F&name=Meer%20geld%2C%20minder%20stress%2C%20Charlotte%20Van%20Brabander',
+    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fs%2F%3Fsearchtext%3DMeer%20geld%2C%20minder%20stress&name=Bol',
     coverImageUrl: 'https://media.s-bol.com/pvgl7JPlL0XV/jRjQZL5/548x840.jpg',
     targetAudience: ['mindset', 'belgisch-specifiek'],
     shortDescription:
@@ -204,20 +204,20 @@ export const books: Book[] = [
 
   {
     id: 'rich-dad-poor-dad',
-    slug: 'rich-dad-poor-dad',
-    title: 'Rich Dad Poor Dad',
+    slug: 'rijke-pa-arme-pa',
+    title: 'Rijke pa, arme pa',
     author: 'Robert Kiyosaki',
-    isbn: '9781612681139',
-    publisher: 'Plata Publishing',
-    year: 2022,
-    language: 'en',
-    priceEur: 12.07,
-    pricePaperback: 12.07,
-    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Frich-dad-poor-dad%2F9300000060279797%2F&name=Rich%20Dad%20Poor%20Dad%2C%20Robert%20Kiyosaki',
+    isbn: '9789083184708',
+    publisher: 'Mijnbestseller.nl',
+    year: 2021,
+    language: 'nl',
+    priceEur: 19.99,
+    pricePaperback: 19.99,
+    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Frijke-pa-arme-pa%2F9200000096188254%2F&name=Rijke%20pa%20arme%20pa',
     coverImageUrl: 'https://media.s-bol.com/vvNJPoZ91NXm/jR8n4J4/550x825.jpg',
     targetAudience: ['beginners', 'mindset'],
     shortDescription:
-      'Kiyosaki\'s klassieker over hoe de rijken anders denken over geld, schulden en investeringen dan de middenklasse. 40 miljoen verkochte exemplaren.',
+      "Kiyosaki's klassieker over hoe de rijken anders denken over geld, schulden en investeringen dan de middenklasse. Nu beschikbaar in het Nederlands.",
     whyBelgium:
       'Verandert de manier waarop je over geld denkt — een must-read voor elke beginnende belegger. Let op: niet alle specifieke adviezen passen bij de Belgische fiscale realiteit.',
     contextualPages: ['/boeken'],
@@ -278,11 +278,11 @@ export const books: Book[] = [
     priceEur: 35.99,
     pricePaperback: 35.99,
     priceEbook: 16.76,
-    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fthe-simple-path-to-wealth-ebook%2F9300000220313561%2F&name=The%20Simple%20Path%20to%20Wealth%2C%20JL%20Collins',
+    bolUrl: 'https://partner.bol.com/click/click?p=2&t=url&s=1518885&f=TXL&url=https%3A%2F%2Fwww.bol.com%2Fbe%2Fnl%2Fp%2Fthe-simple-path-to-wealth%2F9300000221487784%2F&name=The%20Simple%20Path%20to%20Wealth%2C%20J%20L%20Collins',
     coverImageUrl: 'https://media.s-bol.com/n46ny307qDjD/Z40AWv8/536x840.jpg',
     targetAudience: ['etf-beleggers', 'beginners'],
     shortDescription:
-      "JL Collins' gids voor financiële onafhankelijkheid via simpele indexfondsen. Ebook €16.76, hardcover €35.99.",
+      "JL Collins' gids voor financiële onafhankelijkheid via simpele indexfondsen — de standaard voor wie passief wil beleggen.",
     whyBelgium:
       "Collins' strategie van simpel en consistent beleggen werkt ook voor Belgische beleggers met Europese ETF-equivalenten zoals VWCE.",
     contextualPages: ['/beste-etf-broker-belgie', '/boeken'],
