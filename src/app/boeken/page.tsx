@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 }
 
 const categories = [
-  { id: 'beginners', label: '🌱 Voor beginners', ids: ['hangmatbelegger', 'psychologie-geld-nl', 'jong-beleggen', 'beleggen-zonder-stress'] },
-  { id: 'etf', label: '📊 ETF-beleggen', ids: ['hangmatbelegger', 'beleggen-doe-je-zo', 'beleggen-zonder-stress'] },
-  { id: 'mindset', label: '🧠 Mindset & gedrag', ids: ['psychologie-geld-nl', 'psychology-of-money-en'] },
-  { id: 'gevorderd', label: '📈 Gevorderden', ids: ['intelligente-belegger', 'thomas-guenter'] },
-  { id: 'belgisch', label: '🇧🇪 Belgisch specifiek', ids: ['hangmatbelegger', 'jong-beleggen', 'thomas-guenter'] },
+  { id: 'beginners', label: '🌱 Voor beginners', ids: ['hangmatbelegger', 'psychology-of-money-nl', 'jong-beleggen', 'rich-dad-poor-dad', 'simple-path-to-wealth'] },
+  { id: 'etf', label: '📊 ETF-beleggen', ids: ['hangmatbelegger', 'beleggen-doe-je-zo', 'random-walk-down-wall-street', 'simple-path-to-wealth'] },
+  { id: 'mindset', label: '🧠 Mindset & gedrag', ids: ['psychology-of-money-nl', 'meer-geld-minder-stress', 'rich-dad-poor-dad'] },
+  { id: 'gevorderd', label: '📈 Gevorderden', ids: ['intelligente-belegger', 'thomas-guenter', 'fire-charlotte-van-brabander', 'one-up-on-wall-street', 'random-walk-down-wall-street'] },
+  { id: 'belgisch', label: '🇧🇪 Belgisch specifiek', ids: ['hangmatbelegger', 'jong-beleggen', 'thomas-guenter', 'fire-charlotte-van-brabander', 'meer-geld-minder-stress'] },
 ]
 
 export default function BoekenPage() {
@@ -65,7 +65,14 @@ export default function BoekenPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {catBooks.map(book => (
                     <div key={book.id} className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-accent transition-colors">
-                      <div className="w-12 h-16 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center text-2xl">📚</div>
+                      <div className="w-12 h-16 bg-gray-100 rounded flex-shrink-0 flex items-center justify-center overflow-hidden">
+                        {book.coverImageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={book.coverImageUrl} alt={`Omslag ${book.title}`} className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="text-2xl">📚</span>
+                        )}
+                      </div>
                       <div>
                         <a href={`/boeken/${book.slug}`} className="font-semibold text-primary hover:text-accent block">{book.title}</a>
                         <p className="text-sm text-gray-500">{book.author}</p>
