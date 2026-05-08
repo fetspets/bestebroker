@@ -36,9 +36,6 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'NusW-oiW500SvFL70RLpPz-dziM3SnauNfJV2IgdVE0',
-    other: {
-      'impact-site-verification': '2c15c5fe-501a-468f-9012-31c9c7f2751f',
-    },
   },
   icons: {
     icon: [
@@ -58,6 +55,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" className={`${fraunces.variable} ${dmSans.variable}`}>
+      <head>
+        {/* Impact requires non-standard `value` attribute; spread as any to bypass TS */}
+        <meta name="impact-site-verification" {...({ value: '3d125505-4102-4e5b-8926-0655fd4c139e' } as any)} />
+      </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
