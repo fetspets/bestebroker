@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'NusW-oiW500SvFL70RLpPz-dziM3SnauNfJV2IgdVE0',
+    other: {
+      'impact-site-verification': '2c15c5fe-501a-468f-9012-31c9c7f2751f',
+    },
   },
   icons: {
     icon: [
