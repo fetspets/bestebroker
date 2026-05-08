@@ -56,8 +56,8 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${fraunces.variable} ${dmSans.variable}`}>
       <head>
-        {/* Impact uses non-standard `value` attribute which Next.js metadata API doesn't support */}
-        <meta name="impact-site-verification" value="3d125505-4102-4e5b-8926-0655fd4c139e" />
+        {/* Impact requires non-standard `value` attribute; spread as any to bypass TS */}
+        <meta name="impact-site-verification" {...({ value: '3d125505-4102-4e5b-8926-0655fd4c139e' } as any)} />
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
