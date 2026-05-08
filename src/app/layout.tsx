@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import { Fraunces, DM_Sans } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -65,6 +66,7 @@ export default function RootLayout({
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-DW19T9YTX1" />
+      <Script id="impact-utt" strategy="afterInteractive">{`(function(i,m,p,a,c,t){c.ire_o=p;c[p]=c[p]||function(){(c[p].a=c[p].a||[]).push(arguments)};t=a.createElement(m);var z=a.getElementsByTagName(m)[0];t.async=1;t.src=i;z.parentNode.insertBefore(t,z)})('https://utt.impactcdn.com/P-A3156055-c1b3-48e7-b323-0b6e5e0452691.js','script','impactStat',document,window);impactStat('transformLinks');impactStat('trackImpression');`}</Script>
     </html>
   )
 }
