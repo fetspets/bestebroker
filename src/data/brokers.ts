@@ -149,7 +149,7 @@ export const brokers: Broker[] = [
       tob: true,
       dividendTax: true,
       reynders: true,
-      capitalGainsTax: true,
+      capitalGainsTax: false, // wordt automatisch afgehandeld v.a. 1 juni 2026
     },
     features: {
       savingsPlan: true,
@@ -160,7 +160,7 @@ export const brokers: Broker[] = [
     security: {
       securitiesLending: 'never',
       depositProtection: 100000,
-      depositScheme: 'Belgisch beschermingsfonds (FSMA)',
+      depositScheme: 'Belgisch beschermingsfonds voor financiële instrumenten',
       regulator: ['FSMA'],
     },
     subScores: { kosten: 2.5, gebruiksgemak: 4.5, fiscaal: 4.5, veiligheid: 5.0 },
@@ -175,13 +175,13 @@ export const brokers: Broker[] = [
     pros: [
       'Geen securities lending — jouw effecten blijven altijd van jou',
       'Invest & Repeat: automatisch herhalende orders',
-      'Meerwaardebelasting afgehandeld v.a. 1 juni 2026',
+      'Meerwaardebelasting automatisch afgehandeld v.a. 1 juni 2026',
       'Vertrouwde Belgische bank (KBC-groep)',
     ],
     cons: [
+      'Invest & Repeat debiteert je rekening NIET automatisch — zelf geld storten vereist',
       'Hogere transactiekosten buiten de Playlist (€7,50/trade)',
       'Playlist-ETFs beperkt — enkel gehele stuks',
-      'Geen automatische debitering bij Invest & Repeat',
       '€50/lijn bij overdracht',
     ],
     bestFor: ['Veiligheidsgerichte beleggers', 'Mensen die securities lending willen vermijden', 'KBC-klanten'],
@@ -213,7 +213,7 @@ export const brokers: Broker[] = [
       tob: true,
       dividendTax: true,
       reynders: true,
-      capitalGainsTax: true,
+      capitalGainsTax: false, // verifieer actuele status voor 2026 — onzeker op moment van schrijven
     },
     features: {
       savingsPlan: false,
@@ -224,7 +224,7 @@ export const brokers: Broker[] = [
     security: {
       securitiesLending: 'never',
       depositProtection: 100000,
-      depositScheme: 'Belgisch beschermingsfonds (FSMA)',
+      depositScheme: 'Belgisch beschermingsfonds voor financiële instrumenten',
       regulator: ['FSMA', 'NBB'],
     },
     subScores: { kosten: 5.0, gebruiksgemak: 3.0, fiscaal: 4.0, veiligheid: 4.5 },
@@ -287,7 +287,7 @@ export const brokers: Broker[] = [
     security: {
       securitiesLending: 'required',
       depositProtection: 20000,
-      depositScheme: 'Duits beleggersbeschermingsfonds (BaFin/EdW)',
+      depositScheme: 'EdW — Duits beleggerscompensatiefonds (geen bankgarantie)',
       regulator: ['BaFin', 'AFM', 'DNB'],
     },
     subScores: { kosten: 4.5, gebruiksgemak: 3.5, fiscaal: 1.0, veiligheid: 2.5 },
@@ -350,7 +350,7 @@ export const brokers: Broker[] = [
     security: {
       securitiesLending: 'default',
       depositProtection: 20000,
-      depositScheme: 'Duits beleggersbeschermingsfonds (BaFin/EdW)',
+      depositScheme: 'EdW — Duits beleggerscompensatiefonds (geen bankgarantie)',
       regulator: ['BaFin'],
     },
     subScores: { kosten: 4.5, gebruiksgemak: 4.0, fiscaal: 1.0, veiligheid: 2.5 },
@@ -413,7 +413,7 @@ export const brokers: Broker[] = [
     security: {
       securitiesLending: 'never',
       depositProtection: 100000,
-      depositScheme: 'Belgisch beschermingsfonds (FSMA)',
+      depositScheme: 'Belgisch beschermingsfonds voor financiële instrumenten',
       regulator: ['FSMA', 'NBB'],
     },
     subScores: { kosten: 1.5, gebruiksgemak: 3.5, fiscaal: 4.5, veiligheid: 5.0 },

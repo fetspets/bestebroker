@@ -82,6 +82,8 @@ export function Footer() {
                 ['/disclaimer', 'Disclaimer'],
                 ['/methodologie', 'Methodologie'],
                 ['/sitemap.xml', 'Sitemap'],
+                ['/privacy', 'Privacyverklaring'],
+                ['/cookiebeleid', 'Cookiebeleid'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} className="text-gray-400 hover:text-white transition-colors">{label}</Link>
@@ -95,7 +97,7 @@ export function Footer() {
           <p className="text-xs text-gray-500">
             © {new Date().getFullYear()} BesteBroker.be — Alle rechten voorbehouden
             <span className="mx-2">·</span>
-            Laatst bijgewerkt: april 2026
+            Bijgewerkt: april 2026
           </p>
         </div>
       </div>

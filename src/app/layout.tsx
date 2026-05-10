@@ -5,6 +5,7 @@ import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ComplianceDisclosure } from '@/components/ui/ComplianceDisclosure'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -30,6 +31,9 @@ export const metadata: Metadata = {
     siteName: 'BesteBroker.be',
     locale: 'nl_BE',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
   robots: {
     index: true,
@@ -61,8 +65,15 @@ export default function RootLayout({
         <meta name="impact-site-verification" {...({ value: '3d125505-4102-4e5b-8926-0655fd4c139e' } as any)} />
       </head>
       <body className="min-h-screen flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-accent text-white px-4 py-2 rounded z-[100] font-semibold"
+        >
+          Naar hoofdinhoud
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <ComplianceDisclosure />
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-DW19T9YTX1" />

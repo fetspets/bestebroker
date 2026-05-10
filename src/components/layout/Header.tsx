@@ -36,10 +36,11 @@ const navLinks = [
     label: 'België',
     children: [
       { href: '/belgie/etf-kopen-beginners', label: 'ETF kopen — beginners' },
-      { href: '/belgie/vwce-vs-iwda', label: 'VWCE vs IWDA' },
-      { href: '/belgie/pensioensparen-vs-etf', label: 'Pensioensparen vs ETF' },
       { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026' },
       { href: '/belgie/tob-uitleg', label: 'TOB uitgelegd' },
+      { href: '/belgie/buitenlandse-broker-nbb-aangifte', label: 'NBB-aangifte buitenlandse rekening' },
+      { href: '/belgie/vwce-vs-iwda', label: 'VWCE vs IWDA' },
+      { href: '/belgie/pensioensparen-vs-etf', label: 'Pensioensparen vs ETF' },
     ],
   },
   { href: '/boeken', label: 'Boeken' },
