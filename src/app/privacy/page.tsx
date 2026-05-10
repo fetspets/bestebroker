@@ -42,22 +42,12 @@ export default function PrivacyPage() {
               policies.google.com/privacy
             </a>
           </li>
-          <li>
-            <strong>Impact.com (affiliate tracking):</strong> Wij maken gebruik van Impact.com voor
-            het bijhouden van affiliate-verwijzingen. Wanneer je op een affiliate-link klikt, kan
-            Impact.com cookies plaatsen om conversies bij te houden.
-            Impact&apos;s privacybeleid:{' '}
-            <a href="https://impact.com/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              impact.com/privacy-policy
-            </a>
-          </li>
         </ul>
 
         <h2>Grondslagen voor verwerking</h2>
         <p>
           Analytische tracking via Google Analytics vindt enkel plaats na jouw expliciete toestemming
-          (artikel 6(1)(a) AVG). Affiliate tracking via Impact.com is gebaseerd op ons gerechtvaardigd
-          belang om onze dienstverlening te financieren (artikel 6(1)(f) AVG).
+          (artikel 6(1)(a) AVG).
         </p>
 
         <h2>Cookies</h2>

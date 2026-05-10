@@ -63,25 +63,6 @@ export default function CookiebeleidPage() {
           </tbody>
         </table>
 
-        <h3>Marketing/affiliate cookies (na toestemming)</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Cookie</th>
-              <th>Aanbieder</th>
-              <th>Doel</th>
-              <th>Bewaartijd</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Impact.com cookies</td>
-              <td>Impact.com</td>
-              <td>Bijhouden van affiliate-verwijzingen</td>
-              <td>30 dagen</td>
-            </tr>
-          </tbody>
-        </table>
 
         <h2>Cookies beheren</h2>
         <p>

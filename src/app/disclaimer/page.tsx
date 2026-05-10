@@ -65,9 +65,8 @@ export default function DisclaimerPage() {
           <h2>5. Boekaanbevelingen — bol.com</h2>
           <p>
             Boeken die wij aanbevelen worden geselecteerd op basis van inhoudskwaliteit en relevantie
-            voor Belgische beleggers. Wij ontvangen een kleine commissie via het bol.com partner programma.
-            Dit beïnvloedt onze selectie niet — boeken die wij niet nuttig vinden worden niet aanbevolen,
-            ongeacht of er een commissie aan verbonden is.
+            voor Belgische beleggers. Onze selectie is onafhankelijk — boeken die wij niet nuttig vinden
+            worden niet aanbevolen.
           </p>
         </section>
 
