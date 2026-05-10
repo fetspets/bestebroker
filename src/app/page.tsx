@@ -23,11 +23,37 @@ const stats = [
   { value: '6', label: 'brokers vergeleken' },
   { value: '100%', label: 'Nederlandstalig' },
   { value: '2026', label: 'fiscaal bijgewerkt' },
+  { value: '7', label: 'fiscale gidsen' },
 ]
+
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'BesteBroker.be',
+  url: 'https://www.bestebroker.be',
+  logo: 'https://www.bestebroker.be/img/favicon-32x32.png',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@bestebroker.be',
+    contactType: 'customer support',
+    areaServed: 'BE',
+    availableLanguage: 'nl',
+  },
+  sameAs: [],
+}
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'BesteBroker.be',
+  url: 'https://www.bestebroker.be',
+}
 
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
       {/* Hero */}
       <section className="bg-primary text-white py-16 md:py-24">
         <div className="section-container text-center">

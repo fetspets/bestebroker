@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
 import { brokerLink } from '@/lib/affiliateLinks'
@@ -157,10 +158,12 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
               >
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3">
-                    <img
+                    <Image
                       src={`/img/logos/${broker.id}.svg`}
-                      alt={broker.name}
-                      className="w-8 h-8 object-contain flex-shrink-0"
+                      alt={`${broker.name} logo`}
+                      width={32}
+                      height={32}
+                      className="object-contain flex-shrink-0"
                     />
                     <div>
                       <Link href={`/reviews/${broker.slug}`} className="font-semibold text-primary hover:text-accent">
@@ -226,10 +229,12 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
           >
             <div className="flex items-start justify-between mb-3">
               <div className="flex items-center gap-3">
-                <img
+                <Image
                   src={`/img/logos/${broker.id}.svg`}
-                  alt={broker.name}
-                  className="w-10 h-10 object-contain flex-shrink-0"
+                  alt={`${broker.name} logo`}
+                  width={40}
+                  height={40}
+                  className="object-contain flex-shrink-0"
                 />
                 <div>
                   <Link href={`/reviews/${broker.slug}`} className="font-display font-semibold text-primary hover:text-accent">

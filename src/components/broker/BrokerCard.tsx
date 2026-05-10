@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
 import { brokerLink } from '@/lib/affiliateLinks'
@@ -91,10 +92,9 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = true, source = 'broker-card' }: Props) {
-  const monthlyCost500 = Math.max(
-    broker.fees.transactionFeeMin,
-    500 * broker.fees.transactionFeePercent + broker.fees.transactionFeeFixed
-  )
+  const monthlyCost500 = broker.fees.etfStandard !== undefined
+    ? broker.fees.etfStandard
+    : Math.max(broker.fees.transactionFeeMin, 500 * broker.fees.transactionFeePercent + broker.fees.transactionFeeFixed)
   const tob500 = 500 * 0.0012
 
   if (variant === 'compact') {
@@ -112,10 +112,12 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
               <p className="text-sm text-gray-600 mt-0.5">{broker.tagline}</p>
             </div>
             <div className="flex flex-col items-end gap-1 flex-shrink-0">
-              <img
+              <Image
                 src={`/img/logos/${broker.id}.svg`}
-                alt={broker.name}
-                className="w-12 h-8 object-contain"
+                alt={`${broker.name} logo`}
+                width={48}
+                height={32}
+                className="object-contain"
               />
               <span className={`text-xs font-semibold px-2 py-0.5 rounded ${typeBadgeClass(broker.type)}`}>
                 {broker.type}
@@ -168,10 +170,12 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
           </div>
         </div>
         <div className="flex flex-col items-end gap-2 flex-shrink-0">
-          <img
+          <Image
             src={`/img/logos/${broker.id}.svg`}
-            alt={broker.name}
-            className="w-14 h-10 object-contain"
+            alt={`${broker.name} logo`}
+            width={56}
+            height={40}
+            className="object-contain"
           />
           <StarRating rating={broker.rating} />
         </div>

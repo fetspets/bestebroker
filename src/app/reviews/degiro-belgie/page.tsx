@@ -28,7 +28,7 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'Review',
     itemReviewed: { '@type': 'FinancialService', name: 'DEGIRO', url: 'https://www.degiro.be' },
-    reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5' },
+    reviewRating: { '@type': 'Rating', ratingValue: broker.rating.toFixed(1), bestRating: '5', worstRating: '1' },
     author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be' },
     datePublished: '2026-01-15',
@@ -104,6 +104,9 @@ export default function DegiroReviewPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">DEGIRO account openen</p>
+              <p className="text-xs text-orange-700 mt-1">
+                ⚠ DEGIRO regelt geen Belgische belastingen. Zorg dat je bereid bent de fiscale administratie zelf te doen.
+              </p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'degiro-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
               Open account →

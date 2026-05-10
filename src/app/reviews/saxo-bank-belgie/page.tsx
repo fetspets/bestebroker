@@ -36,6 +36,7 @@ const jsonLd = [
       '@type': 'Rating',
       ratingValue: broker.rating.toFixed(1),
       bestRating: '5',
+      worstRating: '1',
     },
     author: { '@type': 'Person', name: 'Stef', url: 'https://www.bestebroker.be/over-mij' },
     publisher: { '@type': 'Organization', name: 'BesteBroker.be', url: 'https://www.bestebroker.be' },
