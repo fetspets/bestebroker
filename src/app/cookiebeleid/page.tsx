@@ -25,24 +25,6 @@ export default function CookiebeleidPage() {
 
         <h2>Welke cookies gebruiken wij?</h2>
 
-        <h3>Functionele cookies (altijd actief)</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Cookie</th>
-              <th>Doel</th>
-              <th>Bewaartijd</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>disclosure-dismissed</code></td>
-              <td>Onthoudt of je de affiliate-melding hebt weggeklikt</td>
-              <td>Sessie</td>
-            </tr>
-          </tbody>
-        </table>
-
         <h3>Analytische cookies (na toestemming)</h3>
         <table>
           <thead>
@@ -59,26 +41,6 @@ export default function CookiebeleidPage() {
               <td>Google Analytics</td>
               <td>Anoniem websiteverkeer meten</td>
               <td>2 jaar</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h3>Marketing/affiliate cookies (na toestemming)</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Cookie</th>
-              <th>Aanbieder</th>
-              <th>Doel</th>
-              <th>Bewaartijd</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Impact.com cookies</td>
-              <td>Impact.com</td>
-              <td>Bijhouden van affiliate-verwijzingen</td>
-              <td>30 dagen</td>
             </tr>
           </tbody>
         </table>

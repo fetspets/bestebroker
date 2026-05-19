@@ -5,7 +5,7 @@ import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 export const metadata: Metadata = {
   title: 'Disclaimer & Transparantiebeleid | BesteBroker.be',
   description:
-    'Lees onze volledige disclaimer over affiliate links, risicowaarschuwingen en redactionele onafhankelijkheid op BesteBroker.be.',
+    'Lees onze volledige disclaimer over risicowaarschuwingen en redactionele onafhankelijkheid op BesteBroker.be.',
   openGraph: {
     title: 'Disclaimer & Transparantiebeleid | BesteBroker.be',
     url: 'https://www.bestebroker.be/disclaimer',

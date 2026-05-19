@@ -6,7 +6,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 export const metadata: Metadata = {
   title: 'Methodologie — Hoe Wij Brokers Beoordelen | BesteBroker.be',
   description:
-    'Transparante uitleg over hoe BesteBroker.be brokers beoordeelt, welke criteria wij hanteren en hoe wij omgaan met affiliate relaties.',
+    'Transparante uitleg over hoe BesteBroker.be brokers beoordeelt en welke criteria wij hanteren.',
   openGraph: {
     title: 'Methodologie | BesteBroker.be',
     url: 'https://www.bestebroker.be/methodologie',
@@ -60,8 +60,7 @@ export default function MethodologiePage() {
         </h1>
         <p className="text-gray-600 text-lg max-w-2xl">
           Transparantie over onze beoordelingsmethode is een kernwaarde van BesteBroker.be.
-          Hier leggen wij uit hoe wij brokers evalueren, welke criteria wij gebruiken en hoe
-          wij omgaan met affiliate relaties.
+          Hier leggen wij uit hoe wij brokers evalueren en welke criteria wij gebruiken.
         </p>
         <div className="mt-3">
           <LastUpdated date="2026-04-01" />
@@ -135,7 +134,7 @@ export default function MethodologiePage() {
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Link href="/disclaimer" className="card hover:shadow-md transition-shadow group">
           <p className="font-semibold text-primary group-hover:text-accent transition-colors">Disclaimer & transparantiebeleid</p>
-          <p className="text-sm text-gray-500 mt-0.5">Affiliate links en risicowaarschuwingen</p>
+          <p className="text-sm text-gray-500 mt-0.5">Risicowaarschuwingen en transparantiebeleid</p>
         </Link>
         <Link href="/over-mij" className="card hover:shadow-md transition-shadow group">
           <p className="font-semibold text-primary group-hover:text-accent transition-colors">Over de auteur</p>

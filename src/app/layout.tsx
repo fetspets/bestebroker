@@ -5,7 +5,6 @@ import Script from 'next/script'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
-import { ComplianceDisclosure } from '@/components/ui/ComplianceDisclosure'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -72,8 +71,7 @@ export default function RootLayout({
           Naar hoofdinhoud
         </a>
         <Header />
-        <ComplianceDisclosure />
-        <main id="main-content" className="flex-1">{children}</main>
+<main id="main-content" className="flex-1">{children}</main>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-DW19T9YTX1" />
