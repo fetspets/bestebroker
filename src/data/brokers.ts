@@ -262,7 +262,7 @@ export const brokers: Broker[] = [
     type: 'buitenlands',
     tagline: 'Goedkope buitenlandse broker — zelf verantwoordelijk voor Belgische belastingen',
     rating: 3.6,
-    affiliateUrl: 'https://www.degiro.be',
+    affiliateUrl: 'https://www.degiro.com/be',
     color: '#ff6600',
     fees: {
       etfStandard: 3,
