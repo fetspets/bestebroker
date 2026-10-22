@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">
         Privacyverklaring
       </h1>
-      <p className="text-gray-500 text-sm mb-8">Laatst bijgewerkt: mei 2026</p>
+      <p className="text-gray-500 text-sm mb-8">Laatst bijgewerkt: 22 oktober 2026</p>
 
       <div className="prose-custom">
         <h2>Wie zijn wij?</h2>
@@ -42,11 +42,15 @@ export default function PrivacyPage() {
               policies.google.com/privacy
             </a>
           </li>
+          <li>
+            <strong>Impact (affiliatenetwerk):</strong> enkel na jouw toestemming laadt een meetscript van Impact.
+            Dat stelt vast of een bezoek aan een partner (bv. een broker) via BesteBroker.be kwam.
+          </li>
         </ul>
 
         <h2>Grondslagen voor verwerking</h2>
         <p>
-          Analytische tracking via Google Analytics vindt enkel plaats na jouw expliciete toestemming
+          Google Analytics en het meetscript van Impact laden enkel na jouw expliciete toestemming via de cookiebanner
           (artikel 6(1)(a) AVG).
         </p>
 

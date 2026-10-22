@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { CookieSettingsButton } from '@/components/consent/ConsentManager'
 
 export function Footer() {
   return (
@@ -98,6 +99,8 @@ export function Footer() {
             © {new Date().getFullYear()} BesteBroker.be — Alle rechten voorbehouden
             <span className="mx-2">·</span>
             Bijgewerkt: april 2026
+            <span className="mx-2">·</span>
+            <CookieSettingsButton className="underline hover:text-white" />
           </p>
         </div>
       </div>
