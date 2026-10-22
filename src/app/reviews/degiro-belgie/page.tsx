@@ -5,7 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
@@ -110,7 +110,7 @@ export default function DegiroReviewPage() {
                 ⚠ DEGIRO regelt geen Belgische belastingen. Zorg dat je bereid bent de fiscale administratie zelf te doen.
               </p>
             </div>
-            <a href={brokerLink(broker.affiliateUrl, 'degiro-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
+            <a href={goLink(broker.id, 'degiro-review-cta')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
               Open account →
             </a>
           </div>

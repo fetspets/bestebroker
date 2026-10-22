@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 interface Props {
@@ -130,9 +130,9 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
             {showAffiliate && <AffiliateLabel broker={broker} />}
             {showAffiliate && broker.affiliateUrl && (
               <a
-                href={brokerLink(broker.affiliateUrl, source)}
+                href={goLink(broker.id, source)}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="sponsored nofollow noopener"
                 className="btn-primary text-sm py-1.5"
               >
                 Account openen →
@@ -248,9 +248,9 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
         <div className="flex items-center gap-3 flex-wrap">
           {broker.affiliateUrl && (
             <a
-              href={brokerLink(broker.affiliateUrl, source)}
+              href={goLink(broker.id, source)}
               target="_blank"
-              rel="noopener noreferrer sponsored"
+              rel="sponsored nofollow noopener"
               className="btn-primary flex-1 sm:flex-none justify-center"
             >
               Account openen →

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 const bolero = getBrokerById('bolero')!
@@ -200,7 +200,7 @@ export default function BoleroVsSaxoPage() {
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={brokerLink(broker.affiliateUrl, 'bolero-vs-saxo')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0 text-sm py-2">Account →</a>
+                <a href={goLink(broker.id, 'bolero-vs-saxo')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Account →</a>
               </div>
             )
           ))}

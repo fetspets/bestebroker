@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: '/go/',
       },
     ],
     sitemap: 'https://www.bestebroker.be/sitemap.xml',

@@ -33,3 +33,11 @@ export function brokerLink(affiliateUrl: string, source: string): string {
     return affiliateUrl
   }
 }
+
+/**
+ * Interne kliklink voor een broker-knop: /go/<broker-id>?bron=<plaats>.
+ * De route src/app/go/[partner]/route.ts telt de klik (zonder cookies) en stuurt door naar brokerLink().
+ */
+export function goLink(brokerId: string, source: string): string {
+  return `/go/${encodeURIComponent(brokerId)}?bron=${encodeURIComponent(source)}`
+}

@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 interface Props {
@@ -206,9 +206,9 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                 <td className="px-4 py-3 text-right">
                   {broker.affiliateUrl && (
                     <a
-                      href={brokerLink(broker.affiliateUrl, 'comparison-table')}
+                      href={goLink(broker.id, 'comparison-table')}
                       target="_blank"
-                      rel="noopener noreferrer sponsored"
+                      rel="sponsored nofollow noopener"
                       className="text-xs bg-accent text-white px-3 py-1.5 rounded-lg hover:bg-opacity-90 font-medium whitespace-nowrap"
                     >
                       Open account →
@@ -267,9 +267,9 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
             </div>
             {broker.affiliateUrl && (
               <a
-                href={brokerLink(broker.affiliateUrl, 'comparison-table-mobile')}
+                href={goLink(broker.id, 'comparison-table-mobile')}
                 target="_blank"
-                rel="noopener noreferrer sponsored"
+                rel="sponsored nofollow noopener"
                 className="block text-center bg-accent text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90"
               >
                 Account openen →

@@ -4,7 +4,7 @@ import { getBrokerById } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
@@ -117,7 +117,7 @@ export default function TradeRepublicReviewPage() {
               <p className="font-semibold text-primary mb-1">Trade Republic account openen</p>
               <AffiliateLabel broker={broker} />
             </div>
-            <a href={brokerLink(broker.affiliateUrl, 'tr-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">
+            <a href={goLink(broker.id, 'tr-review-cta')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
               Open account →
             </a>
           </div>
