@@ -14,7 +14,7 @@ export default function CookiebeleidPage() {
       <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">
         Cookiebeleid
       </h1>
-      <p className="text-gray-500 text-sm mb-8">Laatst bijgewerkt: mei 2026</p>
+      <p className="text-gray-500 text-sm mb-8">Laatst bijgewerkt: 22 oktober 2026</p>
 
       <div className="prose-custom">
         <h2>Wat zijn cookies?</h2>
@@ -25,7 +25,12 @@ export default function CookiebeleidPage() {
 
         <h2>Welke cookies gebruiken wij?</h2>
 
-        <h3>Analytische cookies (na toestemming)</h3>
+        <h3>Analytische en affiliatecookies (enkel na toestemming)</h3>
+        <p>
+          Bij je eerste bezoek vragen we via een banner of je deze cookies aanvaardt. Pas na &ldquo;Accepteren&rdquo;
+          laden Google Analytics en het meetscript van Impact. Weigeren heeft geen gevolgen voor de werking van de site.
+          Je keuze wordt 6 maanden bewaard in je browser (localStorage, geen cookie).
+        </p>
         <table>
           <thead>
             <tr>
@@ -42,6 +47,12 @@ export default function CookiebeleidPage() {
               <td>Anoniem websiteverkeer meten</td>
               <td>2 jaar</td>
             </tr>
+            <tr>
+              <td><code>IR_*</code>, <code>IR_gbd</code></td>
+              <td>Impact (affiliatenetwerk)</td>
+              <td>Vaststellen dat een bezoek aan een partner via BesteBroker.be kwam</td>
+              <td>volgens het programma van de partner</td>
+            </tr>
           </tbody>
         </table>
 
@@ -54,6 +65,9 @@ export default function CookiebeleidPage() {
         </p>
 
         <h2>Cookies beheren</h2>
+        <p>
+          Je kan je keuze altijd wijzigen via de knop &ldquo;Cookie-instellingen&rdquo; onderaan elke pagina.
+        </p>
         <p>
           Je kunt cookies beheren via de instellingen van je browser. Houd er rekening mee dat
           het uitschakelen van bepaalde cookies de functionaliteit van de website kan beïnvloeden.
