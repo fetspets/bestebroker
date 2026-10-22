@@ -5,7 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
-import { brokerLink } from '@/lib/affiliateLinks'
+import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
@@ -174,9 +174,9 @@ export default function SaxoReviewPage() {
               <p className="text-sm text-gray-600">Open een gratis account — het onboarding-proces duurt ongeveer 15 minuten.</p>
             </div>
             <a
-              href={brokerLink(broker.affiliateUrl, 'saxo-review-cta')}
+              href={goLink(broker.id, 'saxo-review-cta')}
               target="_blank"
-              rel="noopener noreferrer sponsored"
+              rel="sponsored nofollow noopener"
               className="btn-primary flex-shrink-0"
             >
               Open account →
