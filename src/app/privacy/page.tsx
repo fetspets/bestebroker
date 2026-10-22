@@ -54,7 +54,9 @@ export default function PrivacyPage() {
         <p>
           BesteBroker.be maakt gebruik van cookies. Lees ons{' '}
           <Link href="/cookiebeleid" className="text-accent hover:underline">cookiebeleid</Link>{' '}
-          voor een volledig overzicht.
+          voor een volledig overzicht. Klikt u op een affiliate-link, dan verwerkt het affiliatenetwerk (bv. Awin)
+          gegevens over die klik volgens zijn eigen privacybeleid; zie ook onze{' '}
+          <Link href="/disclaimer#affiliate" className="text-accent hover:underline">uitleg over affiliate-links</Link>.
         </p>
 
         <h2>Jouw rechten</h2>

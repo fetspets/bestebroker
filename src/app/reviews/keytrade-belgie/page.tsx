@@ -5,6 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('keytrade')!
@@ -143,6 +144,7 @@ export default function KeytradeReviewPage() {
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">Keytrade Bank account openen</p>
+              <AffiliateLabel broker={broker} />
               <p className="text-sm text-gray-600">Volledig Belgische broker — alle belastingen automatisch geregeld.</p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'keytrade-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">

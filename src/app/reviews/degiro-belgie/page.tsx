@@ -6,6 +6,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('degiro')!
@@ -104,6 +105,7 @@ export default function DegiroReviewPage() {
           <div className="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">DEGIRO account openen</p>
+              <AffiliateLabel broker={broker} />
               <p className="text-xs text-orange-700 mt-1">
                 ⚠ DEGIRO regelt geen Belgische belastingen. Zorg dat je bereid bent de fiscale administratie zelf te doen.
               </p>

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 interface Props {
   brokers: Broker[]
@@ -213,6 +214,7 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                       Open account →
                     </a>
                   )}
+                  <AffiliateLabel broker={broker} />
                 </td>
               </tr>
             ))}
@@ -273,6 +275,7 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                 Account openen →
               </a>
             )}
+            <AffiliateLabel broker={broker} />
           </div>
         ))}
       </div>

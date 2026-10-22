@@ -6,6 +6,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('saxo')!
@@ -169,6 +170,7 @@ export default function SaxoReviewPage() {
           <div className="bg-teal-50 border border-teal-200 rounded-xl p-6 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">Klaar om te beginnen met Saxo Bank?</p>
+              <AffiliateLabel broker={broker} />
               <p className="text-sm text-gray-600">Open een gratis account — het onboarding-proces duurt ongeveer 15 minuten.</p>
             </div>
             <a

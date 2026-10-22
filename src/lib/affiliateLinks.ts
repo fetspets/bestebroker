@@ -20,6 +20,11 @@ export function brokerLink(affiliateUrl: string, source: string): string {
   if (!affiliateUrl) return '#'
   try {
     const url = new URL(affiliateUrl)
+    if (url.hostname.endsWith('awin1.com')) {
+      // Awin: geen UTM-parameters, wel clickref = plaats van de knop (zichtbaar in de Awin-rapporten)
+      url.searchParams.set('clickref', source)
+      return url.toString()
+    }
     url.searchParams.set('utm_source', 'bestebroker')
     url.searchParams.set('utm_medium', 'affiliate')
     url.searchParams.set('utm_campaign', source)
