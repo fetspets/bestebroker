@@ -6,6 +6,8 @@ export interface Broker {
   tagline: string
   rating: number
   affiliateUrl?: string
+  /** true = affiliateUrl is een echte, betaalde affiliate-link (toont het label 'betaalde samenwerking') */
+  affiliateActive?: boolean
   color: string
   fees: {
     etfPlaylist?: number
@@ -196,7 +198,8 @@ export const brokers: Broker[] = [
     type: 'belgisch',
     tagline: 'Gratis ETF-transacties — goedkoopste keuze voor buy-and-hold',
     rating: 4.0,
-    affiliateUrl: 'https://www.medirect.be',
+    affiliateUrl: 'https://www.awin1.com/cread.php?awinmid=8356&awinaffid=2809534',
+    affiliateActive: true,
     color: '#00a651',
     fees: {
       etfStandard: 0,

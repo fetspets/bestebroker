@@ -5,6 +5,7 @@ import { BrokerCard } from '@/components/broker/BrokerCard'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 
 const broker = getBrokerById('bolero')!
@@ -112,6 +113,7 @@ export default function BoleroReviewPage() {
           <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">Bolero account openen</p>
+              <AffiliateLabel broker={broker} />
               <p className="text-sm text-gray-600">Onboarding mogelijk via itsme — in enkele minuten klaar.</p>
             </div>
             <a href={brokerLink(broker.affiliateUrl, 'bolero-review-cta')} target="_blank" rel="noopener noreferrer sponsored" className="btn-primary flex-shrink-0">

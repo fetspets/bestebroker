@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { Broker } from '@/data/brokers'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 interface Props {
   broker: Broker
@@ -126,6 +127,7 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
           </div>
           <div className="mt-3 flex items-center gap-3 flex-wrap">
             <StarRating rating={broker.rating} />
+            {showAffiliate && <AffiliateLabel broker={broker} />}
             {showAffiliate && broker.affiliateUrl && (
               <a
                 href={brokerLink(broker.affiliateUrl, source)}
@@ -257,6 +259,7 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
           <Link href={`/reviews/${broker.slug}`} className="btn-outline flex-1 sm:flex-none justify-center">
             Volledige review
           </Link>
+          <AffiliateLabel broker={broker} />
         </div>
       )}
     </article>

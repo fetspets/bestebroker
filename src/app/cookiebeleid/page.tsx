@@ -45,6 +45,14 @@ export default function CookiebeleidPage() {
           </tbody>
         </table>
 
+        <h3>Cookies van partners (enkel na een klik op een affiliate-link)</h3>
+        <p>
+          Klikt u op een knop met de vermelding &ldquo;Affiliate-link · betaalde samenwerking&rdquo;, dan gaat u via het
+          affiliatenetwerk Awin naar de broker. Awin plaatst dan op zijn eigen domein een cookie om te kunnen vaststellen
+          dat u via BesteBroker.be kwam (bewaartijd volgens het programma, bij MeDirect 30 dagen). BesteBroker.be plaatst
+          zelf geen cookie bij die klik. Meer informatie: het privacybeleid van Awin.
+        </p>
+
         <h2>Cookies beheren</h2>
         <p>
           Je kunt cookies beheren via de instellingen van je browser. Houd er rekening mee dat

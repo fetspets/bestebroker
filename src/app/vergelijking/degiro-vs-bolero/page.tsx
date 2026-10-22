@@ -4,6 +4,7 @@ import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { brokerLink } from '@/lib/affiliateLinks'
+import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 const a = getBrokerById('degiro')!
 const b = getBrokerById('bolero')!
@@ -269,6 +270,7 @@ export default function DegiroVsBoleroPage() {
                 <div>
                   <p className="font-semibold text-primary">{broker.name}</p>
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
+                  <AffiliateLabel broker={broker} />
                 </div>
                 <a
                   href={brokerLink(broker.affiliateUrl, 'degiro-vs-bolero')}
