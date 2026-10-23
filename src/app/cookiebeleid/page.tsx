@@ -64,6 +64,12 @@ export default function CookiebeleidPage() {
           zelf geen cookie bij die klik. Meer informatie: het privacybeleid van Awin.
         </p>
 
+        <h3>Bezoekersteller zonder cookies</h3>
+        <p>
+          Daarnaast tellen we bezoeken met Vercel Web Analytics. Dat plaatst geen cookies en bewaart geen IP-adressen,
+          en werkt dus ook als je cookies weigert.
+        </p>
+
         <h2>Cookies beheren</h2>
         <p>
           Je kan je keuze altijd wijzigen via de knop &ldquo;Cookie-instellingen&rdquo; onderaan elke pagina.
