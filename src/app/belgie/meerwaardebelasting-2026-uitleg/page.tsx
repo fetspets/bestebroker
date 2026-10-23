@@ -219,7 +219,7 @@ export default function MeerwaardebelastingUitlegPage() {
           <h2>Meerwaardebelasting en TOB — niet verwarren</h2>
           <p>
             De meerwaardebelasting is <em>niet</em> hetzelfde als de TOB (taks op beursverrichtingen).
-            De TOB (0,12% bij ETFs) betaal je bij elke aankoop én verkoop — ongeacht of je winst maakt.
+            De TOB (0,12% bij de meeste ETF’s, 1,32% bij een in België geregistreerde kapitaliserende ETF zoals VWCE) betaal je bij elke aankoop én verkoop — ongeacht of je winst maakt.
             De meerwaardebelasting (10%) betaal je enkel bij verkoop met winst boven €10.000.
           </p>
           <p>

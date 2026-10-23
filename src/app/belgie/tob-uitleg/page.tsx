@@ -2,6 +2,13 @@
 import Link from 'next/link'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
+
+const bronnen: Bron[] = [
+  { staaft: 'TOB-tarieven ETF’s en aandelen, maxima per transactie, VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: 'https://curvo.eu/nl/artikel/hoe-je-de-beurstaks-van-een-etf-berekent' },
+  { staaft: 'TOB VWCE 1,32% en IWDA 0,12%', label: 'Curvo, VWCE vs IWDA (22/10/2026)', href: 'https://curvo.eu/nl/artikel/vwce-vs-iwda' },
+  { staaft: 'Tarief obligaties 0,12%', label: 'Test-Aankoop, taks op beursverrichtingen', href: 'https://www.test-aankoop.be/invest/fiscaliteit-en-wetgeving/belastingheffing/dossiers/taks-op-beursverrichtingen-tob' },
+]
 
 export const metadata: Metadata = {
   title: 'TOB Uitgelegd — Taks op Beursverrichtingen voor Belgische Beleggers',
@@ -23,12 +30,12 @@ const faqJsonLd = {
     {
       '@type': 'Question',
       name: 'Wat is de TOB (Taks op Beursverrichtingen)?',
-      acceptedAnswer: { '@type': 'Answer', text: 'De TOB is een Belgische belasting op elke beurstransactie. Het tarief hangt af van het type effect: voor aandelen is het 0,35%, voor obligaties 0,12%, voor accumulerende ETFs 0,12%.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'De TOB is een Belgische belasting op elke aankoop en verkoop van effecten. Het tarief hangt af van het type effect: 0,35% voor aandelen, 0,12% voor obligaties en voor de meeste ETF’s, en 1,32% voor een in België geregistreerde kapitaliserende ETF.' },
     },
     {
       '@type': 'Question',
       name: 'Hoeveel bedraagt de TOB voor ETFs?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Voor accumulerende (kapitaliserend) ETFs bedraagt de TOB 0,12% per transactie, met een maximum van €1.300 per transactie. Voor distribuerende ETFs gelden andere tarieven afhankelijk van het type fonds.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'Dat hangt af van waar de ETF geregistreerd is. In de EER maar niet in België (zoals IWDA): 0,12%, max. €1.300 per transactie. In België geregistreerd en kapitaliserend (zoals VWCE): 1,32%, max. €4.000. In België geregistreerd en uitkerend: 0,12%. Van buiten de EER: 0,35%, max. €1.600.' },
     },
     {
       '@type': 'Question',
@@ -42,9 +49,10 @@ const tobRates = [
   { type: 'Aandelen (Belgische beurs)', rate: '0,35%', max: '€1.600', notes: 'Per transactie (aankoop + verkoop = 2×)' },
   { type: 'Aandelen (buitenlandse beurs)', rate: '0,35%', max: '€1.600', notes: '' },
   { type: 'Obligaties', rate: '0,12%', max: '€1.300', notes: '' },
-  { type: 'ETFs — accumulerend (acc)', rate: '0,12%', max: '€1.300', notes: 'Meest gebruikte ETF-type voor passief beleggen' },
-  { type: 'ETFs — distribuerend (dist)', rate: '0,12%', max: '€1.300', notes: 'Kan variëren naargelang samenstelling fonds' },
-  { type: 'Geldmarktfondsen', rate: '0,12%', max: '€1.300', notes: '' },
+  { type: 'ETF geregistreerd in de EER, niet in België (acc of dist)', rate: '0,12%', max: '€1.300', notes: 'Bv. IWDA, EMIM' },
+  { type: 'ETF geregistreerd in België, kapitaliserend (acc)', rate: '1,32%', max: '€4.000', notes: 'Bv. VWCE. Bij aankoop én verkoop' },
+  { type: 'ETF geregistreerd in België, uitkerend (dist)', rate: '0,12%', max: '€1.300', notes: '' },
+  { type: 'ETF van buiten de EER', rate: '0,35%', max: '€1.600', notes: '' },
 ]
 
 export default function TobUitlegPage() {
@@ -62,10 +70,11 @@ export default function TobUitlegPage() {
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
             De TOB is een belasting die je betaalt bij elke beurstransactie in België.
-            Voor de meeste ETF-beleggers bedraagt dit 0,12% per transactie.
+            Voor de meeste ETF’s is dat 0,12% per transactie, maar voor een in België geregistreerde
+            kapitaliserende ETF zoals VWCE 1,32%.
             Wij leggen uit hoeveel je betaalt, hoe het wordt geïnd en wat je zelf moet doen.
           </p>
-          <LastUpdated date="2026-04-01" />
+          <LastUpdated date="2026-10-23" />
         </header>
 
         {/* Rates table */}
@@ -83,7 +92,7 @@ export default function TobUitlegPage() {
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {tobRates.map(({ type, rate, max, notes }) => (
-                  <tr key={type} className={type.includes('acc') ? 'bg-teal-50' : ''}>
+                  <tr key={type} >
                     <td className="py-2.5 font-medium">{type}</td>
                     <td className="py-2.5 text-right font-bold text-accent">{rate}</td>
                     <td className="py-2.5 text-right">{max}</td>
@@ -104,10 +113,12 @@ export default function TobUitlegPage() {
             twee keer per round-trip: één keer bij aankoop, één keer bij verkoop.
           </p>
 
-          <h3>Rekenvoorbeeld bij €500 ETF-aankoop (acc)</h3>
+          <h3>Rekenvoorbeeld bij €500 ETF-aankoop</h3>
           <p>
-            €500 × 0,12% = <strong>€0,60 TOB</strong> bij aankoop.
-            En nogmaals €0,60 bij verkoop. Totaal voor de round-trip: €1,20.
+            IWDA (0,12%): €500 × 0,12% = <strong>€0,60 TOB</strong> bij aankoop, en nog eens €0,60 bij verkoop.
+            VWCE (1,32%): €500 × 1,32% = <strong>€6,60 TOB</strong> bij aankoop, en nog eens €6,60 bij verkoop.
+            Waar een ETF geregistreerd is, staat in de factsheet. Meer in{' '}
+            <Link href="/belgie/vwce-vs-iwda" className="text-accent hover:underline">VWCE vs IWDA</Link>.
           </p>
 
           <h2>Wie int de TOB?</h2>
@@ -150,6 +161,8 @@ export default function TobUitlegPage() {
             <Link href="/beste-broker-belgie" className="text-accent hover:underline ml-1">Vergelijk alle brokers →</Link>
           </p>
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken="2026-10-23" />
 
         <nav className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[

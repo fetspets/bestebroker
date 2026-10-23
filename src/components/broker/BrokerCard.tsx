@@ -232,7 +232,7 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
         <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-gray-600">
           <span>Transactiekosten:</span>
           <span className="font-medium">€{monthlyCost500.toFixed(2)}/trade</span>
-          <span>TOB (0,12% ETF acc.):</span>
+          <span>TOB (0,12%, de meeste ETF’s):</span>
           <span className="font-medium">{broker.taxes.tob ? `€${tob500.toFixed(2)} (automatisch)` : `€${tob500.toFixed(2)} (zelf)`}</span>
           {broker.fees.custodyFeePercent > 0 && (
             <>

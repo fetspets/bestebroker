@@ -2,6 +2,15 @@
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
+
+const bronnen: Bron[] = [
+  { staaft: 'VWCE: ISIN, lopende kosten 0,14%, aantal aandelen, noteringen', label: 'Vanguard, FTSE All-World UCITS ETF (USD) Accumulating', href: 'https://nl.vanguard/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating' },
+  { staaft: 'TOB VWCE 1,32% en IWDA 0,12%; TER IWDA 0,20%', label: 'Curvo, VWCE vs IWDA (22/10/2026)', href: 'https://curvo.eu/nl/artikel/vwce-vs-iwda' },
+  { staaft: 'TOB-tarieven en maxima voor ETF’s', label: 'Curvo, beurstaks ETF (08/10/2026)', href: 'https://curvo.eu/nl/artikel/hoe-je-de-beurstaks-van-een-etf-berekent' },
+  { staaft: 'Spaarplannen Saxo, Trade Republic en Bolero', label: 'Curvo, beste ETF-spaarplan België (22/10/2026)', href: 'https://curvo.eu/article/best-etf-savings-plan-belgium' },
+  { staaft: 'Staffel Bolero', label: 'Bolero, tarievenlijst S101', href: 'https://www.bolero.be/uploads/media/667ecf0aabd9a/101-tarieven-nl.pdf' },
+]
 
 export const metadata: Metadata = {
   title: 'ETF kopen in België — Stap voor stap (2026)',
@@ -23,10 +32,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Welke ETF is het beste voor Belgische beginners?',
+      name: 'Welke ETF’s kopen Belgische beginners vaak?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Voor de meeste Belgische beginners is VWCE (Vanguard FTSE All-World UCITS ETF) of IWDA (iShares Core MSCI World UCITS ETF) een uitstekend startpunt. Beide zijn breed gespreid, accumulerend (geen dividend, dus minder belastingadministratie) en fiscaal efficiënt voor Belgen.',
+        text: 'Twee veelgekochte wereld-ETF’s zijn VWCE (Vanguard FTSE All-World) en IWDA (iShares Core MSCI World). Beide zijn breed gespreid en kapitaliserend. Let op de beurstaks: op VWCE betaal je als Belg 1,32% per aankoop en verkoop, op IWDA 0,12%. Dit is geen persoonlijk advies.',
       },
     },
     {
@@ -34,7 +43,7 @@ const faqJsonLd = {
       name: 'Hoeveel TOB betaal ik op een ETF-aankoop?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Op de meeste UCITS ETFs betaal je 0,12% TOB (taks op beursverrichtingen) bij aankoop én bij verkoop. Belgische brokers zoals Saxo en Bolero, en ook DEGIRO, houden dit automatisch in. Bij een broker die de TOB niet inhoudt, moet je dit zelf aangifte van doen.',
+        text: 'Op een ETF die in de EER maar niet in België geregistreerd is (zoals IWDA) betaal je 0,12% TOB bij aankoop én verkoop (max. €1.300). Een in België geregistreerde kapitaliserende ETF (zoals VWCE) kost 1,32% (max. €4.000). Belgische brokers en ook DEGIRO houden de TOB in. Houdt je broker ze niet in, dan geef je ze zelf aan.',
       },
     },
     {
@@ -42,15 +51,15 @@ const faqJsonLd = {
       name: 'Wat is het verschil tussen VWCE en IWDA?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'VWCE belegt wereldwijd inclusief opkomende markten (∼90% ontwikkeld, ∼10% emerging markets). IWDA belegt enkel in ontwikkelde landen. VWCE heeft een iets hogere TER (0,22% vs 0,20%) maar biedt bredere spreiding.',
+        text: 'VWCE belegt wereldwijd inclusief opkomende markten (∼90% ontwikkeld, ∼10% emerging markets). IWDA belegt enkel in ontwikkelde landen. VWCE heeft lagere lopende kosten (0,14% tegenover 0,20%), maar een hogere beurstaks voor Belgen (1,32% tegenover 0,12%).',
       },
     },
     {
       '@type': 'Question',
-      name: 'Welke broker is het beste voor ETFs in België?',
+      name: 'Welke brokers houden alle Belgische taksen in?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Voor beginners raden we Saxo Bank of Bolero aan: beide Belgische brokers regelen TOB, roerende voorheffing en meerwaardebelasting automatisch. MeDirect is gratis voor ETF-transacties maar heeft geen automatisch spaarplan.',
+        text: 'Saxo, Bolero, MeDirect, Keytrade en de Belgische rekening van Trade Republic houden de TOB, de roerende voorheffing en de meerwaardebelasting in. DEGIRO houdt enkel de TOB in. Kosten en spaarplannen per broker staan op /beste-etf-broker-belgie.',
       },
     },
   ],
@@ -78,7 +87,7 @@ export default function EtfKopenBeginnersPage() {
             Je wilt beginnen met beleggen via een ETF, maar weet niet waar te starten. In deze gids leggen we
             uit wat een ETF is, welke je kiest als Belgische belegger, hoe je ze koopt en wat je fiscaal moet weten.
           </p>
-          <LastUpdated date="2026-04-01" />
+          <LastUpdated date="2026-10-23" />
         </header>
 
         <div className="prose-custom max-w-3xl">
@@ -86,47 +95,47 @@ export default function EtfKopenBeginnersPage() {
           <p>
             Een ETF (<em>Exchange Traded Fund</em>) is een fonds dat je koopt en verkoopt op de beurs, net zoals
             een aandeel. Een ETF bundelt honderden of duizenden individuele aandelen in één instrument. Koop je
-            één ETF zoals VWCE, dan beleg je meteen in meer dan 3.700 bedrijven wereldwijd.
+            één ETF zoals VWCE, dan beleg je meteen in ruim 3.800 bedrijven wereldwijd.
           </p>
           <p>
             De grote voordelen van ETFs voor beginners:
           </p>
           <ul>
             <li><strong>Brede spreiding</strong> — één aankoop, duizenden bedrijven</li>
-            <li><strong>Lage kosten</strong> — jaarlijkse beheerkosten (TER) van 0,07% tot 0,25%</li>
+            <li><strong>Lage kosten</strong> — bij brede wereld-ETF’s zoals VWCE en IWDA 0,14% tot 0,20% per jaar</li>
             <li><strong>Transparantie</strong> — je weet precies wat erin zit</li>
             <li><strong>Belastingvriendelijk</strong> — accumulerende ETFs keren geen dividend uit, wat de fiscale administratie vereenvoudigt</li>
           </ul>
 
           <h2>Welke ETF kiezen als Belgische belegger?</h2>
           <p>
-            Voor de meeste Belgische beginners zijn er twee klassiekers:
+            Twee veelgekochte wereld-ETF’s zijn VWCE en IWDA. Dit zijn voorbeelden, geen advies:
           </p>
 
           <h3>VWCE — Vanguard FTSE All-World UCITS ETF</h3>
           <ul>
-            <li><strong>ISIN:</strong> IE00B3RBWM25</li>
-            <li><strong>TER:</strong> 0,22% per jaar</li>
-            <li><strong>Spreiding:</strong> ∼3.700 bedrijven, inclusief opkomende markten (~10%)</li>
+            <li><strong>ISIN:</strong> IE00BK5BQT80</li>
+            <li><strong>TER:</strong> 0,14% per jaar</li>
+            <li><strong>Spreiding:</strong> 3.821 bedrijven (30/09/2026), ook in opkomende landen</li>
             <li><strong>Accumulerend:</strong> dividenden worden automatisch herbelegd</li>
-            <li><strong>TOB bij aankoop/verkoop:</strong> 0,12%</li>
+            <li><strong>TOB bij aankoop/verkoop:</strong> 1,32% (in België geregistreerd, max. €4.000)</li>
           </ul>
           <p>
-            VWCE is de meest complete wereldwijde ETF voor buy-and-hold beleggers. Je belegt in zowel
-            ontwikkelde landen (VS, Europa, Japan) als opkomende markten (China, India, Brazilië).
+            Met VWCE beleg je in ontwikkelde landen (VS, Europa, Japan) én in opkomende landen (China, India,
+            Brazilië). De lopende kosten zijn laag, maar de beurstaks is voor Belgen elf keer hoger dan bij IWDA.
           </p>
 
           <h3>IWDA — iShares Core MSCI World UCITS ETF</h3>
           <ul>
             <li><strong>ISIN:</strong> IE00B4L5Y983</li>
             <li><strong>TER:</strong> 0,20% per jaar</li>
-            <li><strong>Spreiding:</strong> ∼1.400 bedrijven, enkel ontwikkelde landen</li>
+            <li><strong>Spreiding:</strong> ±1.500 bedrijven, enkel ontwikkelde landen</li>
             <li><strong>Accumulerend:</strong> ja</li>
             <li><strong>TOB bij aankoop/verkoop:</strong> 0,12%</li>
           </ul>
           <p>
-            IWDA biedt iets lagere kosten maar mist de opkomende markten. Wil je die erbij, combineer
-            dan IWDA met EMIM (iShares Core MSCI EM IMI UCITS ETF) in een 90/10 verhouding.
+            IWDA heeft een lage beurstaks maar bevat geen opkomende landen. Wie die erbij wil, combineert IWDA vaak met
+            een opkomende-landen-ETF zoals EMIM (iShares Core MSCI EM IMI, TOB 0,12%).
           </p>
           <p>
             Lees onze volledige vergelijking:{' '}
@@ -135,28 +144,29 @@ export default function EtfKopenBeginnersPage() {
 
           <h2>Stap 1 — Kies je broker</h2>
           <p>
-            Voor beginners zijn er drie topkeuzes, elk met hun eigen voordelen:
+            Drie Belgische brokers die alle taksen inhouden, met hun belangrijkste verschil. Alle zes brokers naast
+            elkaar: <Link href="/beste-etf-broker-belgie" className="text-accent underline">ETF-brokers vergeleken</Link>.
           </p>
 
-          <h3>Saxo Bank — Beste voor automatisch beleggen</h3>
+          <h3>Saxo Bank — automatisch beleggen met AutoInvest</h3>
           <p>
             Via <strong>AutoInvest</strong> kun je maandelijks automatisch ETFs aankopen voor slechts €2/maand.
             Saxo regelt alle belastingen automatisch: TOB, roerende voorheffing, Reynders en de meerwaardebelasting.
-            Ideaal als je wil dat alles op de automatische piloot werkt.
+            Handig als je de aankoop elke maand automatisch wil laten gebeuren.
           </p>
           <p>→ <Link href="/reviews/saxo-bank-belgie" className="text-accent underline">Saxo Bank review</Link></p>
 
-          <h3>Bolero — Beste Belgische bank met nul securities lending</h3>
+          <h3>Bolero — online broker van KBC, leent effecten niet uit</h3>
           <p>
-            Bolero (KBC-dochter) leent jouw effecten nooit uit, heeft Invest & Repeat voor herhalende orders
-            en regelt alle belastingen automatisch. Transactiekosten: €2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500 (tarieflijst 11/06/2025).
+            Bolero (KBC) leent jouw effecten niet uit, laat periodiek beleggen in hele stuks toe
+            en houdt alle Belgische taksen in. Transactiekosten: €2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500 (tarieflijst 11/06/2025).
           </p>
           <p>→ <Link href="/reviews/bolero" className="text-accent underline">Bolero review</Link></p>
 
-          <h3>MeDirect — Beste voor gratis ETF-transacties</h3>
+          <h3>MeDirect — geen makelaarsloon op ETF’s</h3>
           <p>
             MeDirect rekent <strong>geen transactiekosten</strong> aan voor ETF-aankopen en -verkopen.
-            Ideaal als je maandelijks kleine bedragen wil beleggen zonder vaste kosten. Nadeel: geen automatisch spaarplan.
+            Daardoor kost ook een klein bedrag per maand geen orderkost. Er is geen automatisch spaarplan: je koopt zelf.
           </p>
           <p>→ <Link href="/reviews/medirect" className="text-accent underline">MeDirect review</Link></p>
 
@@ -178,17 +188,19 @@ export default function EtfKopenBeginnersPage() {
           <h2>Stap 3 — Je eerste ETF aankopen</h2>
           <p>
             Eenmaal je account gevuld is, zoek je de ETF op via de zoekbalk. Typ de naam (VWCE) of de ISIN-code
-            (IE00B3RBWM25). Let op:
+            (IE00BK5BQT80). Let op:
           </p>
           <ul>
             <li>Kies altijd de <strong>EUR-variant</strong> op een Europese beurs (Amsterdam/Xetra)</li>
-            <li>Kies de <strong>accumulerende versie</strong> (Acc of Inc — kies Acc voor automatische herbelasting)</li>
+            <li>Kies de <strong>kapitaliserende versie</strong> (Acc). Op een uitkerende versie (Dist/Inc, bij Vanguard VWRL) betaal je 30% roerende voorheffing op elk dividend</li>
             <li>Kies bij voorkeur een <strong>limietorder</strong> boven een marktorder om de prijs te controleren</li>
           </ul>
 
           <h2>TOB — De taks op beursverrichtingen</h2>
           <p>
-            Bij elke aankoop én verkoop van een ETF betaal je <strong>0,12% TOB</strong>.
+            Bij elke aankoop én verkoop van een ETF betaal je TOB: <strong>0,12%</strong> voor een ETF die in de EER maar
+            niet in België geregistreerd is (zoals IWDA), <strong>1,32%</strong> voor een in België geregistreerde
+            kapitaliserende ETF (zoals VWCE).
             Belgische brokers en ook DEGIRO houden dit automatisch in. Houdt je broker de TOB niet in, dan geef je
             ze zelf aan via MyMinfin.be.
           </p>
@@ -214,17 +226,17 @@ export default function EtfKopenBeginnersPage() {
           <ol>
             <li>Zoek &quot;VWCE&quot; in het handelsplatform</li>
             <li>Kies de notering op <strong>Euronext Amsterdam</strong> in EUR</li>
-            <li>Stel een limietorder in op de huidige marktprijs (bijv. €132)</li>
+            <li>Stel een limietorder in op de huidige marktprijs (voorbeeldprijs: €132)</li>
             <li>Aantal: 3 stuks × €132 = €396 (je kunt geen fractionele stuks kopen bij de meeste brokers)</li>
-            <li>Bevestig — Saxo houdt automatisch 0,12% TOB in (±€0,48)</li>
+            <li>Bevestig — Saxo houdt automatisch de TOB in: voor VWCE 1,32%, dus ±€5,23 op €396 (bij IWDA zou het 0,12% zijn)</li>
           </ol>
 
           <h2>Veelgestelde vragen</h2>
 
           <h3>Kan ik maandelijks een klein bedrag beleggen?</h3>
           <p>
-            Ja. Via Saxo AutoInvest kun je vanaf €1/maand automatisch ETFs aankopen. Bij Bolero (Invest & Repeat)
-            stel je herhalende orders in — je storting moet je zelf doen. MeDirect heeft geen spaarplan maar
+            Ja. Saxo AutoInvest (€2 per maand) heeft geen minimumbedrag en Trade Republic heeft een gratis spaarplan vanaf €1.
+            Bij Bolero kan periodiek beleggen enkel in hele stuks. MeDirect heeft geen spaarplan maar
             transacties zijn gratis, dus €50/maand beleggen is kosteloos.
           </p>
 
@@ -238,15 +250,19 @@ export default function EtfKopenBeginnersPage() {
           <h3>Is beleggen in ETFs riskant?</h3>
           <p>
             Elke belegging draagt risico. ETFs kunnen in waarde dalen. Op lange termijn (10+ jaar) heeft een
-            wereldwijd gespreide ETF historisch gezien positief gerendeerd. Beleg enkel geld dat je lang kunt
+            wereldwijd gespreide ETF historisch gezien positief gerendeerd, maar rendementen uit het verleden bieden geen garantie voor de toekomst. Beleg enkel geld dat je lang kunt
             missen en spreid je aankopen in de tijd (dollar-cost averaging).
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="mt-10">
+          <Bronnen bronnen={bronnen} nagekeken="2026-10-23" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             { href: '/belgie/vwce-vs-iwda', label: 'VWCE vs IWDA — welke ETF kies je?' },
-            { href: '/beste-etf-broker-belgie', label: 'Beste ETF-broker voor Belgen' },
+            { href: '/beste-etf-broker-belgie', label: 'ETF-brokers in België vergeleken' },
             { href: '/belgie/tob-uitleg', label: 'TOB uitgelegd' },
             { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026' },
           ].map(({ href, label }) => (
