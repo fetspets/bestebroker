@@ -7,15 +7,23 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
 const broker = getBrokerById('medirect')!
 
+const bronnen: Bron[] = [
+  { staaft: 'ETF-transacties gratis sinds augustus 2025, aandelen 0,15%, inhouding TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting, opt-out, geen uitlenen van effecten', label: 'Curvo, MeDirect review (03/09/2026)', href: 'https://curvo.eu/nl/artikel/medirect-review' },
+  { staaft: 'Minimum €2,50 per aandelenorder op de meeste Europese beurzen sinds 1 juli 2026', label: 'Test Aankoop Invest (29/06/2026)', href: 'https://www.test-aankoop.be/invest/beleggen/aandelen/artikels/2026/06/medirect-verlaagt-transactiekosten-aandelen' },
+  { staaft: 'Geen spaarplan op het brokerplatform, overdrachtkosten', label: 'Curvo, MeDirect vs Saxo (03/09/2026)', href: 'https://curvo.eu/nl/artikel/medirect-vs-saxo' },
+]
+
 export const metadata: Metadata = {
-  title: 'MeDirect Review 2026 — Gratis ETF-Transacties voor Belgische Beleggers',
+  title: 'MeDirect review 2026: gratis ETF’s, aandelen en taksen',
   description:
-    'MeDirect review 2026: gratis ETF-aankopen, Belgische belastingafhandeling en geen securities lending. Ideaal voor buy-and-hold ETF-beleggers.',
+    'MeDirect nagekeken: ETF’s zonder makelaarsloon, wat aandelen kosten sinds juli 2026, welke taksen MeDirect inhoudt en wat ontbreekt. Met bronnen.',
   openGraph: {
-    title: 'MeDirect Review 2026',
+    title: 'MeDirect review 2026: gratis ETF’s, aandelen en taksen',
+    description: 'ETF’s zonder makelaarsloon, aandelenkosten sinds juli 2026, ingehouden taksen en wat ontbreekt. Met bronnen.',
     url: 'https://www.bestebroker.be/reviews/medirect',
     locale: 'nl_BE',
     type: 'article',
@@ -50,8 +58,8 @@ export default function MeDirectReviewPage() {
         <header className="mb-8">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">MeDirect — Review 2026</h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            MeDirect is een Maltese bank met een Belgische vergunning. Sinds augustus 2025 zijn alle
-            ETF-transacties volledig gratis — een unieke propositie op de Belgische markt.
+            MeDirect Bank is een bank naar Belgisch recht. Sinds augustus 2025 betaal je geen makelaarsloon
+            op ETF-transacties. Aandelen zijn wel betalend, en een automatisch spaarplan is er niet.
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
@@ -63,38 +71,55 @@ export default function MeDirectReviewPage() {
         </div>
 
         <div className="prose-custom max-w-3xl mb-10">
-          <h2>Gratis ETF-transacties</h2>
+          <h2>Wat kost beleggen bij MeDirect?</h2>
+          <ul>
+            <li><strong>ETF&apos;s:</strong> geen makelaarsloon, sinds augustus 2025. De beurstaks (TOB) betaal je wel.</li>
+            <li>
+              <strong>Aandelen:</strong> 0,15% van het orderbedrag. Sinds 1 juli 2026 is het minimum €2,50 per order op
+              de meeste Europese beurzen (voordien €7).
+            </li>
+            <li><strong>Bewaarloon:</strong> geen.</li>
+            <li><strong>Effecten overzetten</strong> naar een andere bank: €50 per lijn.</li>
+          </ul>
+
+          <h2>Geen automatisch spaarplan</h2>
           <p>
-            Sinds <strong>augustus 2025</strong> rekent MeDirect geen transactiekosten aan voor ETF-aankopen en -verkopen.
-            Dit maakt MeDirect de goedkoopste optie voor frequente ETF-handelaars, en zeker voor kleinere bedragen
-            waar vaste fees verhoudingsgewijs zwaar wegen.
+            Op het brokerplatform van MeDirect plaats je elke aankoop zelf. Wie maandelijks automatisch wil beleggen,
+            vindt dat bij Saxo (AutoInvest) of bij Trade Republic (spaarplannen). Zie{' '}
+            <Link href="/vergelijking/saxo-vs-medirect" className="text-accent underline">MeDirect vs Saxo</Link>.
           </p>
 
-          <h2>Wat kost het dan wel?</h2>
+          <h2>Taksen: wat houdt MeDirect in?</h2>
+          <ul>
+            <li><strong>Beurstaks (TOB):</strong> ingehouden en aangegeven.</li>
+            <li><strong>Roerende voorheffing</strong> op dividenden: ingehouden.</li>
+            <li><strong>Reynderstaks:</strong> ingehouden bij verkoop.</li>
+            <li>
+              <strong>Meerwaardebelasting:</strong> ingehouden bij elke verkoop. MeDirect weet niet of je over het hele jaar
+              onder de vrijstelling blijft. Teveel betaald krijg je terug via je aangifte, wat tot tweeënhalf jaar kan duren.
+              Je kan de inhouding ook uitzetten en zelf aangeven. Meer uitleg:{' '}
+              <Link href="/belgie/meerwaardebelasting-2026-uitleg" className="text-accent underline">meerwaardebelasting 2026</Link>.
+            </li>
+          </ul>
+          <p>Een melding bij de Nationale Bank is niet nodig: het is een Belgische rekening.</p>
+
+          <h2>Bescherming en veiligheid</h2>
           <p>
-            Individuele aandelen: <strong>0,15% met een minimum van €6</strong> per transactie.
-            Geen bewaarloon. Geen jaarlijkse rekening fee.
+            MeDirect leent je effecten niet uit. Je effecten worden gescheiden bewaard. Kan de bank ze bij een faillissement
+            toch niet teruggeven, dan beschermt het Belgische stelsel effecten tot €20.000 en cash tot €100.000.
+            Hoe we veiligheid scoren, lees je in de <Link href="/methodologie" className="text-accent underline">methodologie</Link>.
           </p>
 
-          <h2>Geen spaarplan</h2>
+          <h2>Samengevat</h2>
           <p>
-            MeDirect heeft <strong>geen automatisch spaarplan of auto-invest functie</strong>.
-            Elke aankoop moet je handmatig doen. Voor beleggers die maandelijks willen bijleggen, is dit
-            een nadeel tegenover Saxo (AutoInvest) of Bolero (Invest & Repeat).
-          </p>
-
-          <h2>Meerwaardebelasting</h2>
-          <p>
-            MeDirect is een Belgische broker en handelt de belastingen automatisch af. Verifieer de status
-            van de meerwaardebelasting voor 2026 rechtstreeks bij MeDirect voor de exacte implementatiedatum.
-          </p>
-
-          <h2>Onze conclusie</h2>
-          <p>
-            MeDirect is de beste keuze voor <strong>buy-and-hold ETF-beleggers die handmatig aankopen</strong>
-            en de laagst mogelijke transactiekosten willen. Als je automatisering wenst, is Saxo of Bolero beter.
+            MeDirect past bij wie vooral ETF&apos;s koopt, zelf de orders plaatst en de Belgische taksen wil laten inhouden.
+            Wie automatisch maandelijks wil beleggen of vaak aandelen koopt, vergelijkt best eerst met andere brokers in het{' '}
+            <Link href="/beste-broker-belgie" className="text-accent underline">overzicht</Link>.
+            Dit is algemene informatie, geen persoonlijk advies.
           </p>
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken={broker.lastVerified} />
 
         {broker.affiliateUrl && (
           <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
@@ -112,7 +137,7 @@ export default function MeDirectReviewPage() {
           <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: '/vergelijking/saxo-vs-medirect', label: 'Saxo vs MeDirect — AutoInvest vs gratis ETFs' },
+              { href: '/vergelijking/saxo-vs-medirect', label: 'Saxo vs MeDirect: AutoInvest of gratis ETF’s' },
               { href: '/goedkoopste-broker-belgie', label: 'Goedkoopste broker in België 2026' },
               { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken' },
               { href: '/belgie/etf-kopen-beginners', label: 'Hoe koop je een ETF in België?' },

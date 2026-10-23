@@ -131,7 +131,7 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
               <th className="text-left px-4 py-3"><SortBtn col="name" label="Broker" /></th>
               <th className="text-center px-4 py-3"><SortBtn col="rating" label="Score" /></th>
               <th className="text-left px-4 py-3">Type</th>
-              <th className="text-center px-4 py-3"><SortBtn col="transactionFee" label="Transactiekost" /></th>
+              <th className="text-center px-4 py-3"><SortBtn col="transactionFee" label="Min. transactiekost" /></th>
               <th className="text-center px-4 py-3">TOB</th>
               <th className="text-center px-4 py-3">
                 <div className="relative group inline-flex items-center gap-1 cursor-default select-none">
@@ -253,7 +253,7 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                 <p className="font-medium">{broker.type}</p>
               </div>
               <div>
-                <span className="text-gray-500 text-xs">Transactiekost</span>
+                <span className="text-gray-500 text-xs">Min. transactiekost</span>
                 <p className="font-medium">{broker.fees.transactionFeeMin === 0 ? 'Gratis' : `€${broker.fees.transactionFeeMin.toFixed(2)}`}</p>
               </div>
               <div>

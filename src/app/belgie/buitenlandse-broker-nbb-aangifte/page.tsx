@@ -87,7 +87,7 @@ export default function NbbAangiftePage() {
               { broker: 'Saxo Bank', land: 'Belgisch bijkantoor', vereist: false },
               { broker: 'Bolero', land: 'België (KBC)', vereist: false },
               { broker: 'MeDirect', land: 'België/Malta (Belgische vergunning)', vereist: false },
-              { broker: 'Keytrade', land: 'België (Crelan)', vereist: false },
+              { broker: 'Keytrade', land: 'Belgisch bijkantoor (Arkéa, Frankrijk)', vereist: false },
             ].map(({ broker, land, vereist }) => (
               <div key={broker} className={`p-3 rounded-lg border text-sm ${vereist ? 'bg-red-50 border-red-200' : 'bg-green-50 border-green-200'}`}>
                 <p className="font-semibold">{broker}</p>

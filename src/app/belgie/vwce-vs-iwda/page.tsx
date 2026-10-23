@@ -208,7 +208,7 @@ export default function VwceVsIwdaPage() {
               {' '}<Link href="/reviews/saxo-bank-belgie" className="text-accent underline">Saxo review</Link>
             </li>
             <li>
-              <strong>Bolero</strong> — VWCE staat in de Playlist (lagere kosten).
+              <strong>Bolero</strong> — €2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500 per order.
               {' '}<Link href="/reviews/bolero" className="text-accent underline">Bolero review</Link>
             </li>
             <li>

@@ -13,7 +13,7 @@ import {
   Filler,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
-import type { Broker } from '@/data/brokers'
+import { transactiekost, type Broker } from '@/data/brokers'
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
 
@@ -42,12 +42,7 @@ function calculatePortfolio(broker: Broker, state: CalculatorState): number[] {
   } = state
 
   const annualReturn = returnRate / 100
-  const feePerTrade = Math.max(
-    broker.fees.transactionFeeMin,
-    tradeSize * broker.fees.transactionFeePercent + broker.fees.transactionFeeFixed
-  )
-  const maxFee = broker.fees.transactionFeeMax
-  const cappedFeePerTrade = maxFee !== null ? Math.min(feePerTrade, maxFee) : feePerTrade
+  const cappedFeePerTrade = transactiekost(broker.fees, tradeSize)
   const annualTransactionCost = tradesPerMonth * 12 * cappedFeePerTrade
   const annualContrib = monthlyContribution * 12
 
