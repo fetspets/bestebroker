@@ -75,8 +75,8 @@ export function scoreBrokers(answers: WizardAnswers, brokers: Broker[]): ScoredB
       // Belgian broker preference (implicit safety bonus)
       if (broker.type === 'belgisch') {
         score += 5
-        if (broker.security.depositProtection >= 100000) {
-          reasons.push('€100.000 Belgische bescherming')
+        if (!broker.nbbRegistrationRequired) {
+          reasons.push('Belgische rekening: geen NBB-melding nodig')
         }
       }
 

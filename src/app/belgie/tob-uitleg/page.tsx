@@ -33,7 +33,7 @@ const faqJsonLd = {
     {
       '@type': 'Question',
       name: 'Wie betaalt de TOB als ik via DEGIRO beleg?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Bij DEGIRO moet je de TOB zelf aangeven en betalen via myminfin.be. DEGIRO is een buitenlandse broker en houdt de TOB niet automatisch in.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'DEGIRO houdt de TOB zelf in en stort ze door aan de Belgische fiscus. Je moet de TOB enkel zelf aangeven bij een broker die ze niet inhoudt, bijvoorbeeld een oude Duitse rekening bij Trade Republic.' },
     },
   ],
 }
@@ -117,24 +117,25 @@ export default function TobUitlegPage() {
             aftrek op je rekeningafschrift.
           </p>
           <p>
-            Buitenlandse brokers (DEGIRO, Trade Republic) doen dit <strong>niet</strong>.
-            Als Belgische belegger ben je dan zelf verantwoordelijk voor:
+            Ook DEGIRO houdt de TOB in, en Trade Republic doet dat op een Belgische rekening (geopend vanaf
+            15 september 2026). Houdt je broker de TOB <strong>niet</strong> in, bijvoorbeeld op een oude Duitse
+            rekening bij Trade Republic, dan ben je zelf verantwoordelijk voor:
           </p>
           <ul>
             <li>De TOB te berekenen op elke transactie</li>
-            <li>Maandelijks aangifte te doen via <strong>myminfin.be</strong></li>
-            <li>De TOB te betalen vóór de 20ste van de maand volgend op de transactie</li>
+            <li>De aangifte via <strong>MyMinfin</strong> (Mijn aangifte → Diverse taksen)</li>
+            <li>De aangifte en betaling uiterlijk op de laatste werkdag van de tweede maand na de maand van de transactie</li>
           </ul>
 
           <h2>TOB-aangifte bij buitenlandse broker — hoe?</h2>
           <p>
-            Als je via DEGIRO of Trade Republic belegt, moet je maandelijks de TOB zelf aangeven en betalen:
+            Houdt je broker de TOB niet in, dan geef je ze zelf aan en betaal je ze per maand waarin je transacties deed:
           </p>
           <ol>
             <li>Log in op <strong>myminfin.be</strong></li>
-            <li>Ga naar &quot;Mijn belastingen&quot; → &quot;Taks op beursverrichtingen&quot;</li>
+            <li>Ga naar &quot;Mijn aangifte&quot; → &quot;Diverse taksen&quot; → taks op beursverrichtingen</li>
             <li>Voer per transactie het bedrag, de datum en het type effect in</li>
-            <li>Betaal voor de 20ste van de volgende maand</li>
+            <li>Dien in en betaal uiterlijk op de laatste werkdag van de tweede maand na de transactie (bv. een aankoop in maart: uiterlijk eind mei)</li>
           </ol>
           <p className="text-sm text-orange-700 bg-orange-50 p-3 rounded-lg">
             ⚠ Niet-aangifte kan leiden tot boetes en naheffingen met interest. Houd je transacties

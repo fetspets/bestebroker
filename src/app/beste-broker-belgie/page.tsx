@@ -46,7 +46,7 @@ const jsonLd = {
       name: 'Wat is TOB en wie betaalt het?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'TOB staat voor Taks op Beursverrichtingen. Voor ETF-aandelen (accumulerend) bedraagt het 0,12% per transactie. Belgische brokers betalen dit automatisch voor jou. Bij buitenlandse brokers zoals DEGIRO moet je zelf aangifte doen en betalen.',
+        text: 'TOB staat voor Taks op Beursverrichtingen. Voor ETF-aandelen (accumulerend) bedraagt het 0,12% per transactie. Belgische brokers en ook DEGIRO houden dit automatisch in. Bij een broker die de TOB niet inhoudt, moet je zelf aangifte doen en betalen.',
       },
     },
   ],
@@ -124,9 +124,9 @@ export default function BesteBrokerPage() {
 
           <h3>Is DEGIRO nog de moeite waard voor Belgische beleggers?</h3>
           <p>
-            DEGIRO heeft nog steeds lage kosten, maar de fiscale administratielast maakt het minder aantrekkelijk
-            dan vroeger. Je moet zelf TOB aangeven, zelf dividendbelasting bijhouden én straks zelf aangifte doen
-            voor de meerwaardebelasting. En in het basisaccount is securities lending verplicht.
+            DEGIRO heeft lage orderkosten (€1 voor ETF’s uit de kernselectie) en houdt de beurstaks in. De
+            meerwaardebelasting, de Reynderstaks en de roerende voorheffing op buitenlandse dividenden geef je zelf aan,
+            en je meldt de rekening bij de Nationale Bank. Het Basis-account laat het uitlenen van effecten toe.
             <Link href="/reviews/degiro-belgie" className="text-accent hover:underline ml-1">Volledige DEGIRO-review →</Link>
           </p>
 
@@ -134,7 +134,7 @@ export default function BesteBrokerPage() {
           <p>
             Securities lending betekent dat de broker jouw effecten uitleent aan andere partijen (voor short selling).
             Jij draagt dan tegenpartijrisico. Belgische brokers zoals Bolero doen dit nooit. Saxo biedt het als opt-in
-            aan (zet het uit!). Bij DEGIRO is het in het basisaccount verplicht.
+            aan. Bij DEGIRO staat het in de voorwaarden van het Basis-account (DEGIRO meldt dat het momenteel niet uitleent).
           </p>
         </section>
 
