@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Broker } from '@/data/brokers'
+import { transactiekost, type Broker } from '@/data/brokers'
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
@@ -95,7 +95,7 @@ function StarRating({ rating }: { rating: number }) {
 export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = true, source = 'broker-card' }: Props) {
   const monthlyCost500 = broker.fees.etfStandard !== undefined
     ? broker.fees.etfStandard
-    : Math.max(broker.fees.transactionFeeMin, 500 * broker.fees.transactionFeePercent + broker.fees.transactionFeeFixed)
+    : transactiekost(broker.fees, 500)
   const tob500 = 500 * 0.0012
 
   if (variant === 'compact') {

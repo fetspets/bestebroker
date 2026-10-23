@@ -7,16 +7,32 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
 const broker = getBrokerById('keytrade')!
 
+const bronnen: Bron[] = [
+  { staaft: 'Transactiekosten Euronext (staffel vanaf 22/01/2025) en overdrachtkosten', label: 'Keytrade Bank, nieuwe tarieven 2025', href: 'https://keytradebank.be/en/new-trading-tariffs-2025' },
+  { staaft: 'Geen bewaarloon (effectenrekening blijft gratis)', label: 'Test-Aankoop (01/2025)', href: 'https://www.test-aankoop.be/invest/beleggen/aandelen/analysis/2025/01/keytrade-brokertarieven-wijziging' },
+  { staaft: 'Inhouding van de taksen, opt-out meerwaardebelasting, geen uitlenen, bescherming, itsme, geen spaarplan op het brokerplatform', label: 'Curvo, Keytrade review (03/09/2026)', href: 'https://curvo.eu/nl/artikel/keytrade-review' },
+  { staaft: 'Juridische vorm: Belgisch bijkantoor van Arkéa Direct Bank SA', label: 'Keytrade Bank, trading', href: 'https://www.keytradebank.be/en/investing/trading' },
+  { staaft: 'Minnelijke schikking met de FSMA', label: 'FSMA-persbericht (22/04/2026)', href: 'https://www.vfb.be/Media/Default/pdf/20260422%20Persbericht%20Minnelijke%20schikking%20Keytrade.pdf' },
+]
+
+const staffel = [
+  { bedrag: 'tot €250', kost: '€2,45' },
+  { bedrag: '€250,01 tot €2.500', kost: '€5,95' },
+  { bedrag: '€2.500,01 tot €10.000', kost: '€14,95' },
+  { bedrag: 'per extra schijf van €10.000', kost: '+ €7,50' },
+]
+
 export const metadata: Metadata = {
-  title: 'Keytrade Bank Review 2026 — Belgische Broker voor Langetermijnbeleggers',
+  title: 'Keytrade Bank review 2026: kosten per order en taksen',
   description:
-    'Keytrade Bank review voor Belgische beleggers in 2026. Volledig Belgische broker met automatische belastingafhandeling, geen securities lending, maar hogere kosten (€12,50/trade, 0,24%/jaar bewaarloon).',
+    'Keytrade Bank nagekeken: wat kost een order van €250, €1.000 of €5.000? Welke taksen houdt Keytrade in, hoe ben je beschermd? Met bronnen.',
   openGraph: {
-    title: 'Keytrade Bank Review 2026 — Belgische Broker voor Langetermijnbeleggers',
-    description: 'Keytrade Bank review voor Belgische beleggers in 2026. Volledig Belgische broker met automatische belastingafhandeling, geen securities lending, maar hogere kosten.',
+    title: 'Keytrade Bank review 2026: kosten per order en taksen',
+    description: 'Keytrade Bank nagekeken: kosten per orderbedrag, ingehouden taksen, bescherming en overdrachtkosten. Met bronnen.',
     url: 'https://www.bestebroker.be/reviews/keytrade-belgie',
     locale: 'nl_BE',
     type: 'article',
@@ -51,9 +67,9 @@ export default function KeytradeReviewPage() {
         <header className="mb-8">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">Keytrade Bank — Review 2026</h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            Keytrade Bank is een van de oudste online brokers in België, nu onderdeel van de Crelan-groep.
-            Als volledig Belgische broker regelt Keytrade alle belastingen automatisch en leent jouw effecten
-            nooit uit — maar de hogere kosten maken het voor de meeste beleggers een dure keuze.
+            Keytrade Bank is sinds 1998 actief in België. Het is een Belgisch bijkantoor van de Franse
+            Arkéa Direct Bank (groep Crédit Mutuel Arkéa). Keytrade houdt de Belgische taksen in en leent je
+            effecten niet uit. Een order kost €2,45 tot €250 en €5,95 tot €2.500.
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
@@ -65,87 +81,80 @@ export default function KeytradeReviewPage() {
         </div>
 
         <div className="prose-custom max-w-3xl mb-10">
-          <h2>Kosten in detail</h2>
+          <h2>Wat kost een order bij Keytrade?</h2>
           <p>
-            Keytrade rekent een vaste kost van <strong>€12,50 per transactie</strong>, ongeacht de
-            ordergrootte of het instrument. Dat geldt voor ETFs, aandelen en andere effecten op Euronext
-            en andere beurzen. Er is geen procentuele component — je betaalt altijd €12,50, of je nu
-            voor €500 of €50.000 koopt.
+            Sinds 22 januari 2025 geldt voor aandelen en ETF&apos;s (trackers) op Euronext Brussel, Amsterdam en Parijs
+            deze staffel:
+          </p>
+          <div className="not-prose overflow-x-auto my-4">
+            <table className="w-full text-sm border border-gray-200 rounded-lg">
+              <thead className="bg-gray-50">
+                <tr><th scope="col" className="text-left p-2">Orderbedrag</th><th scope="col" className="text-left p-2">Makelaarsloon</th></tr>
+              </thead>
+              <tbody>
+                {staffel.map(r => (
+                  <tr key={r.bedrag} className="border-t border-gray-100"><td className="p-2">{r.bedrag}</td><td className="p-2 font-medium">{r.kost}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p>
+            Daarbovenop betaal je de beurstaks (TOB), die Keytrade inhoudt. Bewaarloon is er niet.
+            Effecten overzetten naar een andere bank kost €50 per lijn exclusief btw (€60,50 inclusief).
           </p>
           <p>
-            Daarbovenop geldt een <strong>bewaarloon van 0,24% per jaar</strong> op de totale
-            portefeuillewaarde. Dat is ongebruikelijk: de meeste Belgische concurrenten (Saxo, Bolero,
-            MeDirect) rekenen geen bewaarloon. Bij een portefeuille van €50.000 betaal je zo al
-            €120/jaar puur voor het bewaren van je effecten.
-          </p>
-          <p>
-            De combinatie van hoge transactiekosten én bewaarloon maakt Keytrade duur voor vrijwel
-            elke beleggingsstijl. Alleen bij een zeer grote portefeuille met nauwelijks transacties
-            weegt het bewaarloon mee maar is de absolute impact beperkt.
+            Wie elke maand €300 belegt, betaalt €5,95 per aankoop. Bij Bolero is dat €5, bij Saxo €2.
+            Reken je eigen situatie na met de <Link href="/tools/brokerkosten-calculator" className="text-accent underline">kostencalculator</Link>.
           </p>
 
-          <h2>Belastingen: volledig automatisch</h2>
-          <p>
-            Keytrade Bank is een volledig Belgische broker (FSMA- en NBB-geregistreerd) en handelt
-            alle verplichte belastingen automatisch af:
-          </p>
+          <h2>Taksen: wat houdt Keytrade in?</h2>
           <ul>
-            <li><strong>TOB</strong> (beurstaks) — ingehouden bij elke transactie</li>
-            <li><strong>Roerende voorheffing</strong> op dividenden — automatisch ingehouden aan de bron</li>
-            <li><strong>Reynders-taks</strong> op obligatiefondsen — afgehandeld bij verkoop</li>
-            <li><strong>Meerwaardebelasting (2026)</strong> — Keytrade handelt dit automatisch af</li>
+            <li><strong>Beurstaks (TOB):</strong> ingehouden en aangegeven.</li>
+            <li><strong>Roerende voorheffing</strong> op dividenden: ingehouden.</li>
+            <li><strong>Reynderstaks:</strong> ingehouden bij verkoop.</li>
+            <li>
+              <strong>Meerwaardebelasting:</strong> ingehouden bij elke verkoop. Teveel betaald recupereer je via je aangifte,
+              wat tot tweeënhalf jaar kan duren. Je kan de inhouding ook uitzetten en zelf aangeven. Meer uitleg:{' '}
+              <Link href="/belgie/meerwaardebelasting-2026-uitleg" className="text-accent underline">meerwaardebelasting 2026</Link>.
+            </li>
           </ul>
+          <p>Een melding bij de Nationale Bank is niet nodig.</p>
+
+          <h2>Bescherming en veiligheid</h2>
           <p>
-            Je hoeft als Keytrade-klant geen aparte belastingaangifte te doen voor je beleggingen.
-            De NBB-aangifte voor buitenlandse rekeningen is evenmin vereist, omdat Keytrade een
-            Belgische instelling is.
+            Keytrade leent je effecten niet uit. Omdat de bank een bijkantoor is van een Franse bank, valt je rekening onder
+            het Franse garantiefonds (FGDR): effecten tot €70.000 en cash tot €100.000.
+          </p>
+          <p>
+            In april 2026 sloot Keytrade een minnelijke schikking van €250.000 met de FSMA. Door een IT-probleem kon de bank
+            van eind december 2023 tot half maart 2024 niet goed nagaan of beleggingen passend waren voor klanten. Hoe dit
+            meetelt in de score, lees je in de <Link href="/methodologie" className="text-accent underline">methodologie</Link>.
           </p>
 
-          <h2>Geen securities lending</h2>
+          <h2>Spaarplan en rekening openen</h2>
           <p>
-            Keytrade leent jouw effecten <strong>nooit</strong> uit aan derden. Dit elimineert het
-            tegenpartijrisico dat verbonden is aan securities lending, waarbij jouw aandelen tijdelijk
-            worden uitgeleend aan short-sellers of andere partijen. Voor beleggers die hier belang
-            aan hechten, is dit een duidelijk pluspunt — al bieden ook Bolero en MeDirect deze
-            garantie.
+            Op het brokerplatform is er geen automatisch spaarplan: je plaatst elke aankoop zelf. Keytrade biedt wel Keyplan aan,
+            een plan in beleggingsfondsen met hogere lopende kosten. Een rekening openen kan met itsme.
           </p>
 
-          <h2>Wanneer is Keytrade een goede keuze?</h2>
+          <h2>Samengevat</h2>
           <p>
-            Keytrade is enkel interessant in een heel specifiek scenario: een <strong>grote, nauwelijks
-            aangeraakte portefeuille</strong> van beleggers die absolute Belgische zekerheid willen en
-            al lang klant zijn. De combinatie van een bekende naam, Belgisch statuut en geen securities
-            lending spreekt een bepaalde groep conservatieve beleggers aan.
-          </p>
-          <p>
-            Voor de meeste nieuwe beleggers zijn er betere alternatieven:
-          </p>
-          <ul>
-            <li><strong>MeDirect</strong> — gratis ETF-transacties, geen bewaarloon, volledig Belgisch</li>
-            <li><strong>Saxo Bank</strong> — lage transactiekosten (0,08% min. €2), geen bewaarloon, AutoInvest</li>
-            <li><strong>Bolero</strong> — vaste €7,50/trade, geen bewaarloon, Invest & Repeat</li>
-          </ul>
-          <p>
-            Bij elke vergelijking verliest Keytrade op prijs. Tenzij je al een bestaande portefeuille
-            hebt bij Keytrade en de overdrachtskosten niet wil maken, raden wij aan om bij een van
-            bovenstaande alternatieven te beginnen.
-          </p>
-
-          <h2>Onze conclusie</h2>
-          <p>
-            Keytrade Bank biedt fiscale volledigheid en geen securities lending, maar de hoge kosten
-            (€12,50/trade + 0,24%/jaar bewaarloon) wegen zwaar. Voor nieuwe beleggers is Keytrade
-            zelden de beste keuze. Bestaande klanten kunnen overwegen om over te stappen zodra
-            hun portefeuille groot genoeg is om de overdrachtskosten te rechtvaardigen.
+            Keytrade past bij wie de Belgische taksen wil laten inhouden, zelf orders plaatst en geen effecten wil laten uitlenen.
+            Voor maandelijkse aankopen tot €2.500 is de orderkost €5,95, iets hoger dan bij Bolero.
+            Vergelijk met de <Link href="/reviews/bolero" className="text-accent underline">Bolero review</Link> of het{' '}
+            <Link href="/beste-broker-belgie" className="text-accent underline">overzicht van alle brokers</Link>.
+            Dit is algemene informatie, geen persoonlijk advies.
           </p>
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken={broker.lastVerified} />
 
         {broker.affiliateUrl && (
           <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
             <div>
               <p className="font-semibold text-primary mb-1">Keytrade Bank account openen</p>
               <AffiliateLabel broker={broker} />
-              <p className="text-sm text-gray-600">Volledig Belgische broker — alle belastingen automatisch geregeld.</p>
+              <p className="text-sm text-gray-600">Belgische taksen ingehouden, rekening openen met itsme.</p>
             </div>
             <a href={goLink(broker.id, 'keytrade-review-cta')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
               Open account →
@@ -157,8 +166,8 @@ export default function KeytradeReviewPage() {
           <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: '/reviews/bolero', label: 'Bolero review — ook volledig Belgisch' },
-              { href: '/reviews/medirect', label: 'MeDirect review — gratis ETF-transacties' },
+              { href: '/reviews/bolero', label: 'Bolero review: kosten per order en taksen' },
+              { href: '/reviews/medirect', label: 'MeDirect review: ETF’s zonder makelaarsloon' },
               { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken' },
               { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026 uitgelegd' },
             ].map(({ href, label }) => (

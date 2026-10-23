@@ -10,7 +10,7 @@ import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlo
 export const metadata: Metadata = {
   title: 'Beste Broker België 2026 — Vergelijking van 6 Brokers',
   description:
-    'Welke broker is het beste in België in 2026? Wij vergelijken Saxo, Bolero, MeDirect, DEGIRO en Trade Republic op kosten, fiscale afhandeling en gemak. Fact-checked.',
+    'Saxo, Bolero, MeDirect, Keytrade, DEGIRO en Trade Republic naast elkaar: kosten per order, welke taksen ze inhouden en toezicht. Met bronnen, oktober 2026.',
   openGraph: {
     title: 'Beste Broker België 2026',
     description: 'Vergelijking van 6 brokers voor Belgische beleggers — inclusief meerwaardebelasting 2026.',
@@ -30,7 +30,7 @@ const jsonLd = {
       name: 'Welke broker is het beste in België in 2026?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Voor de meeste Belgische beleggers is Saxo Bank de beste keuze in 2026: het regelt alle Belgische belastingen automatisch (TOB, roerende voorheffing, Reynders en meerwaardebelasting), heeft concurrerende kosten en biedt AutoInvest aan. Bolero is een goed alternatief voor wie zekerheid wil bij een Belgische bank (KBC-groep).',
+        text: 'Dat hangt af van hoe je belegt. Wil je automatisch maandelijks beleggen, dan bieden Saxo (AutoInvest, €2 per maand) en Trade Republic (spaarplannen) dat aan. Koop je zelf ETF\'s, dan rekent MeDirect geen makelaarsloon. Saxo, Bolero, MeDirect, Keytrade en de Belgische rekening van Trade Republic houden de Belgische taksen in. Onze scores en hoe we ze berekenen staan op /methodologie. Dit is geen persoonlijk advies.',
       },
     },
     {
@@ -38,7 +38,7 @@ const jsonLd = {
       name: 'Moet ik meerwaardebelasting betalen in België?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'België voert in 2026 een meerwaardebelasting van 10% in op financiële vermogenswinsten boven een jaarlijkse vrijstelling van €10.000. Belgische brokers zoals Saxo en Bolero zullen dit automatisch inhouden. Buitenlandse brokers zoals DEGIRO en Trade Republic doen dit niet.',
+        text: 'België voert in 2026 een meerwaardebelasting van 10% in op financiële vermogenswinsten boven een jaarlijkse vrijstelling van €10.000. Saxo, Bolero, MeDirect en Keytrade houden ze in bij verkoop (uitzetten kan). Trade Republic doet dat op de Belgische rekening als je ervoor kiest. Bij DEGIRO geef je ze zelf aan.',
       },
     },
     {
@@ -68,15 +68,15 @@ export default function BesteBrokerPage() {
             Wij vergelijken 6 brokers op kosten, Belgische belastingafhandeling, veiligheid en gebruiksgemak.
             Inclusief de nieuwe <Link href="/broker-meerwaardebelasting-2026" className="text-accent hover:underline">meerwaardebelasting 2026</Link>.
           </p>
-          <LastUpdated date="2026-04-01" />
+          <LastUpdated date="2026-10-23" />
         </header>
 
         {/* Quick verdict */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
           {[
-            { badge: '🏆 Beste overall', broker: 'Saxo Bank', reason: 'Alle belastingen automatisch + AutoInvest' },
-            { badge: '🥇 Beste Belgische bank', broker: 'Bolero', reason: 'KBC-groep, geen securities lending' },
-            { badge: '💶 Goedkoopste ETFs', broker: 'MeDirect', reason: 'Gratis ETF-transacties' },
+            { badge: 'Automatisch maandelijks beleggen', broker: 'Saxo Bank', reason: 'AutoInvest €2 per maand, Belgische taksen ingehouden' },
+            { badge: 'Online broker van KBC Bank', broker: 'Bolero', reason: '€2,50 per order tot €250, geen uitlenen van effecten' },
+            { badge: 'Geen makelaarsloon op ETF’s', broker: 'MeDirect', reason: 'Sinds augustus 2025; aandelen wel betalend' },
           ].map(({ badge, broker: bname, reason }) => (
             <div key={bname} className="bg-teal-50 border border-teal-200 rounded-xl p-4">
               <p className="text-xs font-semibold text-accent mb-1">{badge}</p>
@@ -96,8 +96,8 @@ export default function BesteBrokerPage() {
         <section className="mb-10">
           <h2 className="font-display text-2xl font-bold text-primary mb-6">Brokers van dichtbij bekeken</h2>
           <div className="space-y-6">
-            {brokers.map((broker, i) => (
-              <BrokerCard key={broker.id} broker={broker} rank={i + 1} source="beste-broker-page" />
+            {brokers.map(broker => (
+              <BrokerCard key={broker.id} broker={broker} source="beste-broker-page" />
             ))}
           </div>
         </section>
@@ -108,17 +108,21 @@ export default function BesteBrokerPage() {
 
           <h3>Welke broker is het beste in België in 2026?</h3>
           <p>
-            Voor de meeste Belgische beleggers is <strong>Saxo Bank</strong> de beste keuze: het regelt alle Belgische
-            belastingen automatisch (TOB, roerende voorheffing, Reynders én meerwaardebelasting), heeft concurrerende
-            kosten en biedt <em>AutoInvest</em> aan voor maandelijks automatisch beleggen.
-            <Link href="/reviews/saxo-bank-belgie" className="text-accent hover:underline ml-1">Lees onze volledige Saxo-review →</Link>
+            Dat hangt af van hoe je belegt. Wil je automatisch maandelijks beleggen, dan bieden{' '}
+            <Link href="/reviews/saxo-bank-belgie" className="text-accent hover:underline">Saxo</Link> (AutoInvest, €2 per maand) en{' '}
+            <Link href="/reviews/trade-republic-belgie" className="text-accent hover:underline">Trade Republic</Link> (spaarplannen) dat aan.
+            Koop je zelf ETF&apos;s, dan rekent <Link href="/reviews/medirect" className="text-accent hover:underline">MeDirect</Link> geen
+            makelaarsloon. Saxo, Bolero, MeDirect, Keytrade en de Belgische rekening van Trade Republic houden de Belgische
+            taksen in. Hoe we de scores berekenen, lees je in de{' '}
+            <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>. Dit is geen persoonlijk advies.
           </p>
 
           <h3>Moet ik meerwaardebelasting betalen?</h3>
           <p>
             Ja. België voert in 2026 een meerwaardebelasting van 10% in op financiële vermogenswinsten boven een
-            vrijstelling van €10.000 per jaar. Belgische brokers zoals Saxo en Bolero zullen dit automatisch inhouden.
-            Buitenlandse brokers doen dit niet — jij moet dan zelf aangifte doen.
+            vrijstelling van €10.000 per jaar. Saxo, Bolero, MeDirect en Keytrade houden ze in bij verkoop; je kan de
+            inhouding uitzetten en zelf aangeven. Trade Republic doet het op de Belgische rekening als je ervoor kiest.
+            Bij DEGIRO geef je ze zelf aan.
             <Link href="/broker-meerwaardebelasting-2026" className="text-accent hover:underline ml-1">Meer over meerwaardebelasting en brokers →</Link>
           </p>
 

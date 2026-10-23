@@ -149,7 +149,7 @@ export default function EtfKopenBeginnersPage() {
           <h3>Bolero — Beste Belgische bank met nul securities lending</h3>
           <p>
             Bolero (KBC-dochter) leent jouw effecten nooit uit, heeft Invest & Repeat voor herhalende orders
-            en regelt alle belastingen automatisch. Transactiekosten voor Playlist-ETFs: €2,50–€7,50.
+            en regelt alle belastingen automatisch. Transactiekosten: €2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500 (tarieflijst 11/06/2025).
           </p>
           <p>→ <Link href="/reviews/bolero" className="text-accent underline">Bolero review</Link></p>
 

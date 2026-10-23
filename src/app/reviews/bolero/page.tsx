@@ -7,16 +7,35 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
 const broker = getBrokerById('bolero')!
 
+const BRON = {
+  tarieven: 'https://www.bolero.be/uploads/media/667ecf0aabd9a/101-tarieven-nl.pdf',
+  review: 'https://curvo.eu/nl/artikel/bolero-review',
+}
+
+const bronnen: Bron[] = [
+  { staaft: 'Transactiekosten (staffel), bewaarloon en overdrachtkosten', label: 'Bolero, tarieflijst S101 (geldig vanaf 11/06/2025)', href: BRON.tarieven },
+  { staaft: 'Inhouding TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting, opt-out, itsme, uitlenen van effecten', label: 'Curvo, Bolero review (08/10/2026)', href: BRON.review },
+]
+
+const staffel = [
+  { bedrag: 'tot €250', kost: '€2,50' },
+  { bedrag: '€250,01 tot €1.000', kost: '€5' },
+  { bedrag: '€1.000,01 tot €2.500', kost: '€7,50' },
+  { bedrag: '€2.500,01 tot €70.000', kost: '€15 per begonnen €10.000, maximum €50' },
+  { bedrag: 'boven €70.000', kost: '€50 + €15 per extra €10.000' },
+]
+
 export const metadata: Metadata = {
-  title: 'Bolero Review 2026 — KBC-Broker voor Belgische Beleggers',
+  title: 'Bolero review 2026: kosten per order, taksen en itsme',
   description:
-    'Bolero review voor Belgische beleggers in 2026. KBC-dochter met automatische belastingafhandeling, geen securities lending en Invest & Repeat spaarplannen.',
+    'Bolero (KBC) nagekeken: wat kost een order van €250, €1.000 of €5.000? Welke taksen houdt Bolero in en wat met de meerwaardebelasting? Met bronnen.',
   openGraph: {
-    title: 'Bolero Review 2026 — KBC-Broker voor Belgische Beleggers',
-    description: 'Bolero review voor Belgische beleggers in 2026. KBC-dochter met automatische belastingafhandeling, geen securities lending en Invest & Repeat spaarplannen.',
+    title: 'Bolero review 2026: kosten per order, taksen en itsme',
+    description: 'Bolero (KBC) nagekeken: kosten per orderbedrag, ingehouden taksen, meerwaardebelasting en overdrachtkosten. Met bronnen.',
     url: 'https://www.bestebroker.be/reviews/bolero',
     locale: 'nl_BE',
     type: 'article',
@@ -51,8 +70,9 @@ export default function BoleroReviewPage() {
         <header className="mb-8">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">Bolero — Review 2026</h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            Bolero is de online broker van KBC. Als Belgische broker regelt Bolero alle belastingen automatisch
-            en leent jouw effecten nooit uit aan derden — twee grote pluspunten.
+            Bolero is de online broker van KBC Bank. Bolero houdt de Belgische taksen in, ook de
+            meerwaardebelasting, en leent je effecten niet uit. De orderkost hangt af van het bedrag:
+            van €2,50 tot €250 tot €7,50 tot €2.500.
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
@@ -64,19 +84,31 @@ export default function BoleroReviewPage() {
         </div>
 
         <div className="prose-custom max-w-3xl mb-10">
-          <h2>Kosten in detail</h2>
+          <h2>Wat kost een order bij Bolero?</h2>
           <p>
-            Bolero werkt met een <strong>Playlist</strong>: een selectie van populaire ETFs waarvoor lagere
-            transactiekosten gelden. Voor Playlist-ETFs betaal je:
+            Voor aandelen en ETF&apos;s op Euronext (Brussel, Amsterdam, Parijs) geldt één staffel.
+            Een aparte, goedkopere Playlist-prijs bestaat niet meer: de tarieflijst van 11 juni 2025
+            rekent voor alle genoteerde effecten hetzelfde.
           </p>
-          <ul>
-            <li>€2,50 voor orders onder €250</li>
-            <li>€5,00 voor orders van €250–€1.000</li>
-            <li>€7,50 voor orders boven €1.000</li>
-          </ul>
+          <div className="not-prose overflow-x-auto my-4">
+            <table className="w-full text-sm border border-gray-200 rounded-lg">
+              <thead className="bg-gray-50">
+                <tr><th scope="col" className="text-left p-2">Orderbedrag</th><th scope="col" className="text-left p-2">Makelaarsloon</th></tr>
+              </thead>
+              <tbody>
+                {staffel.map(r => (
+                  <tr key={r.bedrag} className="border-t border-gray-100"><td className="p-2">{r.bedrag}</td><td className="p-2 font-medium">{r.kost}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <p>
-            Voor ETFs buiten de Playlist en voor aandelen geldt een vaste kost van <strong>€7,50 per trade</strong>.
-            Er is geen bewaarloon. Overdracht naar een andere broker kost €50 per lijn.
+            Daarbovenop betaal je de beurstaks (TOB), die Bolero inhoudt. Er is geen bewaarloon.
+            Effecten overzetten naar een andere bank kost €50 per lijn; naar KBC, KBC Brussels of CBC is het gratis.
+          </p>
+          <p>
+            Wie elke maand €300 belegt, betaalt dus €5 per aankoop. Wil je weten wat dat over 10 of 20 jaar
+            betekent naast andere brokers? Gebruik de <Link href="/tools/brokerkosten-calculator" className="text-accent underline">kostencalculator</Link>.
           </p>
 
           <h2>Invest & Repeat</h2>
@@ -89,25 +121,44 @@ export default function BoleroReviewPage() {
 
           <h2>Geen securities lending</h2>
           <p>
-            Bolero leent jouw effecten <strong>nooit</strong> uit aan derden. Dit is een duidelijk voordeel
-            voor beleggers die geen tegenpartijrisico willen lopen. Het staat in de algemene voorwaarden
-            expliciet vermeld.
+            Bolero leent je effecten niet uit aan derden. Bij brokers die dat wel doen, loop je een
+            klein bijkomend risico als de lener in gebreke blijft.
           </p>
 
-          <h2>Meerwaardebelasting (2026)</h2>
+          <h2>Taksen: wat houdt Bolero in?</h2>
+          <ul>
+            <li><strong>Beurstaks (TOB):</strong> ingehouden bij elke transactie.</li>
+            <li><strong>Roerende voorheffing</strong> op dividenden: ingehouden.</li>
+            <li><strong>Reynderstaks</strong> op fondsen met obligaties: ingehouden bij verkoop.</li>
+            <li>
+              <strong>Meerwaardebelasting:</strong> Bolero houdt ze in bij elke verkoop. De bank weet niet of je
+              over het hele jaar onder de vrijstelling blijft. Teveel betaald recupereer je via je belastingaangifte,
+              wat tot tweeënhalf jaar kan duren. Je kan ook kiezen om de inhouding uit te zetten en zelf aan te geven.
+              Meer uitleg: <Link href="/belgie/meerwaardebelasting-2026-uitleg" className="text-accent underline">meerwaardebelasting 2026</Link>.
+            </li>
+          </ul>
+          <p>Omdat Bolero een Belgische rekening is, hoef je ze niet te melden bij de Nationale Bank.</p>
+
+          <h2>Bescherming en veiligheid</h2>
           <p>
-            Bolero zal de meerwaardebelasting automatisch afhandelen <strong>vanaf 1 juni 2026</strong>.
-            Tot die datum ben je als Bolero-klant zelf verantwoordelijk voor de aangifte van eerder gerealiseerde
-            meerwaarden in het belastingjaar 2026. Controleer de actuele communicatie van Bolero voor de exacte datum.
+            Bolero is een merk van KBC Bank, een bank met Belgische vergunning. Je effecten blijven je eigendom en
+            worden gescheiden bewaard. Kan de bank ze bij een faillissement toch niet teruggeven, dan beschermt het
+            Belgische stelsel effecten tot €20.000 en cash tot €100.000. Hoe we veiligheid scoren, lees je in de{' '}
+            <Link href="/methodologie" className="text-accent underline">methodologie</Link>.
           </p>
 
-          <h2>Onze conclusie</h2>
+          <h2>Samengevat</h2>
           <p>
-            Bolero is een uitstekende keuze voor beleggers die fiscale gemoedsrust willen bij een vertrouwde
-            Belgische bank. De hogere kosten ten opzichte van MeDirect of Trade Republic worden gecompenseerd
-            door het gemak en de zekerheid die Bolero biedt.
+            Bolero past bij wie de Belgische taksen wil laten inhouden en geen effecten wil laten uitlenen.
+            Voor kleine orders tot €250 is de kost €2,50; vanaf €1.000 tot €2.500 betaal je €7,50 per order.
+            Wie maandelijks automatisch wil beleggen, vindt bij Bolero geen automatische afschrijving.
+            Vergelijk zelf met <Link href="/vergelijking/bolero-vs-saxo" className="text-accent underline">Bolero vs Saxo</Link>{' '}
+            of <Link href="/vergelijking/degiro-vs-bolero" className="text-accent underline">DEGIRO vs Bolero</Link>.
+            Dit is algemene informatie, geen persoonlijk advies.
           </p>
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken={broker.lastVerified} />
 
         {broker.affiliateUrl && (
           <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-8 flex items-start justify-between gap-4">
@@ -126,7 +177,7 @@ export default function BoleroReviewPage() {
           <h2 className="font-display text-xl font-bold text-primary mb-4">Gerelateerde vergelijkingen</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { href: '/vergelijking/degiro-vs-bolero', label: 'DEGIRO vs Bolero — wie wint?' },
+              { href: '/vergelijking/degiro-vs-bolero', label: 'DEGIRO vs Bolero: kosten en taksen' },
               { href: '/vergelijking/bolero-vs-saxo', label: 'Bolero vs Saxo — welke is beter?' },
               { href: '/beste-broker-belgie', label: 'Alle brokers vergelijken' },
               { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026 uitgelegd' },
