@@ -43,6 +43,10 @@ export default function PrivacyPage() {
             </a>
           </li>
           <li>
+            <strong>Vercel Web Analytics:</strong> telt paginabezoeken zonder cookies en zonder IP-adressen te
+            bewaren. Hiervoor is geen toestemming nodig; het ziet enkel geanonimiseerde bezoeken.
+          </li>
+          <li>
             <strong>Impact (affiliatenetwerk):</strong> enkel na jouw toestemming laadt een meetscript van Impact.
             Dat stelt vast of een bezoek aan een partner (bv. een broker) via BesteBroker.be kwam.
           </li>

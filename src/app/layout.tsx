@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fraunces, DM_Sans } from 'next/font/google'
 import { ConsentManager } from '@/components/consent/ConsentManager'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -72,6 +73,8 @@ export default function RootLayout({
         <Header />
 <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        {/* Vercel Web Analytics: telt alle bezoekers zonder cookies (geen toestemming nodig) */}
+        <Analytics />
         <ConsentManager
           gaId="G-DW19T9YTX1"
           impactSrc="https://utt.impactcdn.com/P-A3156055-c1b3-48e7-b323-0b6e5e0452691.js"
