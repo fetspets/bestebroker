@@ -72,12 +72,10 @@ export function scoreBrokers(answers: WizardAnswers, brokers: Broker[]): ScoredB
         }
       }
 
-      // Belgian broker preference (implicit safety bonus)
-      if (broker.type === 'belgisch') {
+      // Geen NBB-melding nodig (Belgische rekening of Belgisch bijkantoor); zelfde regel als in brokers.ts
+      if (!broker.nbbRegistrationRequired) {
         score += 5
-        if (!broker.nbbRegistrationRequired) {
-          reasons.push('Belgische rekening: geen NBB-melding nodig')
-        }
+        reasons.push('Belgische rekening: geen NBB-melding nodig')
       }
 
       // Securities lending penalty for cautious investors

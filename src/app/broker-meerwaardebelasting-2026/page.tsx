@@ -26,7 +26,7 @@ const faqJsonLd = {
       name: 'Wanneer gaat de meerwaardebelasting in voege in België?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'De Belgische meerwaardebelasting van 10% op financiële vermogenswinsten treedt in werking in 2026. De exacte inwerkingtreding hangt af van de definitieve wetgeving die nog in parlementaire behandeling is.',
+        text: 'De meerwaardebelasting van 10% geldt voor meerwaarden vanaf 1 januari 2026. De wet dateert van 6 april 2026 en verscheen op 21 april 2026 in het Belgisch Staatsblad. Meerwaarden tot en met 31 december 2025 zijn niet belast.',
       },
     },
     {
@@ -42,7 +42,7 @@ const faqJsonLd = {
       name: 'Regelt mijn broker de meerwaardebelasting voor mij?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Belgische brokers zoals Saxo Bank en Bolero (v.a. juni 2026) houden de belasting automatisch in bij verkoop. Trade Republic doet dit op een Belgische rekening (sinds 15/09/2026) als je kiest voor opt-in. DEGIRO doet dit niet — jij moet dan zelf aangifte doen.',
+        text: 'Saxo, Bolero, MeDirect en Keytrade houden de belasting in bij verkoop; uitzetten en zelf aangeven kan. Trade Republic doet dit op een Belgische rekening (sinds 15/09/2026) als je kiest voor opt-in. DEGIRO doet dit niet — jij moet dan zelf aangifte doen.',
       },
     },
   ],
@@ -89,7 +89,7 @@ export default function MeerwaardebelastingPage() {
                       </Link>
                     </td>
                     <td className="py-3">
-                      <span className={`text-xs px-2 py-0.5 rounded font-medium ${broker.type === 'belgisch' ? 'bg-green-100 text-success' : 'bg-orange-100 text-orange-700'}`}>
+                      <span className={`text-xs px-2 py-0.5 rounded font-medium ${broker.type !== 'buitenlands' ? 'bg-green-100 text-success' : 'bg-orange-100 text-orange-700'}`}>
                         {broker.type}
                       </span>
                     </td>
@@ -97,12 +97,12 @@ export default function MeerwaardebelastingPage() {
                       {broker.taxes.capitalGainsTax ? '✅' : '❌'}
                     </td>
                     <td className="py-3 text-sm text-gray-600">
-                      {broker.id === 'bolero' && 'Automatisch v.a. 1 juni 2026'}
-                      {broker.id === 'saxo' && 'Automatisch vanaf inwerkingtreding'}
-                      {broker.id === 'medirect' && 'Verifieer actuele status bij MeDirect'}
+                      {broker.id === 'bolero' && 'Ingehouden bij verkoop, uitzetten kan'}
+                      {broker.id === 'saxo' && 'Ingehouden bij verkoop, uitzetten kan'}
+                      {broker.id === 'medirect' && 'Ingehouden bij verkoop, uitzetten kan'}
                       {broker.id === 'degiro' && 'Zelf aangifte doen vereist'}
                       {broker.id === 'trade-republic' && 'Belgische rekening: bij opt-in (sinds 15/09/2026)'}
-                      {broker.id === 'keytrade' && 'Automatisch afgehandeld'}
+                      {broker.id === 'keytrade' && 'Ingehouden bij verkoop, uitzetten kan'}
                     </td>
                   </tr>
                 ))}
@@ -156,9 +156,10 @@ export default function MeerwaardebelastingPage() {
 
           <h3>Wanneer gaat de meerwaardebelasting in voege?</h3>
           <p>
-            De verwachte inwerkingtreding is <strong>2026</strong>. De exacte datum hangt af van de definitieve
-            parlementaire goedkeuring. De informatie op deze pagina wordt bijgehouden zodra er een definitieve
-            datum is. <LastUpdated date="2026-04-01" label="Laatste controle" />
+            De belasting geldt voor meerwaarden vanaf <strong>1 januari 2026</strong>. De wet dateert van 6 april 2026
+            en verscheen op 21 april 2026 in het Belgisch Staatsblad. Meerwaarden tot en met 31 december 2025 zijn niet belast
+            (<a href="https://curvo.eu/nl/artikel/meerwaardebelasting-belgie" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Curvo, 15/09/2026</a>).
+            {' '}<LastUpdated date="2026-10-23" label="Laatste controle" />
           </p>
 
           <h3>Geldt de vrijstelling per persoon of per huishouden?</h3>

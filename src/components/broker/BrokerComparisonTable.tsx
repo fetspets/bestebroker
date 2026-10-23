@@ -53,7 +53,8 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
     let list = [...allBrokers]
 
     if (filterType !== 'all') {
-      list = list.filter(b => b.type === filterType)
+      // 'belgisch' = Belgische rekening (ook Belgisch bijkantoor van een buitenlandse bank)
+      list = list.filter(b => (filterType === 'buitenlands') === (b.type === 'buitenlands'))
     }
     if (filterTax === 'handles-all') {
       list = list.filter(b => b.taxes.tob && b.taxes.capitalGainsTax)
@@ -102,7 +103,7 @@ export function BrokerComparisonTable({ brokers: allBrokers, highlightId }: Prop
                 filterType === v ? 'bg-primary text-white border-primary' : 'bg-white text-gray-600 border-gray-300 hover:border-primary'
               }`}
             >
-              {v === 'all' ? 'Alle' : v.charAt(0).toUpperCase() + v.slice(1)}
+              {v === 'all' ? 'Alle' : v === 'belgisch' ? 'Belgische rekening' : 'Buitenlands'}
             </button>
           ))}
         </div>

@@ -122,7 +122,8 @@ export default function MethodologiePage() {
           </ul>
           <p>
             Uitlenen van effecten (securities lending) en de hoogte van de bescherming vermelden we in elke review,
-            maar ze tellen niet mee in deze score.
+            maar ze tellen niet mee in deze score. Jaren actief en omvang tellen evenmin mee: alle brokers op deze site
+            zijn al jaren actief, en we vonden geen controleerbare maatstaf die een eerlijk verschil maakt.
           </p>
           <div className="not-prose overflow-x-auto my-4">
             <table className="w-full text-sm border border-gray-200 rounded-lg">
