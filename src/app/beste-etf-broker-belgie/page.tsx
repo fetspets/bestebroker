@@ -52,7 +52,7 @@ const bronnen: Bron[] = [
   { staaft: 'DEGIRO: €1 kernselectie (Tradegate), €3 andere ETF’s, TOB ingehouden', label: 'Curvo, DEGIRO review (03/09/2026)', href: BRON.degiroReview },
   { staaft: 'Trade Republic: €1 per order, Belgische rekening sinds 15/09/2026', label: 'Curvo, Trade Republic review (18/09/2026)', href: BRON.trReview },
   { staaft: 'Staffel Keytrade (€2,45 / €5,95 / €14,95)', label: 'Keytrade Bank, tarieven 2025', href: BRON.keytradeTarieven },
-  { staaft: 'TOB-tarieven ETF’s en maxima', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
+  { staaft: 'TOB-tarieven ETF’s en maxima; VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
 ]
 
 const spaarplan: Record<string, string> = {
@@ -73,11 +73,11 @@ const faq = [
   },
   {
     q: 'Wat kost €100 per maand in een ETF?',
-    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} ${eur2(maandelijkseEtfKost(b, 100).perMaand * 12)}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie; een andere ETF kost €3 per order. De TOB komt er overal bij: meestal 0,12% (12 cent per €100).`,
+    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} ${eur2(maandelijkseEtfKost(b, 100).perMaand * 12)}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie; een andere ETF kost €3 per order. De beurstaks (TOB) komt er bij elke broker bij: 0,12% voor een ETF die niet in België geregistreerd is, 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE.`,
   },
   {
     q: 'Hoeveel beurstaks betaal je op een ETF?',
-    a: 'Voor een ETF die in de Europese Economische Ruimte maar niet in België geregistreerd is, 0,12% bij aankoop en verkoop (max. €1.300 per transactie). Is een kapitaliserende ETF in België geregistreerd, dan betaal je bij verkoop 1,32% (max. €4.000). Voor een ETF van buiten de EER is het 0,35%. In de factsheet zie je waar de ETF geregistreerd is.',
+    a: 'Voor een ETF die in de Europese Economische Ruimte maar niet in België geregistreerd is, 0,12% bij aankoop en verkoop (max. €1.300 per transactie). Is een kapitaliserende ETF in België geregistreerd (bv. VWCE), dan betaal je 1,32% bij aankoop én verkoop (max. €4.000). Voor een ETF van buiten de EER is het 0,35%. In de factsheet zie je waar de ETF geregistreerd is.',
   },
   {
     q: 'Kan ik in België automatisch elke maand in een ETF beleggen?',
@@ -166,7 +166,7 @@ export default function BestEtfBrokerPage() {
           <p>
             <strong>Beurstaks (TOB).</strong> Bij elke aankoop en verkoop. Voor een ETF die in de Europese Economische Ruimte
             maar niet in België geregistreerd is: 0,12% (max. €1.300 per transactie). Een in België geregistreerde
-            kapitaliserende ETF: 1,32% bij verkoop (max. €4.000). Een ETF van buiten de EER: 0,35%. Alle zes de brokers houden
+            kapitaliserende ETF, zoals VWCE: 1,32% bij aankoop én verkoop (max. €4.000). Een ETF van buiten de EER: 0,35%. Alle zes de brokers houden
             de TOB in. Meer in <Link href="/belgie/tob-uitleg">TOB uitgelegd</Link>.
           </p>
           <p>

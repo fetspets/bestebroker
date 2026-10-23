@@ -62,7 +62,7 @@ const bronnen: Bron[] = [
   { staaft: 'Spaarplannen Saxo, Trade Republic en Bolero', label: 'Curvo, beste ETF-spaarplan België (22/10/2026)', href: BRON.spaarplannen },
   { staaft: 'Staffel Keytrade (€2,45 / €5,95 / €14,95, +€7,50 per €10.000)', label: 'Keytrade Bank, tarieven 2025', href: BRON.keytradeTarieven },
   { staaft: 'Keytrade: taksen, bescherming FGDR', label: 'Curvo, Keytrade review', href: BRON.keytradeReview },
-  { staaft: 'TOB-tarieven ETF’s (0,12% / 1,32% / 0,35%) en maxima', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
+  { staaft: 'TOB-tarieven ETF’s (0,12% / 1,32% / 0,35%) en maxima; VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
   { staaft: 'Meerwaardebelasting: 10%, vrijstelling €10.000, vanaf 1/1/2026, inhouding met opt-out', label: 'KPMG België, meerwaardebelasting goedgekeurd', href: BRON.mwb },
 ]
 
@@ -73,7 +73,7 @@ const faq = [
   },
   {
     q: 'Wat kost €100 per maand beleggen in een ETF?',
-    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} €${(maandelijkseEtfKost(b, 100).perMaand * 12).toFixed(2).replace('.', ',')}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie. Daarbovenop betaal je bij elke broker dezelfde beurstaks (TOB), meestal 0,12% per aankoop.`,
+    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} €${(maandelijkseEtfKost(b, 100).perMaand * 12).toFixed(2).replace('.', ',')}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie. Daarbovenop betaal je bij elke broker dezelfde beurstaks (TOB): 0,12% voor een ETF die niet in België geregistreerd is, 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE.`,
   },
   {
     q: 'Welke brokers houden alle Belgische taksen in?',
@@ -171,8 +171,8 @@ export default function BesteBrokerPage() {
           </p>
           <EtfKostenTabel brokers={opScore} maandbedragen={[100, 500]} eenmalig={5000} id="kostentabel" />
           <p className="text-sm text-gray-500 mt-3 max-w-3xl">
-            Niet inbegrepen, want gelijk bij elke broker: de beurstaks (TOB), voor de meeste ETF’s 0,12% per aankoop (max.
-            €1.300). Wisselkosten tellen enkel bij effecten in vreemde munt. Bereken je eigen bedrag met de{' '}
+            Niet inbegrepen, want gelijk bij elke broker: de beurstaks (TOB), 0,12% per aankoop of verkoop voor een ETF die niet in België geregistreerd is (max.
+            €1.300), 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE. Wisselkosten tellen enkel bij effecten in vreemde munt. Bereken je eigen bedrag met de{' '}
             <Link href="/tools/brokerkosten-calculator" className="text-accent hover:underline">kostencalculator</Link>.
           </p>
         </section>

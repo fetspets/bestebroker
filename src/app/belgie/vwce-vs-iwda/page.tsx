@@ -2,132 +2,115 @@
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
+import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
+
+const URL = 'https://www.bestebroker.be/belgie/vwce-vs-iwda'
+const TITLE = 'VWCE vs IWDA (2026): 1,32% of 0,12% beurstaks?'
+const DESCRIPTION =
+  'VWCE is goedkoper per jaar, maar de beurstaks verschilt fors voor Belgen. Kosten, spreiding en taksen van VWCE en IWDA naast elkaar, met bronnen.'
+const NAGEKEKEN = '2026-10-23'
 
 export const metadata: Metadata = {
-  title: 'VWCE vs IWDA — Welke ETF voor Belgische belegger?',
-  description:
-    'VWCE of IWDA kopen als Belgische belegger? Vergelijking van TER, spreiding, TOB-impact, accumulerend vs distribuerend en onze conclusie voor 2026.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   openGraph: {
-    title: 'VWCE vs IWDA — Welke ETF kiezen als Belgische belegger?',
-    description: 'Vergelijking van VWCE en IWDA: TER, spreiding, TOB-impact en conclusie voor Belgische buy-and-hold beleggers in 2026.',
-    url: 'https://www.bestebroker.be/belgie/vwce-vs-iwda',
+    title: TITLE,
+    description: DESCRIPTION,
+    url: URL,
     locale: 'nl_BE',
     type: 'article',
   },
-  alternates: { canonical: 'https://www.bestebroker.be/belgie/vwce-vs-iwda' },
+  alternates: { canonical: URL },
 }
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Wat is het verschil tussen VWCE en IWDA?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'VWCE (Vanguard FTSE All-World) belegt wereldwijd inclusief opkomende markten (~10%). IWDA (iShares MSCI World) belegt enkel in ontwikkelde landen. VWCE heeft een iets hogere TER (0,22% vs 0,20%) maar bredere spreiding. Voor Belgische buy-and-hold beleggers is VWCE de meest complete keuze.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Welke ETF betaalt minder TOB — VWCE of IWDA?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Beide betalen 0,12% TOB bij aankoop en verkoop in België. Er is geen verschil in TOB tussen VWCE en IWDA.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is VWCE of IWDA beter voor de meerwaardebelasting 2026?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Beide ETFs zijn accumulerend (geen uitkerende dividenden) en UCITS-conform. Ze worden gelijk behandeld voor de meerwaardebelasting: 10% op meerwaarden boven €10.000 vrijstelling. Er is geen fiscaal verschil tussen VWCE en IWDA voor de meerwaardebelasting.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Kan ik VWCE of IWDA kopen via Belgische brokers?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Ja. Zowel VWCE als IWDA zijn beschikbaar bij Saxo Bank, Bolero, MeDirect en DEGIRO. Bij Saxo en Bolero kun je ze opnemen in een automatisch spaarplan.',
-      },
-    },
-  ],
+const BRON = {
+  vanguard: 'https://nl.vanguard/professional/product/etf/equity/9679/ftse-all-world-ucits-etf-usd-accumulating',
+  curvoVwceIwda: 'https://curvo.eu/nl/artikel/vwce-vs-iwda',
+  curvoTob: 'https://curvo.eu/nl/artikel/hoe-je-de-beurstaks-van-een-etf-berekent',
 }
 
-const breadcrumbs = breadcrumbJsonLd([
-  { label: 'België', href: '/belgie/tob-uitleg' },
-  { label: 'VWCE vs IWDA' },
-])
+const bronnen: Bron[] = [
+  { staaft: 'VWCE: ISIN IE00BK5BQT80, lopende kosten 0,14%, 3.821 aandelen (30/09/2026), noteringen Amsterdam, Milaan, Xetra', label: 'Vanguard, FTSE All-World UCITS ETF (USD) Accumulating', href: BRON.vanguard },
+  { staaft: 'TOB VWCE 1,32% en IWDA 0,12%; TER IWDA 0,20%; IWDA ±1.500 aandelen', label: 'Curvo, VWCE vs IWDA (22/10/2026)', href: BRON.curvoVwceIwda },
+  { staaft: 'TOB-tarieven ETF’s, maxima, VWCE geregistreerd in België', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.curvoTob },
+]
+
+const faq = [
+  {
+    q: 'Wat is het verschil tussen VWCE en IWDA?',
+    a: 'VWCE (Vanguard FTSE All-World) belegt wereldwijd, ook in opkomende landen. IWDA (iShares Core MSCI World) belegt enkel in ontwikkelde landen. VWCE heeft lagere lopende kosten (0,14% tegenover 0,20% per jaar), maar voor een Belgische belegger een veel hogere beurstaks.',
+  },
+  {
+    q: 'Hoeveel beurstaks (TOB) betaal je op VWCE en IWDA?',
+    a: 'VWCE is in België geregistreerd en kapitaliserend: 1,32% TOB bij aankoop en bij verkoop (max. €4.000 per transactie). Op IWDA betaal je 0,12% (max. €1.300). Op een aankoop van €1.000 is dat €13,20 tegenover €1,20.',
+  },
+  {
+    q: 'Wat weegt zwaarder: de TER of de TOB?',
+    a: 'Bij €10.000 scheelt de TER €6 per jaar in het voordeel van VWCE. De TOB scheelt €120 bij aankoop en nog eens €120 bij verkoop in het voordeel van IWDA. Over 20 jaar is het TER-verschil €120 (zonder rendement), dus kleiner dan het TOB-verschil van één aankoop en verkoop.',
+  },
+  {
+    q: 'Wordt VWCE of IWDA anders behandeld voor de meerwaardebelasting?',
+    a: 'Nee. Beide zijn kapitaliserende aandelen-ETF’s. Voor de meerwaardebelasting (10% boven €10.000 per jaar) gelden dezelfde regels.',
+  },
+]
 
 const rows = [
-  { label: 'Volledige naam', vwce: 'Vanguard FTSE All-World UCITS ETF', iwda: 'iShares Core MSCI World UCITS ETF' },
-  { label: 'ISIN', vwce: 'IE00B3RBWM25', iwda: 'IE00B4L5Y983' },
-  { label: 'TER (jaarlijkse kosten)', vwce: '0,22%', iwda: '0,20%' },
-  { label: 'Spreiding (landen)', vwce: '~49 landen', iwda: '~23 landen' },
-  { label: 'Opkomende markten', vwce: '✅ ~10%', iwda: '❌ Niet inbegrepen' },
-  { label: 'Aantal bedrijven', vwce: '~3.700', iwda: '~1.400' },
-  { label: 'Type', vwce: 'Accumulerend', iwda: 'Accumulerend' },
-  { label: 'TOB (aankoop/verkoop)', vwce: '0,12%', iwda: '0,12%' },
-  { label: 'Beheerder', vwce: 'Vanguard', iwda: 'BlackRock (iShares)' },
-  { label: 'Beurs notering', vwce: 'Xetra / Euronext AMS', iwda: 'Xetra / Euronext AMS' },
-  { label: 'Fondsgrootte', vwce: '>€20 mrd', iwda: '>€60 mrd' },
+  { label: 'Volledige naam', vwce: 'Vanguard FTSE All-World UCITS ETF (USD) Accumulating', iwda: 'iShares Core MSCI World UCITS ETF (Acc)' },
+  { label: 'ISIN', vwce: 'IE00BK5BQT80', iwda: 'IE00B4L5Y983' },
+  { label: 'Lopende kosten (TER)', vwce: '0,14% per jaar', iwda: '0,20% per jaar' },
+  { label: 'Index', vwce: 'FTSE All-World (ontwikkelde + opkomende landen)', iwda: 'MSCI World (enkel ontwikkelde landen)' },
+  { label: 'Aantal aandelen', vwce: '3.821 (30/09/2026)', iwda: '±1.500' },
+  { label: 'Dividend', vwce: 'Kapitaliserend (herbelegd)', iwda: 'Kapitaliserend (herbelegd)' },
+  { label: 'Beurstaks (TOB) voor Belgen', vwce: '1,32% (max. €4.000), in België geregistreerd', iwda: '0,12% (max. €1.300)' },
+  { label: 'Beurzen in euro', vwce: 'Amsterdam, Milaan, Xetra', iwda: 'o.a. Amsterdam' },
 ]
 
 export default function VwceVsIwdaPage() {
+  const jsonLd = [
+    articleJsonLd({ headline: TITLE, description: DESCRIPTION, url: URL, dateModified: NAGEKEKEN }),
+    breadcrumbJsonLd([{ label: 'België', href: '/belgie/tob-uitleg' }, { label: 'VWCE vs IWDA', href: '/belgie/vwce-vs-iwda' }]),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ]
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <div className="section-container py-10">
         <BreadcrumbNav items={[{ label: 'België', href: '/belgie/tob-uitleg' }, { label: 'VWCE vs IWDA' }]} />
 
         <header className="mb-8">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">
-            VWCE vs IWDA — Welke ETF kiezen als Belgische belegger?
+            VWCE vs IWDA voor Belgische beleggers: kosten, spreiding en beurstaks
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            VWCE en IWDA zijn de twee meest populaire ETFs voor Belgische beleggers. Ze lijken sterk op elkaar,
-            maar er zijn belangrijke verschillen in spreiding, kosten en strategie. Wij zetten alles eerlijk
-            naast elkaar zodat jij de juiste keuze maakt.
+            VWCE en IWDA zijn twee veelgekochte wereld-ETF’s. VWCE spreidt breder en heeft lagere jaarlijkse kosten. Maar
+            voor een Belgische belegger is de beurstaks op VWCE elf keer hoger. Hieronder staan de feiten naast elkaar.
           </p>
-          <LastUpdated date="2026-04-01" />
+          <LastUpdated date={NAGEKEKEN} />
         </header>
 
-        {/* Verdict */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <div className="card border-l-4 border-l-blue-500">
-            <p className="text-xs font-semibold text-blue-600 mb-1">VWCE — Onze aanbeveling voor de meeste beleggers</p>
-            <p className="font-display font-bold text-primary text-lg">Maximale spreiding</p>
-            <p className="text-sm text-gray-600 mt-1">Inclusief opkomende markten. Één ETF voor de hele wereld. Iets hogere TER (0,22%).</p>
-          </div>
-          <div className="card border-l-4 border-l-green-500">
-            <p className="text-xs font-semibold text-green-600 mb-1">IWDA — Goed alternatief</p>
-            <p className="font-display font-bold text-primary text-lg">Ontwikkelde landen</p>
-            <p className="text-sm text-gray-600 mt-1">Lager TER (0,20%), alleen westerse markten. Combineer met EMIM voor volledige spreiding.</p>
-          </div>
-        </div>
-
-        {/* Vergelijkingstabel */}
-        <section className="card mb-10">
-          <h2 className="font-display text-xl font-bold text-primary mb-4">Vergelijkingstabel VWCE vs IWDA</h2>
+        <section className="card mb-10" aria-labelledby="tabel">
+          <h2 id="tabel" className="font-display text-xl font-bold text-primary mb-4">VWCE en IWDA naast elkaar</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm min-w-[480px]">
               <thead className="border-b border-gray-100">
                 <tr>
-                  <th className="text-left py-3 text-gray-600 font-semibold">Kenmerk</th>
-                  <th className="text-center py-3 font-semibold text-blue-600">VWCE</th>
-                  <th className="text-center py-3 font-semibold text-green-600">IWDA</th>
+                  <th scope="col" className="text-left py-3 text-gray-600 font-semibold">Kenmerk</th>
+                  <th scope="col" className="text-left py-3 px-2 font-semibold text-primary">VWCE</th>
+                  <th scope="col" className="text-left py-3 px-2 font-semibold text-primary">IWDA</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {rows.map(({ label, vwce, iwda }) => (
                   <tr key={label}>
-                    <td className="py-2.5 font-medium text-gray-700">{label}</td>
-                    <td className="py-2.5 text-center text-gray-600">{vwce}</td>
-                    <td className="py-2.5 text-center text-gray-600">{iwda}</td>
+                    <th scope="row" className="py-2.5 pr-2 text-left font-medium text-gray-700">{label}</th>
+                    <td className="py-2.5 px-2 text-gray-600">{vwce}</td>
+                    <td className="py-2.5 px-2 text-gray-600">{iwda}</td>
                   </tr>
                 ))}
               </tbody>
@@ -136,104 +119,69 @@ export default function VwceVsIwdaPage() {
         </section>
 
         <div className="prose-custom max-w-3xl mb-10">
-          <h2>Spreiding: wereld vs ontwikkelde landen</h2>
+          <h2>Beurstaks: het grootste verschil voor Belgen</h2>
           <p>
-            Het grootste verschil tussen VWCE en IWDA zit in de geografische spreiding.
-            VWCE volgt de FTSE All-World index en belegt in <strong>∼49 landen</strong>, inclusief opkomende
-            markten zoals China, India, Brazilië en Taiwan — samen goed voor ±10% van de index.
+            VWCE is in België geregistreerd en kapitaliserend. Daarom geldt <strong>1,32% TOB</strong> bij aankoop én bij
+            verkoop, met een maximum van €4.000 per transactie. IWDA is niet in België geregistreerd: daar betaal je{' '}
+            <strong>0,12%</strong> (maximum €1.300). Curvo meldt dat de toepassing van het tarief per broker kan verschillen;
+            kijk op je borderel welk tarief je broker inhoudt.
           </p>
-          <p>
-            IWDA volgt de MSCI World index en belegt enkel in <strong>∼23 ontwikkelde landen</strong>:
-            VS, Europa, Japan, Australië, Canada, etc. Opkomende markten ontbreken volledig.
-          </p>
-          <p>
-            <strong>Praktisch gevolg:</strong> VWCE is meer gediversifieerd. IWDA heeft een hogere blootstelling
-            aan de VS (∼70% van de index) en westerse technologiebedrijven.
-          </p>
-
-          <h2>TER — Het kostenverschil</h2>
-          <p>
-            VWCE kost <strong>0,22% per jaar</strong>, IWDA <strong>0,20% per jaar</strong>.
-            Op een portefeuille van €10.000 is dat €22 vs €20 per jaar — een verschil van €2.
-            Op lange termijn (20 jaar) loopt dit op tot ∼€70 verschil bij gelijk rendement.
-          </p>
-          <p>
-            Dat verschil is <strong>verwaarloosbaar</strong> voor buy-and-hold beleggers. De bredere spreiding
-            van VWCE weegt zwaarder dan €2 per €10.000 per jaar.
-          </p>
-
-          <h2>Accumulerend vs distribuerend — het belang voor Belgische beleggers</h2>
-          <p>
-            Zowel VWCE als IWDA bestaan in een <strong>accumulerende versie</strong> (Acc).
-            Bij accumulerende ETFs worden dividenden automatisch herbelegd in het fonds — je ontvangt
-            geen dividenduitkering.
-          </p>
-          <p>
-            Dit is fiscaal voordelig voor Belgische beleggers: geen roerende voorheffing van 30% op dividenden,
-            geen administratie. Let op: koop altijd de versie met <strong>&quot;Acc&quot;</strong> in de naam.
-          </p>
-          <p>
-            VWCE heeft ook een distribuerend variant (VWRL). <strong>Koop niet VWRL als Belgische belegger</strong>
-            — je betaalt dan 30% RV op elk dividend. IWDA heeft uitsluitend een accumulerende versie.
-          </p>
-
-          <h2>TOB-impact voor Belgische beleggers</h2>
-          <p>
-            Beide ETFs betalen <strong>0,12% TOB</strong> bij aankoop én verkoop op Belgische of Europese beurzen.
-            Er is geen verschil in TOB tussen VWCE en IWDA.
-          </p>
-          <p>
-            Meer over de TOB:{' '}
-            <Link href="/belgie/tob-uitleg" className="text-accent underline">TOB uitgelegd voor Belgische beleggers</Link>.
-          </p>
-
-          <h2>Meerwaardebelasting 2026</h2>
-          <p>
-            Vanaf 2026 geldt een meerwaardebelasting van 10% op meerwaarden boven €10.000 per jaar.
-            Beide ETFs worden hiervoor op exact dezelfde manier behandeld. Er is geen fiscaal voordeel
-            van VWCE boven IWDA of omgekeerd voor de meerwaardebelasting.
-          </p>
-          <p>
-            Meer info:{' '}
-            <Link href="/belgie/meerwaardebelasting-2026-uitleg" className="text-accent underline">Meerwaardebelasting 2026 uitgelegd</Link>.
-          </p>
-
-          <h2>Via welke broker koop je VWCE of IWDA?</h2>
-          <p>
-            Beide ETFs zijn beschikbaar bij alle grote Belgische brokers. Onze aanbevelingen:
-          </p>
+          <p>Rekenvoorbeeld voor een aankoop van €10.000 die je later voor hetzelfde bedrag verkoopt:</p>
           <ul>
-            <li>
-              <strong>Saxo Bank</strong> — beschikbaar in AutoInvest spaarplan voor €2/maand.
-              {' '}<Link href="/reviews/saxo-bank-belgie" className="text-accent underline">Saxo review</Link>
-            </li>
-            <li>
-              <strong>Bolero</strong> — €2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500 per order.
-              {' '}<Link href="/reviews/bolero" className="text-accent underline">Bolero review</Link>
-            </li>
-            <li>
-              <strong>MeDirect</strong> — gratis ETF-transacties, geen spaarplan.
-              {' '}<Link href="/reviews/medirect" className="text-accent underline">MeDirect review</Link>
-            </li>
+            <li>VWCE: €132 TOB bij aankoop + €132 bij verkoop = <strong>€264</strong></li>
+            <li>IWDA: €12 bij aankoop + €12 bij verkoop = <strong>€24</strong></li>
           </ul>
+          <p>
+            Meer over de tarieven: <Link href="/belgie/tob-uitleg">TOB uitgelegd</Link>.
+          </p>
 
-          <h2>Onze conclusie</h2>
+          <h2>Jaarlijkse kosten (TER)</h2>
           <p>
-            Voor de <strong>meeste Belgische beleggers is VWCE de beste keuze</strong>: maximale spreiding,
-            inclusief opkomende markten, accumulerend en fiscaal efficiënt. Het TER-verschil van 0,02%
-            ten opzichte van IWDA is verwaarloosbaar.
+            VWCE kost 0,14% per jaar, IWDA 0,20%. Op €10.000 is dat €14 tegenover €20, een verschil van €6 per jaar in het
+            voordeel van VWCE. Over 20 jaar is dat €120 zonder rendement: minder dan het TOB-verschil van één aankoop en
+            verkoop van hetzelfde bedrag.
           </p>
+
+          <h2>Spreiding: wereld of ontwikkelde landen</h2>
           <p>
-            Kies IWDA als je bewust opkomende markten wil uitsluiten (bijv. om geopolitieke redenen) of
-            als je zelf een twee-ETF-portefeuille wil bouwen (IWDA + EMIM). Voor beginners raden we aan:
-            hou het eenvoudig — VWCE alleen volstaat.
+            VWCE volgt de FTSE All-World-index: ontwikkelde én opkomende landen, 3.821 aandelen eind september 2026. IWDA volgt
+            de MSCI World-index: enkel ontwikkelde landen, zo’n 1.500 aandelen. Wie met IWDA ook opkomende landen wil,
+            combineert vaak met een aparte opkomende-landen-ETF zoals EMIM (TOB 0,12%).
           </p>
+
+          <h2>Kapitaliserend of uitkerend</h2>
+          <p>
+            Beide zijn kapitaliserend: dividenden worden in het fonds herbelegd. Op een uitkerende versie (bij Vanguard
+            VWRL) betaal je 30% roerende voorheffing op elk uitgekeerd dividend. Let bij aankoop dus op de ISIN.
+          </p>
+
+          <h2>Meerwaardebelasting</h2>
+          <p>
+            Voor de meerwaardebelasting (10% boven €10.000 per jaar, sinds 2026) worden beide gelijk behandeld. Zie{' '}
+            <Link href="/belgie/meerwaardebelasting-2026-uitleg">meerwaardebelasting 2026 uitgelegd</Link>.
+          </p>
+
+          <h2>Waar koop je VWCE of IWDA?</h2>
+          <p>
+            Beide ETF’s zijn bij de Belgische brokers op deze site te koop. Wat een aankoop per maand kost en welke broker
+            een spaarplan heeft, zie je op <Link href="/beste-etf-broker-belgie">ETF-brokers in België vergeleken</Link>.
+          </p>
+
+          <h2>Veelgestelde vragen</h2>
+          {faq.map(f => (
+            <div key={f.q}>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             { href: '/belgie/etf-kopen-beginners', label: 'Hoe koop je een ETF in België?' },
-            { href: '/beste-etf-broker-belgie', label: 'Beste ETF-broker voor Belgen' },
+            { href: '/beste-etf-broker-belgie', label: 'ETF-brokers in België vergeleken' },
             { href: '/belgie/tob-uitleg', label: 'TOB uitgelegd' },
             { href: '/belgie/meerwaardebelasting-2026-uitleg', label: 'Meerwaardebelasting 2026' },
           ].map(({ href, label }) => (

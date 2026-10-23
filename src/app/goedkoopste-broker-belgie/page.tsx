@@ -94,7 +94,7 @@ export default function GoedkoopsteBrokerPage() {
             Reken ook mee:
           </p>
           <ul>
-            <li><strong>TOB (Taks op Beursverrichtingen):</strong> 0,12% per ETF-transactie. Als de broker dit niet regelt, betaal je dit zelf — plus administratie.</li>
+            <li><strong>TOB (Taks op Beursverrichtingen):</strong> 0,12% per transactie voor de meeste ETF’s, 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE. Als de broker dit niet regelt, betaal je dit zelf — plus administratie.</li>
             <li><strong>Meerwaardebelasting (2026):</strong> Als je dit zelf moet aangeven, kost dat tijd en mogelijk een fiscalist.</li>
             <li><strong>Bewaarloon:</strong> Sommige brokers rekenen een jaarlijks percentage op je volledige portefeuille.</li>
             <li><strong>Transferkosten:</strong> Wil je later overstappen? Rekening houden met €50–€75/lijn.</li>
