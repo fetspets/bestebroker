@@ -6,7 +6,7 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 export const metadata: Metadata = {
   title: 'NBB-Aangifte Buitenlandse Broker — Hoe en Wanneer? (2026)',
   description:
-    'Als je belegt via DEGIRO of Trade Republic moet je jaarlijks een buitenlandse rekening aangeven bij de NBB. Wij leggen stap voor stap uit hoe dat werkt.',
+    'Beleg je via DEGIRO of een oude Duitse rekening bij Trade Republic? Dan meld je die buitenlandse rekening bij de NBB. Zo werkt het, stap voor stap.',
   openGraph: {
     title: 'NBB-aangifte buitenlandse broker 2026',
     url: 'https://www.bestebroker.be/belgie/buitenlandse-broker-nbb-aangifte',
@@ -52,8 +52,8 @@ export default function NbbAangiftePage() {
             NBB-aangifte buitenlandse broker — hoe en wanneer?
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            Als je een rekening hebt bij een buitenlandse broker zoals DEGIRO of Trade Republic,
-            ben je wettelijk verplicht die jaarlijks aan te geven bij de Nationale Bank van België.
+            Als je een rekening hebt bij een buitenlandse broker zoals DEGIRO, of een oude Duitse rekening bij
+            Trade Republic, ben je wettelijk verplicht die te melden bij de Nationale Bank van België.
             Wij leggen uit hoe dat werkt.
           </p>
           <LastUpdated date="2026-04-01" />
@@ -70,7 +70,7 @@ export default function NbbAangiftePage() {
           <h2>Waarom moet ik een buitenlandse rekening aangeven?</h2>
           <p>
             Elke Belgische rijksinwoner met een buitenlandse financiële rekening (inclusief een
-            brokerrekening bij DEGIRO of Trade Republic) is verplicht deze te <strong>melden bij de
+            brokerrekening bij DEGIRO of een Duitse rekening bij Trade Republic) is verplicht deze te <strong>melden bij de
             Nationale Bank van België (NBB)</strong> en dit aan te geven in de jaarlijkse belastingaangifte.
           </p>
           <p>
@@ -81,8 +81,9 @@ export default function NbbAangiftePage() {
           <h2>Welke brokers vereisen een NBB-aangifte?</h2>
           <div className="not-prose grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
             {[
-              { broker: 'DEGIRO', land: 'Nederland (Amsterdam)', vereist: true },
-              { broker: 'Trade Republic', land: 'Duitsland (Berlijn)', vereist: true },
+              { broker: 'DEGIRO', land: 'Duitsland (flatexDEGIRO)', vereist: true },
+              { broker: 'Trade Republic (Duitse rekening)', land: 'Duitsland (geopend vóór 15/09/2026)', vereist: true },
+              { broker: 'Trade Republic (Belgische rekening)', land: 'Belgisch bijkantoor, IBAN BE', vereist: false },
               { broker: 'Saxo Bank', land: 'Belgisch bijkantoor', vereist: false },
               { broker: 'Bolero', land: 'België (KBC)', vereist: false },
               { broker: 'MeDirect', land: 'België/Malta (Belgische vergunning)', vereist: false },

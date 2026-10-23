@@ -34,7 +34,7 @@ const faqJsonLd = {
       name: 'Hoeveel TOB betaal ik op een ETF-aankoop?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Op de meeste UCITS ETFs betaal je 0,12% TOB (taks op beursverrichtingen) bij aankoop én bij verkoop. Een Belgische broker zoals Saxo of Bolero regelt dit automatisch. Bij DEGIRO of Trade Republic moet je dit zelf aangifte van doen.',
+        text: 'Op de meeste UCITS ETFs betaal je 0,12% TOB (taks op beursverrichtingen) bij aankoop én bij verkoop. Belgische brokers zoals Saxo en Bolero, en ook DEGIRO, houden dit automatisch in. Bij een broker die de TOB niet inhoudt, moet je dit zelf aangifte van doen.',
       },
     },
     {
@@ -189,8 +189,8 @@ export default function EtfKopenBeginnersPage() {
           <h2>TOB — De taks op beursverrichtingen</h2>
           <p>
             Bij elke aankoop én verkoop van een ETF betaal je <strong>0,12% TOB</strong>.
-            Dit wordt automatisch afgehouden door Belgische brokers. Bij een buitenlandse broker
-            (DEGIRO, Trade Republic) moet je dit zelf per kwartaal aangeven via MyMinfin.be.
+            Belgische brokers en ook DEGIRO houden dit automatisch in. Houdt je broker de TOB niet in, dan geef je
+            ze zelf aan via MyMinfin.be.
           </p>
           <p>
             Meer over TOB:{' '}
@@ -230,8 +230,9 @@ export default function EtfKopenBeginnersPage() {
 
           <h3>Moet ik zelf belastingen aangeven?</h3>
           <p>
-            Bij Belgische brokers (Saxo, Bolero, MeDirect, Keytrade): nee. Bij buitenlandse brokers (DEGIRO,
-            Trade Republic): ja — TOB, roerende voorheffing én meerwaardebelasting doe je zelf.
+            Bij Belgische brokers (Saxo, Bolero, MeDirect, Keytrade) en op een Belgische rekening bij Trade Republic
+            (sinds 15/09/2026): nee. Bij DEGIRO: de beurstaks wordt ingehouden, maar meerwaardebelasting, Reynderstaks
+            en roerende voorheffing op buitenlandse dividenden geef je zelf aan.
           </p>
 
           <h3>Is beleggen in ETFs riskant?</h3>

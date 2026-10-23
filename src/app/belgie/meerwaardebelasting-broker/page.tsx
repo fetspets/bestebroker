@@ -150,8 +150,9 @@ export default function MeerwaardebelastingBrokerPage() {
             Jij hoeft niets te doen.
           </p>
           <p>
-            Buitenlandse brokers zoals <strong>DEGIRO</strong> en <strong>Trade Republic</strong> doen dit
-            niet. Jij bent dan zelf verantwoordelijk voor de berekening en aangifte in de personenbelasting.
+            <strong>DEGIRO</strong> doet dit niet: jij bent dan zelf verantwoordelijk voor de berekening en aangifte in de
+            personenbelasting. <strong>Trade Republic</strong> houdt de belasting in op een Belgische rekening (sinds
+            15/09/2026) als je kiest voor opt-in; op een oude Duitse rekening geef je ze zelf aan.
           </p>
           <p>
             <Link href="/broker-meerwaardebelasting-2026" className="text-accent hover:underline">

@@ -188,7 +188,7 @@ export default function MeerwaardebelastingUitlegPage() {
           </p>
           <ul>
             <li><strong>DEGIRO</strong> — geen automatische inhouding, zelf aangifte</li>
-            <li><strong>Trade Republic</strong> — geen automatische inhouding, zelf aangifte</li>
+            <li><strong>Trade Republic</strong> — op een oude Duitse rekening: zelf aangifte. Op een Belgische rekening (sinds 15/09/2026) houdt Trade Republic de belasting in als je kiest voor opt-in.</li>
           </ul>
           <p>
             Dit betekent: bij elke verkoop bijhouden wat je betaald hebt, de meerwaarde berekenen,

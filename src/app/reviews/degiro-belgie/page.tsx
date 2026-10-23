@@ -8,13 +8,19 @@ import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlo
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
 const broker = getBrokerById('degiro')!
 
+const bronnen: Bron[] = [
+  { staaft: 'Kosten, kernselectie, taksen, NBB-melding, uitlenen van effecten, enkel Basis-account, bescherming, overdracht, registratie via degiro.nl', label: 'Curvo, DEGIRO review (03/09/2026)', href: 'https://curvo.eu/nl/artikel/degiro-review' },
+  { staaft: 'DEGIRO houdt de beurstaks in en stort ze door aan de Belgische fiscus', label: 'Test-Aankoop, taks op beursverrichtingen', href: 'https://www.test-aankoop.be/invest/fiscaliteit-en-wetgeving/belastingheffing/dossiers/taks-op-beursverrichtingen-tob' },
+]
+
 export const metadata: Metadata = {
-  title: 'DEGIRO België Review 2026 — Goedkoop maar Fiscale Valkuilen',
+  title: 'DEGIRO België review 2026: kosten, taksen en NBB-melding',
   description:
-    'Eerlijke DEGIRO-review voor Belgische beleggers. Lage kosten maar geen fiscale afhandeling: TOB, meerwaardebelasting en NBB-aangifte doe je zelf.',
+    'DEGIRO in België: €1 per ETF-order uit de kernselectie, TOB ingehouden, maar meerwaardebelasting en NBB-melding doe je zelf. Nagekeken oktober 2026.',
   openGraph: {
     title: 'DEGIRO België Review 2026',
     url: 'https://www.bestebroker.be/reviews/degiro-belgie',
@@ -51,17 +57,18 @@ export default function DegiroReviewPage() {
         <header className="mb-8">
           <h1 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">DEGIRO België — Review 2026</h1>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            DEGIRO is een Nederlandse broker die in België populair is dankzij lage transactiekosten.
-            Maar voor Belgische beleggers zijn er belangrijke fiscale valkuilen om te kennen.
+            DEGIRO is een buitenlandse broker (flatexDEGIRO, Duitsland) met lage orderkosten. De beurstaks houdt DEGIRO zelf in.
+            De meerwaardebelasting, de Reynderstaks en de roerende voorheffing op buitenlandse dividenden geef je zelf aan, en
+            je meldt de rekening bij de Nationale Bank.
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
 
         <div className="mb-8 p-4 bg-orange-50 border border-orange-200 rounded-xl">
           <p className="text-sm text-orange-800">
-            <strong>⚠ Belgische beleggers letten op:</strong> DEGIRO handelt geen enkele Belgische belasting af.
-            Je bent zelf verantwoordelijk voor TOB, roerende voorheffing en meerwaardebelasting.
-            Bovendien is een jaarlijkse NBB-aangifte buitenlandse rekening vereist.
+            <strong>Voor Belgische beleggers:</strong> DEGIRO houdt de beurstaks (TOB) in, maar niet de meerwaardebelasting,
+            de Reynderstaks en de roerende voorheffing op buitenlandse dividenden. Een DEGIRO-rekening is een buitenlandse
+            rekening: je meldt ze bij de NBB en vermeldt ze in je belastingaangifte.
           </p>
         </div>
 
@@ -72,32 +79,38 @@ export default function DegiroReviewPage() {
         </div>
 
         <div className="prose-custom max-w-3xl mb-10">
-          <h2>Fiscale verantwoordelijkheid</h2>
-          <p>Als Belgische DEGIRO-belegger ben je zelf verantwoordelijk voor:</p>
+          <h2>Wat kost een order bij DEGIRO?</h2>
           <ul>
-            <li><strong>TOB:</strong> 0,12% per ETF-transactie — zelf aangifte doen en betalen</li>
-            <li><strong>Roerende voorheffing:</strong> dividenden worden bruto uitbetaald, jij betaalt 30% aan de belastingdienst</li>
-            <li><strong>Reynders-taks:</strong> bij obligatiefondsen met rentecomponent</li>
-            <li><strong>Meerwaardebelasting (2026):</strong> DEGIRO houdt niets in — jij maakt de berekening en doet aangifte</li>
-            <li><strong>NBB-aangifte:</strong> jaarlijkse aangifte van buitenlandse rekening vereist</li>
+            <li><strong>ETF uit de kernselectie:</strong> €1 per order, enkel via de beurs Tradegate</li>
+            <li><strong>Andere ETF&apos;s:</strong> €3 per order</li>
+            <li><strong>Bewaarloon:</strong> geen</li>
+            <li><strong>Effecten overzetten naar een andere bank:</strong> €20 per lijn, plus eventuele externe kosten</li>
+          </ul>
+          <p>
+            Er is geen Belgische website: Belgen openen een rekening via degiro.nl. Een automatisch spaarplan of fracties zijn er niet.
+          </p>
+
+          <h2>Welke taksen regel je zelf?</h2>
+          <ul>
+            <li><strong>Beurstaks (TOB):</strong> ingehouden door DEGIRO (0,12% voor de meeste ETF&apos;s, tot 1,32% voor sommige fondsen)</li>
+            <li><strong>Roerende voorheffing (30%):</strong> enkel ingehouden op Belgische aandelen; buitenlandse dividenden geef je zelf aan</li>
+            <li><strong>Reynderstaks:</strong> bij verkoop van ETF&apos;s met minstens 10% obligaties zelf berekenen en aangeven</li>
+            <li><strong>Meerwaardebelasting (10% boven €10.000 vrijstelling per jaar, sinds 2026):</strong> zelf berekenen en aangeven</li>
+            <li><strong>NBB-melding:</strong> eenmalig melden bij de Nationale Bank, en jaarlijks vermelden in je belastingaangifte</li>
           </ul>
 
-          <h2>Securities lending in het basisaccount</h2>
+          <h2>Uitlenen van effecten</h2>
           <p>
-            In het gratis <strong>basisaccount</strong> van DEGIRO is securities lending verplicht.
-            Jouw effecten kunnen worden uitgeleend aan derden. Je loopt tegenpartijrisico.
-            Je kunt upgraden naar een <em>Custody-account</em> waar dit niet het geval is, maar dit is duurder.
+            DEGIRO biedt nog één rekeningtype aan: het Basis-account. De aparte Custody-rekening bestaat sinds 2021 niet meer.
+            Volgens de voorwaarden van het Basis-account mag DEGIRO je effecten uitlenen; DEGIRO meldt dat het dat momenteel
+            niet doet.
           </p>
 
-          <h2>Is DEGIRO nog de moeite voor Belgen?</h2>
+          <h2>Hoe veilig is je geld?</h2>
           <p>
-            DEGIRO was jarenlang de standaardkeuze voor kostenconsciente Belgische beleggers.
-            Met de invoering van de meerwaardebelasting in 2026 verschuift het beeld: de administratielast
-            wordt zwaarder, en de kostenbesparing ten opzichte van Saxo of MeDirect is kleiner dan het lijkt.
-          </p>
-          <p>
-            Voor ervaren beleggers die niet schrikken van fiscale administratie en het custody-account gebruiken:
-            DEGIRO blijft een valabele optie. Voor beginners raden wij een Belgische broker aan.
+            DEGIRO staat onder toezicht van de Duitse BaFin. Je effecten worden apart van het vermogen van DEGIRO bewaard.
+            Gaat DEGIRO failliet, dan is cash beschermd tot €100.000 en zijn effecten gedekt tot €20.000. Dat zijn dezelfde
+            bedragen als bij een Belgische bank. Beleggersbescherming dekt geen koersverliezen.
           </p>
         </div>
 
@@ -107,7 +120,7 @@ export default function DegiroReviewPage() {
               <p className="font-semibold text-primary mb-1">DEGIRO account openen</p>
               <AffiliateLabel broker={broker} />
               <p className="text-xs text-orange-700 mt-1">
-                ⚠ DEGIRO regelt geen Belgische belastingen. Zorg dat je bereid bent de fiscale administratie zelf te doen.
+                Meerwaardebelasting, Reynderstaks en NBB-melding regel je zelf.
               </p>
             </div>
             <a href={goLink(broker.id, 'degiro-review-cta')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
@@ -115,6 +128,8 @@ export default function DegiroReviewPage() {
             </a>
           </div>
         )}
+
+        <Bronnen bronnen={bronnen} nagekeken={broker.lastVerified} />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {[

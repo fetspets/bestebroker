@@ -42,7 +42,7 @@ const faqJsonLd = {
       name: 'Regelt mijn broker de meerwaardebelasting voor mij?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Belgische brokers zoals Saxo Bank en Bolero (v.a. juni 2026) houden de belasting automatisch in bij verkoop. Buitenlandse brokers zoals DEGIRO en Trade Republic doen dit niet — jij moet dan zelf aangifte doen.',
+        text: 'Belgische brokers zoals Saxo Bank en Bolero (v.a. juni 2026) houden de belasting automatisch in bij verkoop. Trade Republic doet dit op een Belgische rekening (sinds 15/09/2026) als je kiest voor opt-in. DEGIRO doet dit niet — jij moet dan zelf aangifte doen.',
       },
     },
   ],
@@ -101,7 +101,7 @@ export default function MeerwaardebelastingPage() {
                       {broker.id === 'saxo' && 'Automatisch vanaf inwerkingtreding'}
                       {broker.id === 'medirect' && 'Verifieer actuele status bij MeDirect'}
                       {broker.id === 'degiro' && 'Zelf aangifte doen vereist'}
-                      {broker.id === 'trade-republic' && 'Zelf aangifte doen vereist'}
+                      {broker.id === 'trade-republic' && 'Belgische rekening: bij opt-in (sinds 15/09/2026)'}
                       {broker.id === 'keytrade' && 'Automatisch afgehandeld'}
                     </td>
                   </tr>
@@ -140,7 +140,7 @@ export default function MeerwaardebelastingPage() {
 
           <h3>Waarom kies je best een broker die dit automatisch regelt?</h3>
           <p>
-            Als je belegt via een buitenlandse broker (DEGIRO, Trade Republic), ben jij verantwoordelijk voor:
+            Als je belegt via een broker die de belasting niet inhoudt (bv. DEGIRO, of een oude Duitse rekening bij Trade Republic), ben jij verantwoordelijk voor:
           </p>
           <ul>
             <li>Bijhouden van alle aan- en verkooptransacties</li>
