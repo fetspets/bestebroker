@@ -25,6 +25,8 @@ export interface Broker {
     feeTiers?: { upTo: number; fee: number }[]
     /** Boven de laatste trede: `fee` extra per begonnen schijf van `per` euro. */
     feeAbove?: { per: number; fee: number }
+    /** Kost per uitvoering van een ETF-spaarplan, als die afwijkt van een gewone order. */
+    spaarplanPerUitvoering?: number
   }
   taxes: {
     tob: boolean
@@ -392,6 +394,7 @@ export const brokers: Broker[] = [
     fees: {
       etfStandard: 1,
       stocksEuronext: 1,
+      spaarplanPerUitvoering: 0, // spaarplannen zonder kosten (Curvo, beste ETF-spaarplan België, 22/10/2026)
       transactionFeeFixed: 1,
       transactionFeePercent: 0,
       transactionFeeMin: 1,
