@@ -8,8 +8,16 @@ import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlo
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
 const broker = getBrokerById('saxo')!
+
+const bronnen: Bron[] = [
+  { staaft: 'Transactiekosten, bewaarloon en toezicht', label: 'Saxo België, individuele rekening', href: 'https://www.home.saxo/nl-be/accounts/individual' },
+  { staaft: 'AutoInvest-kost', label: 'Saxo België, AutoInvest', href: 'https://www.home.saxo/nl-be/products/autoinvest' },
+  { staaft: 'Inhouding TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting, opt-out, AutoInvest enkel hele stuks, bescherming, uitlenen opt-in, itsme', label: 'Curvo, Saxo review', href: 'https://curvo.eu/nl/artikel/saxo-bank-review' },
+  { staaft: 'Boete Deense toezichthouder (2026)', label: 'FinTech Futures', href: 'https://www.fintechfutures.com/regulatory-actions/saxo-bank-fined-by-danish-fsa' },
+]
 
 export const metadata: Metadata = {
   title: 'Saxo Bank België Review 2026 — Kosten, Belastingen & Conclusie',
@@ -82,8 +90,8 @@ export default function SaxoReviewPage() {
             <p className="text-sm text-gray-600">Onze score</p>
           </div>
           <div className="card text-center">
-            <p className="text-xl font-bold text-primary mb-1">Beste overall</p>
-            <p className="text-sm text-gray-600">Volledigste fiscale afhandeling</p>
+            <p className="text-xl font-bold text-primary mb-1">AutoInvest €2/maand</p>
+            <p className="text-sm text-gray-600">Houdt alle Belgische taksen in</p>
           </div>
           <div className="card text-center">
             <p className="text-xl font-bold text-primary mb-1">Belgisch bijkantoor</p>
@@ -119,11 +127,10 @@ export default function SaxoReviewPage() {
             <li><strong>TOB</strong>: automatisch ingehouden bij elke transactie</li>
             <li><strong>Roerende voorheffing</strong>: automatisch bij dividenduitkering</li>
             <li><strong>Reynders-taks</strong>: automatisch bij verkoop van obligatiefondsen met rentecomponent</li>
-            <li><strong>Meerwaardebelasting (2026)</strong>: Saxo handelt dit automatisch af</li>
+            <li><strong>Meerwaardebelasting</strong>: ingehouden bij elke verkoop; teveel betaald recupereer je via je aangifte. Je kan de inhouding ook uitzetten en zelf aangeven.</li>
           </ul>
           <p>
-            Dit is het grootste voordeel van Saxo ten opzichte van buitenlandse brokers: je hoeft nooit
-            zelf aangifte te doen of belastingen te berekenen.
+            Een melding bij de Nationale Bank is niet nodig: je rekening loopt via het Belgische bijkantoor.
           </p>
 
           <h2>AutoInvest — maandelijks automatisch beleggen</h2>
@@ -141,16 +148,20 @@ export default function SaxoReviewPage() {
           <p>
             Saxo biedt securities lending als <strong>opt-in</strong> aan: jij wordt betaald als jouw effecten
             uitgeleend worden, maar je draagt tegenpartijrisico. Het is standaard <em>uitgeschakeld</em>.
-            Wij raden aan dit uitgeschakeld te laten, tenzij je bewust voor het extra rendement kiest.
+            Zet je het niet zelf aan, dan worden je effecten niet uitgeleend.
           </p>
 
-          <h2>Bescherming</h2>
+          <h2>Bescherming en veiligheid</h2>
           <p>
-            Saxo Bank valt als Deense bank onder het <strong>Deens garantiefonds (Garantiformuen)</strong>
-            voor €100.000 aan effecten. Beleggers met een rekening bij het Belgisch bijkantoor worden
-            beschermd via dit fonds. Saxo is ook FSMA- en NBB-geregistreerd.
+            Je effecten worden gescheiden bewaard. Kan de bank ze bij een faillissement toch niet teruggeven, dan beschermt
+            het Deense garantiefonds effecten tot €20.000 en cash tot €100.000. Dat is hetzelfde niveau als bij de andere
+            brokers op deze site.
           </p>
-
+          <p>
+            In januari 2026 legde de Deense toezichthouder Saxo een boete op van DKK 313 miljoen voor
+            tekortkomingen in de antiwitwascontroles tussen 2021 en 2023. Saxo aanvaardde de boete. Hoe dit meetelt in de
+            score, lees je in de <Link href="/methodologie" className="text-accent underline">methodologie</Link>.
+          </p>
           <h2>Is Saxo Bank goed voor beginners?</h2>
           <p>
             Het platform van Saxo is uitgebreid en kan overweldigend zijn voor beginners. De basisinterface is
@@ -158,13 +169,17 @@ export default function SaxoReviewPage() {
             Voor een passieve belegger die enkel ETFs koopt via AutoInvest, volstaat de basisinterface prima.
           </p>
 
-          <h2>Onze conclusie</h2>
+          <h2>Samengevat</h2>
           <p>
-            Saxo Bank is voor de meeste Belgische beleggers de <strong>beste keuze in 2026</strong>. De combinatie
-            van automatische belastingafhandeling, lage ETF-kosten en AutoInvest is uniek op de markt.
-            Het is de enige broker waarbij je écht alles kunt automatiseren — van aankoop tot belastingaangifte.
+            Saxo past bij wie automatisch maandelijks in ETF&apos;s wil beleggen (AutoInvest, €2 per maand) en de Belgische
+            taksen wil laten inhouden. Wie enkel losse orders plaatst, betaalt 0,08% met minimum €2. Vergelijk met{' '}
+            <Link href="/vergelijking/bolero-vs-saxo" className="text-accent underline">Bolero vs Saxo</Link> of{' '}
+            <Link href="/vergelijking/saxo-vs-medirect" className="text-accent underline">MeDirect vs Saxo</Link>.
+            Dit is algemene informatie, geen persoonlijk advies.
           </p>
         </div>
+
+        <Bronnen bronnen={bronnen} nagekeken={broker.lastVerified} />
 
         {broker.affiliateUrl && (
           <div className="bg-teal-50 border border-teal-200 rounded-xl p-6 mb-8 flex items-start justify-between gap-4">

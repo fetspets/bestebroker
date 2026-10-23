@@ -104,7 +104,7 @@ export const brokers: Broker[] = [
       savingsPlan: true,
       fractionalShares: false,
       autoInvest: true,
-      itsmeOnboarding: false,
+      itsmeOnboarding: true, // Curvo, Saxo review
     },
     security: {
       securitiesLending: 'opt-in',
@@ -133,7 +133,7 @@ export const brokers: Broker[] = [
       transparantie: 4.0,
     },
     pros: [
-      'Regelt TOB, roerende voorheffing, Reynders én meerwaardebelasting automatisch',
+      'Houdt TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting in (opt-out mogelijk)',
       'AutoInvest: automatisch maandelijks beleggen voor €2/maand',
       'Breed aanbod: ETFs, aandelen, obligaties, opties',
       'Belgisch bijkantoor van een Deense bank, met Belgisch toezicht op de gedragsregels (FSMA)',
