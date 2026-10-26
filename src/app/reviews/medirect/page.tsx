@@ -62,6 +62,19 @@ export default function MeDirectReviewPage() {
             op ETF-transacties. Aandelen zijn wel betalend, en een automatisch spaarplan is er niet.
           </p>
           <LastUpdated date={broker.lastVerified} />
+          {broker.affiliateUrl && (
+            <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <a
+                href={goLink(broker.id, 'medirect-review-top')}
+                target="_blank"
+                rel="sponsored nofollow noopener"
+                className="btn-primary w-full sm:w-auto justify-center text-center py-3"
+              >
+                Naar de website van MeDirect →
+              </a>
+              <AffiliateLabel broker={broker} />
+            </div>
+          )}
         </header>
 
         <ScoreBreakdown broker={broker} />
@@ -127,7 +140,7 @@ export default function MeDirectReviewPage() {
               <p className="font-semibold text-primary mb-1">MeDirect account openen</p>
               <AffiliateLabel broker={broker} />
             </div>
-            <a href={goLink(broker.id, 'medirect-review-cta')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
+            <a href={goLink(broker.id, 'medirect-review-onder')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0">
               Open account →
             </a>
           </div>
