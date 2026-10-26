@@ -113,6 +113,23 @@ export default function SaxoVsMeDirectPage() {
             <li><strong>Uitlenen van effecten:</strong> MeDirect doet het niet; bij Saxo enkel als je zelf opt-in kiest.</li>
             <li><strong>Vertrekken:</strong> overzetten kost €50 per lijn bij MeDirect en €75 per lijn bij Saxo.</li>
           </ul>
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {[saxo, medirect].map(broker => (
+              broker.affiliateUrl && (
+                <div key={broker.id}>
+                  <a
+                    href={goLink(broker.id, 'saxo-vs-medirect-top')}
+                    target="_blank"
+                    rel="sponsored nofollow noopener"
+                    className="btn-outline w-full justify-center text-center py-3"
+                  >
+                    Naar {broker.name} →
+                  </a>
+                  <AffiliateLabel broker={broker} />
+                </div>
+              )
+            ))}
+          </div>
         </section>
 
         <section className="card mb-10">
@@ -228,7 +245,7 @@ export default function SaxoVsMeDirectPage() {
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={goLink(broker.id, 'saxo-vs-medirect')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Naar {broker.name} →</a>
+                <a href={goLink(broker.id, 'saxo-vs-medirect-onder')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Naar {broker.name} →</a>
               </div>
             )
           ))}
