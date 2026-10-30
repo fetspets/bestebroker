@@ -137,8 +137,8 @@ export default function HomePage() {
               },
               {
                 icon: '🔍',
-                title: 'Bronnen en betaalde samenwerking zichtbaar',
-                text: 'Elke tariefvergelijking heeft een datum en bron. Sommige knoppen zijn affiliate-links; dat staat er altijd bij. Een vergoeding verandert de scores niet: die volgen de publieke methodologie.',
+                title: 'Geen gekochte posities',
+                text: 'De volgorde volgt onze vaste score, ook bij brokers waarmee we samenwerken. Elke tariefvergelijking heeft een bron en datum, en bij affiliate-links staat altijd "betaalde samenwerking".',
               },
               {
                 icon: '🛠',
