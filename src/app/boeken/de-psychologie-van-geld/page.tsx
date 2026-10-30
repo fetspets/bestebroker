@@ -9,7 +9,7 @@ import { LastUpdated } from '@/components/ui/LastUpdated'
 const book = getBookById('psychology-of-money-nl')!
 
 export const metadata: Metadata = {
-  title: 'De Psychologie van Geld — Review & Samenvatting | BesteBroker.be',
+  title: 'De Psychologie van Geld — Review & Samenvatting',
   description:
     'Review van "De psychologie van geld" door Morgan Housel. Waarom gedrag belangrijker is dan kennis bij beleggen — en wat dat betekent voor Belgische beleggers.',
   openGraph: {

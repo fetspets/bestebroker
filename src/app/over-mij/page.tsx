@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { author } from '@/data/author'
 
 export const metadata: Metadata = {
-  title: 'Over Stef — Belgische Belegger en Oprichter | BesteBroker.be',
+  title: 'Over Stef — Belgische Belegger en Oprichter',
   description:
     'Stef begon op zijn 25ste met beleggen om zijn koopkracht te beschermen. Ontdek waarom hij deze vergelijkingssite bouwde voor Belgische beleggers.',
   openGraph: {
