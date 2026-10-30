@@ -3,7 +3,7 @@ import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 import { BookQuiz } from '@/components/book/BookQuiz'
 
 export const metadata: Metadata = {
-  title: 'Welk beleggingsboek past bij jou? — Quiz | BesteBroker.be',
+  title: 'Welk beleggingsboek past bij jou? — Quiz',
   description:
     'Beantwoord 10 vragen en ontdek welk beleggingsboek het beste past bij jouw ervaring, doelen en leerstijl. Gratis persoonlijk advies.',
   openGraph: {

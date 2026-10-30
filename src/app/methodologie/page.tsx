@@ -13,7 +13,7 @@ const toezichtLabel: Record<Broker['veiligheid']['toezicht'], { label: string; p
 }
 
 export const metadata: Metadata = {
-  title: 'Methodologie — Hoe Wij Brokers Beoordelen | BesteBroker.be',
+  title: 'Methodologie — Hoe Wij Brokers Beoordelen',
   description:
     'Transparante uitleg over hoe BesteBroker.be brokers beoordeelt en welke criteria wij hanteren.',
   openGraph: {

@@ -3,13 +3,16 @@ import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
 
+const TITLE = 'Beste broker België 2026: 6 brokers vergeleken met bronnen'
+const DESCRIPTION =
+  'Wat kost een order, welke taksen houdt je broker in en waar doe je zelf aangifte? Saxo, Bolero, DEGIRO, MeDirect, Trade Republic en Keytrade.'
+
 export const metadata: Metadata = {
-  title: 'Beste Broker België 2026 — Eerlijke Nederlandstalige Vergelijking',
-  description:
-    'Vergelijk de beste brokers in België voor 2026. TOB, meerwaardebelasting, bewaarloon — alles uitgelegd in het Nederlands. Onafhankelijk en fact-checked.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   openGraph: {
-    title: 'Beste Broker België 2026',
-    description: 'Eerlijke, Nederlandstalige vergelijking van brokers voor Belgische beleggers.',
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://www.bestebroker.be',
     type: 'website',
     locale: 'nl_BE',
@@ -17,7 +20,12 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.bestebroker.be' },
 }
 
-const topBrokers = brokers.slice(0, 3)
+// Volgorde = totaalscore uit /methodologie (berekend in brokers.ts), geen aanbeveling.
+const topBrokers = [...brokers].sort((a, b) => b.rating - a.rating).slice(0, 3)
+// Meest recente controle van de brokerdata, voor het label bovenaan.
+const NAGEKEKEN = brokers.map(b => b.lastVerified).sort().reverse()[0]
+const MAANDEN = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
+const nagekekenLabel = `${MAANDEN[Number(NAGEKEKEN.slice(5, 7)) - 1]} ${NAGEKEKEN.slice(0, 4)}`
 
 const stats = [
   { value: '6', label: 'brokers vergeleken' },
@@ -59,14 +67,14 @@ export default function HomePage() {
         <div className="section-container text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 text-sm px-4 py-1.5 rounded-full mb-6">
             <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-            Bijgewerkt april 2026 · Meerwaardebelasting inbegrepen
+            Brokerdata nagekeken {nagekekenLabel} · Meerwaardebelasting inbegrepen
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
             De beste broker in België — <span className="text-accent">eerlijk vergeleken</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
             100% Nederlandstalig · Belgische fiscale diepgang.
-            Wij vergelijken TOB, meerwaardebelasting, bewaarloon en meer — zodat jij de juiste keuze maakt.
+            Wij vergelijken TOB, meerwaardebelasting, bewaarloon en meer, met bron en datum. Kiezen doe je zelf.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/beste-broker-belgie" className="bg-accent text-white font-semibold px-8 py-4 rounded-xl text-lg hover:bg-opacity-90 transition-colors">
@@ -129,8 +137,8 @@ export default function HomePage() {
               },
               {
                 icon: '🔍',
-                title: 'Fact-checked, niet gesponsord',
-                text: 'Elke tariefvergelijking heeft een datum en bron. Brokers met een affiliatelink scoren niet automatisch beter. Ons redactioneel oordeel is onafhankelijk.',
+                title: 'Bronnen en betaalde samenwerking zichtbaar',
+                text: 'Elke tariefvergelijking heeft een datum en bron. Sommige knoppen zijn affiliate-links; dat staat er altijd bij. Een vergoeding verandert de scores niet: die volgen de publieke methodologie.',
               },
               {
                 icon: '🛠',
@@ -154,17 +162,19 @@ export default function HomePage() {
           <div className="flex items-end justify-between mb-8">
             <div>
               <h2 className="font-display text-2xl md:text-3xl font-bold text-primary">
-                Beste brokers van 2026
+                Hoogste totaalscore in 2026
               </h2>
-              <p className="text-gray-600 mt-1">Op basis van kosten, fiscale afhandeling en gebruiksgemak</p>
+              <p className="text-gray-600 mt-1">
+                Volgens onze <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link> (kosten, fiscale afhandeling, veiligheid, gebruiksgemak). Geen persoonlijk advies.
+              </p>
             </div>
             <Link href="/beste-broker-belgie" className="text-accent hover:underline text-sm font-medium hidden sm:block">
               Alle {brokers.length} brokers →
             </Link>
           </div>
           <div className="space-y-6">
-            {topBrokers.map((broker, i) => (
-              <BrokerCard key={broker.id} broker={broker} rank={i + 1} source="homepage" />
+            {topBrokers.map(broker => (
+              <BrokerCard key={broker.id} broker={broker} source="homepage" />
             ))}
           </div>
           <div className="text-center mt-6">

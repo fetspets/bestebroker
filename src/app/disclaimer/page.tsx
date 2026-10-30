@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'Disclaimer & Transparantiebeleid | BesteBroker.be',
+  title: 'Disclaimer & Transparantiebeleid',
   description:
     'Lees onze volledige disclaimer over risicowaarschuwingen en redactionele onafhankelijkheid op BesteBroker.be.',
   openGraph: {
@@ -42,7 +42,8 @@ export default function DisclaimerPage() {
         <section>
           <h2>2. Redactionele onafhankelijkheid</h2>
           <p>
-            Onze brokerbeoordelingen en vergelijkingen zijn volledig onafhankelijk.
+            Brokers of affiliatenetwerken beslissen niet mee over onze beoordelingen en vergelijkingen. Scores volgen
+            vaste criteria, ook voor brokers waarmee we een betaalde samenwerking hebben (zie punt 3).
             Onze methodologie is publiek beschikbaar op de <Link href="/methodologie" className="text-accent hover:underline">methodologie-pagina</Link>.
           </p>
         </section>

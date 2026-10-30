@@ -19,12 +19,16 @@ const bronnen: Bron[] = [
   { staaft: 'Boete Deense toezichthouder (2026)', label: 'FinTech Futures', href: 'https://www.fintechfutures.com/regulatory-actions/saxo-bank-fined-by-danish-fsa' },
 ]
 
+const TITLE = 'Saxo Bank review België 2026: kosten, AutoInvest en taksen'
+const DESCRIPTION =
+  'Saxo België nagekeken: 0,08% per ETF-order (min. €2), AutoInvest €2 per maand, alle Belgische taksen ingehouden. Wat kost overstappen? Met bronnen.'
+
 export const metadata: Metadata = {
-  title: 'Saxo Bank België Review 2026 — Kosten, Belastingen & Conclusie',
-  description:
-    'Eerlijke review van Saxo Bank voor Belgische beleggers in 2026. Kosten, meerwaardebelasting-aanpak, AutoInvest, securities lending en onze conclusie.',
+  title: { absolute: TITLE },
+  description: DESCRIPTION,
   openGraph: {
-    title: 'Saxo Bank België Review 2026',
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://www.bestebroker.be/reviews/saxo-bank-belgie',
     locale: 'nl_BE',
     type: 'article',
@@ -51,7 +55,7 @@ const jsonLd = [
     publisher: { '@type': 'Organization', name: 'BesteBroker.be', url: 'https://www.bestebroker.be' },
     datePublished: '2026-01-15',
     dateModified: broker.lastVerified,
-    reviewBody: 'Saxo Bank is de meest complete Belgische broker voor ETF-beleggers. Alle belastingen worden automatisch afgehandeld, AutoInvest maakt maandelijks beleggen eenvoudig, en de kosten zijn concurrerend.',
+    reviewBody: 'Saxo België houdt TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting in. ETF-orders kosten 0,08% met minimum €2; AutoInvest kost €2 per maand. Overdracht naar een andere broker kost €75 per lijn.',
   },
   breadcrumbJsonLd([
     { label: 'Reviews', href: '/beste-broker-belgie' },
@@ -77,8 +81,8 @@ export default function SaxoReviewPage() {
             </div>
           </div>
           <p className="text-lg text-gray-600 max-w-3xl mb-4">
-            Saxo Bank is een Deense bank met een Belgisch bijkantoor (FSMA- en NBB-geregistreerd). Ze bieden
-            een van de meest volledige fiscale diensten aan voor Belgische beleggers.
+            Saxo Bank is een Deense bank met een Belgisch bijkantoor (FSMA- en NBB-geregistreerd). Saxo houdt
+            alle Belgische beleggingstaksen voor je in, ook de meerwaardebelasting.
           </p>
           <LastUpdated date={broker.lastVerified} />
         </header>
@@ -112,11 +116,12 @@ export default function SaxoReviewPage() {
           <p>
             Saxo rekent <strong>0,08% per ETF-transactie met een minimum van €2</strong>.
             Voor AutoInvest (automatische maandelijkse aankopen) betaal je <strong>€2/maand vaste kost</strong>
-            — ongeacht het bedrag. Dit maakt Saxo bijzonder voordelig voor regelmatige beleggers.
+            — ongeacht het bedrag. Hoeveel dat per jaar kost tegenover andere brokers, zie je in de{' '}
+            <Link href="/tools/brokerkosten-calculator" className="text-accent underline">kostencalculator</Link>.
           </p>
           <p>
-            Er is <strong>geen bewaarloon</strong> en geen jaarlijkse rekening fee. De enige verborgen kost is
-            bij overdracht: €75 per lijn als je naar een andere broker wil overstappen.
+            Er is <strong>geen bewaarloon</strong> en geen jaarlijkse rekeningkost. Hou wel rekening met de
+            overdrachtkost: €75 per lijn als je je effecten naar een andere broker wil overbrengen.
           </p>
 
           <h2>Belastingafhandeling</h2>
@@ -137,7 +142,7 @@ export default function SaxoReviewPage() {
           <p>
             AutoInvest laat je een maandelijks bedrag instellen dat automatisch belegd wordt in een of meerdere
             ETFs, voor slechts <strong>€2/maand vaste kost</strong>. De transactie gebeurt automatisch op een
-            vooraf gekozen dag — ideaal voor de &quot;set it and forget it&quot;-belegger.
+            vooraf gekozen dag, zonder dat je zelf een order hoeft te plaatsen.
           </p>
           <p>
             Let op: AutoInvest koopt enkel gehele stuks. Als jouw maandelijkse bijdrage niet volstaat voor
