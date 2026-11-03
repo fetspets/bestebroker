@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { books, type Book } from '@/data/books'
 import { bolLink } from '@/lib/affiliateLinks'
+import { BolAffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 type QuizAnswer = {
   label: string
@@ -361,6 +362,7 @@ function QuizResult({
                 Meer info
               </Link>
             </div>
+            <BolAffiliateLabel />
           </div>
         </div>
       </div>
@@ -411,6 +413,7 @@ function QuizResult({
                       bol.com →
                     </a>
                   </div>
+                  <BolAffiliateLabel />
                 </div>
               </div>
             ))}
