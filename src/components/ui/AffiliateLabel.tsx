@@ -13,3 +13,15 @@ export function AffiliateLabel({ broker }: { broker: Pick<Broker, 'affiliateActi
     </p>
   )
 }
+
+/** Zelfde vermelding naast een boekenlink: elke knop naar bol.com is een partnerlink. */
+export function BolAffiliateLabel() {
+  return (
+    <p className="text-[11px] leading-tight text-gray-500 mt-1">
+      Affiliate-link · betaalde samenwerking.{' '}
+      <Link href="/disclaimer#affiliate" className="underline hover:text-accent">
+        Wat betekent dit?
+      </Link>
+    </p>
+  )
+}

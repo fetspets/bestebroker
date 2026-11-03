@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Book } from '@/data/books'
 import { bolLink } from '@/lib/affiliateLinks'
+import { BolAffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 interface Props {
   book: Book
@@ -46,6 +47,7 @@ export function BookCard({ book, variant = 'full' }: Props) {
               Bekijk op bol.com →
             </a>
           </div>
+          <BolAffiliateLabel />
         </div>
       </div>
     )
@@ -108,6 +110,7 @@ export function BookCard({ book, variant = 'full' }: Props) {
               Bekijk op bol.com →
             </a>
           </div>
+          <BolAffiliateLabel />
         </div>
       </div>
     </article>

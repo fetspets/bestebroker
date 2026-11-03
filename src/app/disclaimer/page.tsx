@@ -51,14 +51,14 @@ export default function DisclaimerPage() {
         <section id="affiliate">
           <h2>3. Affiliate-links en betaalde samenwerking</h2>
           <p>
-            Sommige knoppen op BesteBroker.be zijn affiliate-links. Opent u via zo&apos;n link een rekening, dan kan
-            BesteBroker.be daarvoor een vergoeding krijgen van de broker of van het affiliatenetwerk. Bij die knoppen
+            Sommige knoppen op BesteBroker.be zijn affiliate-links. Opent u via zo&apos;n link een rekening of koopt u
+            een boek, dan kan BesteBroker.be daarvoor een vergoeding krijgen van de partner of van het affiliatenetwerk. Bij die knoppen
             staat altijd de vermelding &ldquo;Affiliate-link · betaalde samenwerking&rdquo;.
           </p>
           <ul>
             <li>U betaalt daardoor niets extra.</li>
             <li>Een vergoeding heeft geen invloed op onze scores, rangschikkingen of vergelijkingen; die volgen de publieke <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>.</li>
-            <li>Actieve betaalde samenwerkingen: MeDirect (via het affiliatenetwerk Awin).</li>
+            <li>Actieve betaalde samenwerkingen: MeDirect (via het affiliatenetwerk Awin) en bol.com (boekenlinks, via het partnerprogramma van bol).</li>
           </ul>
         </section>
 
@@ -89,8 +89,8 @@ export default function DisclaimerPage() {
         <section>
           <h2>6. Boekhoudkundige en juridische verantwoordelijkheid</h2>
           <p>
-            BesteBroker.be is aansprakelijkheid voor schade die voortvloeit uit het gebruik van
-            informatie op deze site uitdrukkelijk uitgesloten, voor zover wettelijk toegestaan.
+            De aansprakelijkheid van BesteBroker.be voor schade die voortvloeit uit het gebruik van
+            informatie op deze site is uitdrukkelijk uitgesloten, voor zover wettelijk toegestaan.
             De gebruiker is zelf verantwoordelijk voor zijn of haar beleggingsbeslissingen.
           </p>
         </section>
