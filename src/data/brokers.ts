@@ -27,6 +27,8 @@ export interface Broker {
     feeAbove?: { per: number; fee: number }
     /** Kost per uitvoering van een ETF-spaarplan, als die afwijkt van een gewone order. */
     spaarplanPerUitvoering?: number
+    /** Aandelenorder op Euronext: percentage (0,0015 = 0,15%) met minimum per order. Zie aandelenKost(). */
+    aandelenTarief?: { percent: number; min: number }
   }
   taxes: {
     tob: boolean
@@ -91,6 +93,7 @@ export const brokers: Broker[] = [
       transactionFeeFixed: 0,
       transactionFeePercent: 0.0008,
       transactionFeeMin: 2,
+      aandelenTarief: { percent: 0.0008, min: 2 }, // Saxo, invest-for-less (niveau Bronze), nagekeken 05/11/2026
       transactionFeeMax: null,
       custodyFeePercent: 0,
       custodyFeeFixed: 0,
@@ -244,6 +247,7 @@ export const brokers: Broker[] = [
       etfStandard: 0,
       // aandelen: 0,15% (Curvo 03/09/2026), minimum €2,50 op de meeste Europese beurzen sinds 01/07/2026 (Test-Aankoop)
       stocksEuronext: 0.15,
+      aandelenTarief: { percent: 0.0015, min: 2.5 },
       transactionFeeFixed: 0,
       transactionFeePercent: 0,
       transactionFeeMin: 0,
@@ -563,6 +567,12 @@ export function transactiekost(fees: Broker['fees'], bedrag: number): number {
   }
   const kost = Math.max(fees.transactionFeeMin, bedrag * fees.transactionFeePercent + fees.transactionFeeFixed)
   return fees.transactionFeeMax !== null ? Math.min(kost, fees.transactionFeeMax) : kost
+}
+
+/** Kost van één aandelenorder van `bedrag` euro; 0 als het tarief niet gekend is. */
+export function aandelenKost(fees: Broker['fees'], bedrag: number): number {
+  if (!fees.aandelenTarief) return 0
+  return Math.max(fees.aandelenTarief.min, bedrag * fees.aandelenTarief.percent)
 }
 
 export function getBrokerById(id: string): Broker | undefined {
