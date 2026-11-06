@@ -93,7 +93,7 @@ export const brokers: Broker[] = [
       transactionFeeFixed: 0,
       transactionFeePercent: 0.0008,
       transactionFeeMin: 2,
-      aandelenTarief: { percent: 0.0008, min: 2 }, // Saxo, invest-for-less (niveau Bronze), nagekeken 05/11/2026
+      aandelenTarief: { percent: 0.0008, min: 2 }, // Saxo, invest-for-less (05/11/2026) en nl-be/accounts (06/11/2026), niveau Bronze
       transactionFeeMax: null,
       custodyFeePercent: 0,
       custodyFeeFixed: 0,
@@ -569,9 +569,9 @@ export function transactiekost(fees: Broker['fees'], bedrag: number): number {
   return fees.transactionFeeMax !== null ? Math.min(kost, fees.transactionFeeMax) : kost
 }
 
-/** Kost van één aandelenorder van `bedrag` euro; 0 als het tarief niet gekend is. */
+/** Kost van één aandelenorder van `bedrag` euro. Een staffel (Bolero, Keytrade) geldt ook voor aandelen; anders 0 als het tarief niet gekend is. */
 export function aandelenKost(fees: Broker['fees'], bedrag: number): number {
-  if (!fees.aandelenTarief) return 0
+  if (!fees.aandelenTarief) return fees.feeTiers?.length ? transactiekost(fees, bedrag) : 0
   return Math.max(fees.aandelenTarief.min, bedrag * fees.aandelenTarief.percent)
 }
 

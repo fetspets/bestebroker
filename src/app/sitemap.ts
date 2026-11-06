@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/goedkoopste-broker-belgie`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vergelijking/degiro-vs-bolero`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vergelijking/saxo-vs-degiro`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${BASE_URL}/vergelijking/bolero-vs-saxo`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/vergelijking/bolero-vs-saxo`, lastModified: new Date('2026-11-06'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/vergelijking/saxo-vs-medirect`, lastModified: new Date('2026-11-05'), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/tools/brokerkosten-calculator`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/tools/welke-broker-past-bij-mij`, lastModified: new Date('2026-04-01'), changeFrequency: 'monthly', priority: 0.7 },
