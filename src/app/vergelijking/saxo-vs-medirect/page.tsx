@@ -6,7 +6,7 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
-import { SaxoMedirectRekenhulp } from '@/components/tools/SaxoMedirectRekenhulp'
+import { SaxoRekenhulp } from '@/components/tools/SaxoRekenhulp'
 
 const saxo = getBrokerById('saxo')!
 const medirect = getBrokerById('medirect')!
@@ -160,7 +160,7 @@ export default function SaxoVsMeDirectPage() {
         <section className="card mb-10" aria-labelledby="rekenhulp">
           <h2 id="rekenhulp" className="font-display text-xl font-bold text-primary mb-2">Reken je eigen kosten na</h2>
           <p className="text-sm text-gray-600 mb-4">De uitkomst is een berekening met de tarieven op deze pagina, geen advies. Je ingevulde cijfers blijven in je browser.</p>
-          <SaxoMedirectRekenhulp saxo={saxo} medirect={medirect} bron="saxo-vs-medirect-reken" />
+          <SaxoRekenhulp saxo={saxo} ander={medirect} anderKleur="text-green-700" bron="saxo-vs-medirect-reken" />
         </section>
 
         <section className="card mb-10">
@@ -296,7 +296,7 @@ export default function SaxoVsMeDirectPage() {
           </div>
         </section>
 
-        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} />
+        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} datumPerBron />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[saxo, medirect].map(broker => (

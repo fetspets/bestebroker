@@ -6,13 +6,18 @@ export interface Bron {
 }
 
 /** Bronnenlijst onderaan een vergelijking: elke kost, taks of regel met bron en nagekeken-datum. */
-export function Bronnen({ bronnen, nagekeken }: { bronnen: Bron[]; nagekeken: string }) {
+export function Bronnen({ bronnen, nagekeken, datumPerBron }: { bronnen: Bron[]; nagekeken: string; /** true = niet elke bron is op `nagekeken` herlezen; de datum staat dan per bron in het label. */ datumPerBron?: boolean }) {
   const datum = new Intl.DateTimeFormat('nl-BE', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(nagekeken))
   return (
     <section className="card mb-10" aria-labelledby="bronnen">
       <h2 id="bronnen" className="font-display text-xl font-bold text-primary mb-2">Bronnen</h2>
       <p className="text-sm text-gray-500 mb-3">
-        Alle bedragen en regels nagekeken op <time dateTime={nagekeken}>{datum}</time>. Tarieven kunnen wijzigen:
+        {datumPerBron ? (
+          <>Pagina laatst nagekeken op <time dateTime={nagekeken}>{datum}</time>; bij de bronnen staat hun datum of wanneer we ze lasen.</>
+        ) : (
+          <>Alle bedragen en regels nagekeken op <time dateTime={nagekeken}>{datum}</time>.</>
+        )}{' '}
+        Tarieven kunnen wijzigen:
         controleer altijd de actuele tarievenlijst van de broker voor je een rekening opent.
       </p>
       <ul className="text-sm text-gray-600 space-y-1.5 list-disc pl-5">
