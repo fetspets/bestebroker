@@ -245,7 +245,7 @@ export const brokers: Broker[] = [
     color: '#00a651',
     fees: {
       etfStandard: 0,
-      // aandelen: 0,15% (Curvo 03/09/2026), minimum €2,50 op de meeste Europese beurzen sinds 01/07/2026 (Test-Aankoop)
+      // aandelen: 0,15% (Curvo 03/11/2026), minimum €2,50 op de meeste Europese beurzen en in VS/VK/CH (in lokale munt) sinds 01/07/2026 (Test-Aankoop 29/06/2026)
       stocksEuronext: 0.15,
       aandelenTarief: { percent: 0.0015, min: 2.5 },
       transactionFeeFixed: 0,
@@ -266,7 +266,7 @@ export const brokers: Broker[] = [
       savingsPlan: false,
       fractionalShares: false,
       autoInvest: false,
-      itsmeOnboarding: false,
+      itsmeOnboarding: true, // itsme bij het openen (Curvo, MeDirect review, 03/11/2026)
     },
     security: {
       securitiesLending: 'never',
@@ -290,13 +290,14 @@ export const brokers: Broker[] = [
       transparantie: 3.0,
     },
     pros: [
-      'ETF-transacties zijn volledig gratis (sinds augustus 2025)',
+      'ETF-transacties zonder makelaarsloon (sinds augustus 2025; beurstaks betaal je wel)',
       'Houdt TOB, roerende voorheffing, Reynderstaks en meerwaardebelasting in (opt-out mogelijk)',
       'Geen bewaarloon',
       'Geen securities lending',
     ],
     cons: [
-      'Geen spaarplan of automatisch beleggen',
+      'Geen spaarplan op het brokerplatform (maandelijks enkel via MeManaged, 1,3% per jaar)',
+      'Geen fracties van aandelen of ETF’s',
       'Platform is minder gebruiksvriendelijk dan Bolero of Saxo',
       'Aandelen betalend: minimum €2,50 per order op de meeste Europese beurzen (sinds 1/7/2026)',
       'Meerwaardebelasting wordt bij elke verkoop ingehouden; teveel betaald recupereer je pas via je aangifte',
@@ -304,7 +305,7 @@ export const brokers: Broker[] = [
     bestFor: ['Wie vooral ETF\'s koopt en zelf orders plaatst', 'Wie geen effecten wil laten uitlenen'],
     transferOutFee: 50,
     nbbRegistrationRequired: false,
-    lastVerified: '2026-10-23',
+    lastVerified: '2026-11-09',
   },
   {
     id: 'degiro',
