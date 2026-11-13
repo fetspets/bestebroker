@@ -6,18 +6,20 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
+import { DegiroBoleroRekenhulp } from '@/components/tools/DegiroBoleroRekenhulp'
+import { transactiekost } from '@/data/brokers'
 
 const degiro = getBrokerById('degiro')!
 const bolero = getBrokerById('bolero')!
 
-const NAGEKEKEN = '2026-10-22'
+const NAGEKEKEN = '2026-11-13'
 const URL = 'https://www.bestebroker.be/vergelijking/degiro-vs-bolero'
-const TITLE = 'DEGIRO vs Bolero (2026): kosten en belastingen in België'
+const TITLE = 'DEGIRO of Bolero? Zoveel scheelt het echt per jaar (2026)'
 const DESCRIPTION =
-  'DEGIRO of Bolero? Kosten per order, welke taksen je zelf aangeeft, NBB-melding, uitlenen van effecten en overdrachtkosten. Nagekeken oktober 2026.'
+  'Goedkoper per order of alle taksen ingehouden? Reken je eigen bedrag door en zie wat je bij DEGIRO zelf moet aangeven. Nagekeken november 2026.'
 
 export const metadata: Metadata = {
-  title: TITLE,
+  title: { absolute: TITLE },
   description: DESCRIPTION,
   openGraph: { title: TITLE, description: DESCRIPTION, url: URL, locale: 'nl_BE', type: 'article' },
   alternates: { canonical: URL },
@@ -26,13 +28,14 @@ export const metadata: Metadata = {
 const BRON = {
   degiroReview: 'https://curvo.eu/nl/artikel/degiro-review',
   degiroVsBolero: 'https://curvo.eu/nl/artikel/degiro-vs-bolero',
+  degiroKostenEtf: 'https://curvo.eu/nl/artikel/degiro-kosten-etf',
   boleroTarieven: 'https://www.bolero.be/uploads/media/667ecf0aabd9a/101-tarieven-nl.pdf',
   boleroReview: 'https://curvo.eu/nl/artikel/bolero-review',
 }
 
 const rows: { label: string; degiro: string; bolero: string }[] = [
   { label: 'Wie is het?', degiro: 'flatexDEGIRO Bank AG (Duitsland), toezicht BaFin; buitenlandse rekening', bolero: 'Online broker van KBC Bank (Belgische bank)' },
-  { label: 'ETF-transactiekost', degiro: '€1 voor ETF’s uit de kernselectie (via Tradegate) · €3 voor andere ETF’s', bolero: '€2,50 tot €250 · €5 tot €1.000 · €7,50 tot €2.500 · daarboven €15 per €10.000 (max. €50 tot €70.000)' },
+  { label: 'ETF-transactiekost', degiro: '€1 voor ETF’s uit de kernselectie, enkel via Tradegate · €3 voor andere ETF’s of op een andere beurs (+ €2,50 aansluitingskosten per beurs per jaar buiten je thuisbeurs)', bolero: '€2,50 tot €250 · €5 tot €1.000 · €7,50 tot €2.500 · daarboven €15 per €10.000 (max. €50 tot €70.000)' },
   { label: 'Beurstaks (TOB)', degiro: 'Afgehandeld door DEGIRO', bolero: 'Ingehouden door Bolero' },
   { label: 'Roerende voorheffing op dividenden, Reynderstaks', degiro: 'Zelf aangeven', bolero: 'Ingehouden door Bolero' },
   { label: 'Meerwaardebelasting (sinds 2026)', degiro: 'Zelf berekenen en aangeven', bolero: 'Ingehouden door Bolero' },
@@ -45,13 +48,15 @@ const rows: { label: string; degiro: string; bolero: string }[] = [
   { label: 'Rekening openen met itsme', degiro: 'Nee', bolero: 'Ja' },
 ]
 
-const kosten = [
-  { bedrag: '€150', degiroKern: 1, degiroAnder: 3, bolero: 2.5 },
-  { bedrag: '€300', degiroKern: 1, degiroAnder: 3, bolero: 5 },
-  { bedrag: '€1.000', degiroKern: 1, degiroAnder: 3, bolero: 5 },
-  { bedrag: '€2.000', degiroKern: 1, degiroAnder: 3, bolero: 7.5 },
-]
+// Berekend uit src/data/brokers.ts: één ETF-aankoop per maand, makelaarsloon per jaar.
+const kosten = [150, 300, 1000, 2000].map(bedrag => ({
+  bedrag,
+  degiroKern: 12 * degiro.fees.transactionFeeFixed,
+  degiroAnder: 12 * (degiro.fees.etfStandard ?? 3),
+  bolero: 12 * transactiekost(bolero.fees, bedrag),
+}))
 const eur = (n: number) => `€${n.toFixed(2).replace('.', ',')}`
+const euro0 = (n: number) => `€${n.toLocaleString('nl-BE')}`
 
 const faq = [
   {
@@ -72,9 +77,21 @@ const faq = [
   },
 ]
 
+faq.push(
+  {
+    q: 'Wat als mijn ETF niet in de kernselectie van DEGIRO zit?',
+    a: 'Dan betaal je €3 per order (€2 transactiekost plus €1 behandelingskosten) in plaats van €1. Ook een ETF uit de kernselectie kost €3 als je hem niet via Tradegate koopt maar op een andere beurs. Buiten je thuisbeurs rekent DEGIRO bovendien €2,50 aansluitingskosten per beurs per jaar. Bij één aankoop per maand betaal je dan €36 per jaar, nog altijd minder dan bij Bolero voor bedragen boven €250.',
+  },
+  {
+    q: 'Kan ik van DEGIRO naar Bolero overstappen, of omgekeerd?',
+    a: 'Ja. Je hoeft je effecten niet te verkopen: je laat ze overzetten. DEGIRO rekent €20 per lijn (plus eventuele externe kosten), Bolero €50 per lijn (gratis naar KBC of CBC). Een lijn is één effect, ongeacht hoeveel stuks je hebt. Overzetten is geen aankoop of verkoop, dus je betaalt er geen beurstaks op.',
+  },
+)
+
 const bronnen: Bron[] = [
   { staaft: 'Kosten, taksen, NBB-melding, securities lending, bescherming, overdracht en itsme DEGIRO', label: 'Curvo, DEGIRO review (03/09/2026)', href: BRON.degiroReview },
-  { staaft: 'Taksen en bescherming van beide', label: 'Curvo, DEGIRO vs Bolero (03/09/2026)', href: BRON.degiroVsBolero },
+  { staaft: 'Taksen, NBB-melding en kosten voor €1.000 IWDA van beide', label: 'Curvo, DEGIRO vs Bolero (04/11/2026)', href: BRON.degiroVsBolero },
+  { staaft: 'DEGIRO: €1 enkel via Tradegate, €2 + €1 behandelingskosten op andere beurzen en buiten de kernselectie, €2,50 aansluitingskosten per beurs per jaar, overdracht €20 per lijn', label: 'Curvo, DEGIRO-kosten voor ETF’s (22/10/2026)', href: BRON.degiroKostenEtf },
   { staaft: 'Transactiekosten, bewaarloon en overdracht Bolero', label: 'Bolero, tarievenlijst S101 (geldig vanaf 11/06/2025)', href: BRON.boleroTarieven },
   { staaft: 'Spaarplan, itsme en securities lending Bolero', label: 'Curvo, Bolero review (08/10/2026)', href: BRON.boleroReview },
 ]
@@ -107,20 +124,31 @@ export default function DegiroVsBoleroPage() {
         <section className="card mb-10 border-l-4 border-l-accent" aria-labelledby="kort">
           <h2 id="kort" className="font-display text-xl font-bold text-primary mb-3">In het kort</h2>
           <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
-            <li><strong>Kosten:</strong> DEGIRO €1 (kernselectie) of €3 per ETF-order; Bolero €2,50 tot €7,50 per order tot €2.500.</li>
+            <li><strong>Kosten:</strong> DEGIRO €1 per ETF-order (kernselectie, enkel via Tradegate) of €3; Bolero €2,50 tot €7,50 per order tot €2.500. <a href="#rekenhulp" className="text-accent hover:underline">Reken je eigen bedrag door</a>.</li>
             <li><strong>Belastingen:</strong> DEGIRO handelt enkel de beurstaks af. Meerwaardebelasting, Reynderstaks en buitenlandse dividenden geef je zelf aan. Bolero houdt alles in.</li>
             <li><strong>Administratie:</strong> een DEGIRO-rekening meld je bij de Nationale Bank; bij Bolero hoeft dat niet.</li>
             <li><strong>Uitlenen van effecten:</strong> toegelaten in de voorwaarden van DEGIRO; Bolero doet het niet.</li>
           </ul>
         </section>
 
+        <section className="card mb-10" aria-labelledby="rekenhulp">
+          <h2 id="rekenhulp" className="font-display text-xl font-bold text-primary mb-2">Rekenhulp: wat betaal jij bij DEGIRO en bij Bolero?</h2>
+          <p className="text-sm text-gray-600 mb-4">
+            Vul in hoeveel je per maand in ETF’s belegt. De rekenhulp gebruikt de tarieven uit de tabel hieronder (nagekeken op{' '}
+            {new Date(NAGEKEKEN).toLocaleDateString('nl-BE', { day: 'numeric', month: 'long', year: 'numeric' })}). Er wordt niets
+            bewaard of doorgestuurd.
+          </p>
+          <DegiroBoleroRekenhulp degiro={degiro} bolero={bolero} />
+        </section>
+
         <section className="card mb-10">
           <h2 className="font-display text-xl font-bold text-primary mb-4">Vergelijkingstabel DEGIRO en Bolero</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm table-fixed break-words">
+              <caption className="sr-only">DEGIRO en Bolero per criterium</caption>
               <thead className="border-b border-gray-100">
                 <tr>
-                  <th scope="col" className="text-left py-3 pr-3 text-gray-600 font-semibold">Criterium</th>
+                  <th scope="col" className="w-[30%] text-left py-3 pr-3 text-gray-600 font-semibold">Criterium</th>
                   <th scope="col" className="text-left py-3 px-2 font-semibold text-orange-600">DEGIRO</th>
                   <th scope="col" className="text-left py-3 pl-2 font-semibold text-red-600">Bolero</th>
                 </tr>
@@ -136,38 +164,38 @@ export default function DegiroVsBoleroPage() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-gray-400 mt-3">Tarieven exclusief beurstaks. Bronnen onderaan deze pagina, nagekeken op 22 oktober 2026.</p>
+          <p className="text-xs text-gray-400 mt-3">Tarieven exclusief beurstaks. Bronnen onderaan deze pagina.</p>
         </section>
 
         <section className="card mb-10">
-          <h2 className="font-display text-xl font-bold text-primary mb-2">Wat kost één ETF-aankoop per maand?</h2>
-          <p className="text-sm text-gray-600 mb-4">Makelaarsloon voor één ETF-aankoop per maand, zonder beurstaks.</p>
+          <h2 className="font-display text-xl font-bold text-primary mb-2">Wat kost één ETF-aankoop per maand, per jaar?</h2>
+          <p className="text-sm text-gray-600 mb-4">Makelaarsloon per jaar voor één ETF-aankoop per maand, zonder beurstaks.</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
+              <caption className="sr-only">Makelaarsloon per jaar bij DEGIRO en Bolero voor één ETF-aankoop per maand</caption>
               <thead className="border-b border-gray-100">
                 <tr>
-                  <th scope="col" className="text-left py-3 text-gray-600 font-semibold">Bedrag per maand</th>
-                  <th scope="col" className="text-center py-3 font-semibold text-orange-600">DEGIRO kernselectie</th>
-                  <th scope="col" className="text-center py-3 font-semibold text-orange-600">DEGIRO andere ETF</th>
-                  <th scope="col" className="text-center py-3 font-semibold text-red-600">Bolero</th>
-                  <th scope="col" className="text-center py-3 text-gray-600 font-semibold">Bolero per jaar</th>
+                  <th scope="col" className="text-left py-3 pr-2 text-gray-600 font-semibold">Per maand</th>
+                  <th scope="col" className="text-right py-3 px-2 font-semibold text-orange-600">DEGIRO kern</th>
+                  <th scope="col" className="text-right py-3 px-2 font-semibold text-orange-600">DEGIRO andere</th>
+                  <th scope="col" className="text-right py-3 pl-2 font-semibold text-red-600">Bolero</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {kosten.map(k => (
                   <tr key={k.bedrag}>
-                    <th scope="row" className="py-2.5 text-left font-medium text-gray-700">{k.bedrag}</th>
-                    <td className="py-2.5 text-center text-gray-600">{eur(k.degiroKern)}</td>
-                    <td className="py-2.5 text-center text-gray-600">{eur(k.degiroAnder)}</td>
-                    <td className="py-2.5 text-center text-gray-600">{eur(k.bolero)}</td>
-                    <td className="py-2.5 text-center text-gray-700 font-medium">{eur(k.bolero * 12)}</td>
+                    <th scope="row" className="py-2.5 pr-2 text-left font-medium text-gray-700">{euro0(k.bedrag)}</th>
+                    <td className="py-2.5 px-2 text-right text-gray-600">{eur(k.degiroKern)}</td>
+                    <td className="py-2.5 px-2 text-right text-gray-600">{eur(k.degiroAnder)}</td>
+                    <td className="py-2.5 pl-2 text-right text-gray-700 font-medium">{eur(k.bolero)}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">
-            Per jaar bij DEGIRO: €12 (kernselectie) of €36 (andere ETF). Reken je eigen situatie na met de{' '}
+            &quot;DEGIRO kern&quot; = ETF uit de kernselectie via Tradegate (€1 per order); &quot;andere&quot; = €3 per order. Zelf
+            andere bedragen nodig? Gebruik de <a href="#rekenhulp" className="text-accent hover:underline">rekenhulp</a> of de{' '}
             <Link href="/tools/brokerkosten-calculator" className="text-accent hover:underline">brokerkosten-calculator</Link>.
           </p>
         </section>
