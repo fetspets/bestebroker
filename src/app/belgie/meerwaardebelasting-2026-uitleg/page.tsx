@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { LastUpdated } from '@/components/ui/LastUpdated'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 export const metadata: Metadata = {
   title: 'Meerwaardebelasting 2026 — Alles voor Belgische beleggers',
@@ -195,6 +196,8 @@ export default function MeerwaardebelastingUitlegPage() {
             optellen over het jaar, en via de belastingaangifte aangifte doen. Dit is tijdrovend en
             foutgevoelig — zeker als je frequent handelt of met meerdere instrumenten werkt.
           </p>
+
+          <KrososBlok bron="mwb-uitleg" />
           <p>
             Meer info over buitenlandse brokers en fiscale verplichtingen:{' '}
             <Link href="/belgie/buitenlandse-broker-nbb-aangifte" className="text-accent underline">

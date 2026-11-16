@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 export const metadata: Metadata = {
   title: 'Meerwaardebelasting in België — Uitleg voor Beleggers 2026',
@@ -170,6 +171,8 @@ export default function MeerwaardebelastingBrokerPage() {
               je gebruikt.
             </p>
           </div>
+
+          <KrososBlok bron="mwb-broker" />
 
           <h2>Veelgestelde vragen</h2>
 
