@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { brokers } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav } from '@/components/layout/BreadcrumbNav'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 export const metadata: Metadata = {
   title: 'Meerwaardebelasting en Brokers 2026 — Wie regelt het automatisch?',
@@ -151,6 +152,8 @@ export default function MeerwaardebelastingPage() {
           <p>
             Belgische brokers doen dit automatisch voor jou. Geen Excel, geen aangifte — gewoon beleggen.
           </p>
+
+          <KrososBlok bron="broker-mwb-2026" />
 
           <h2>Veelgestelde vragen</h2>
 

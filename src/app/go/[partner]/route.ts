@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { brokers } from '@/data/brokers'
+import { partners } from '@/data/partners'
 import { brokerLink } from '@/lib/affiliateLinks'
 
 /**
  * Uitgaande klik naar een broker: /go/<broker-id>?bron=<plaats-van-de-knop>
  *
- * - Stuurt door (302) naar de affiliateUrl uit src/data/brokers.ts (één bron van waarheid).
+ * - Stuurt door (302) naar de affiliateUrl uit src/data/brokers.ts (één bron van waarheid),
+ *   of uit src/data/partners.ts voor partners die geen broker zijn (bv. Krosos).
  * - Telt de klik zonder cookies: één regel in de Vercel-logs en, als GA_MP_API_SECRET
  *   is ingesteld, één anoniem event "affiliate_click" via het GA4 Measurement Protocol
  *   (willekeurige client_id per klik, geen IP-adres of user-agent doorgestuurd).
@@ -52,7 +54,8 @@ async function sendGaEvent(partner: string, bron: string, affiliateActive: boole
 
 export async function GET(request: NextRequest, { params }: { params: { partner: string } }) {
   const id = params.partner.toLowerCase()
-  const broker = brokers.find(b => b.id === id || b.slug === id)
+  const broker =
+    brokers.find(b => b.id === id || b.slug === id) ?? partners.find(p => p.id === id)
 
   if (!broker || !broker.affiliateUrl) {
     return new NextResponse('Onbekende partner', {

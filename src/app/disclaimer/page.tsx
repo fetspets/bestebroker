@@ -58,7 +58,7 @@ export default function DisclaimerPage() {
           <ul>
             <li>U betaalt daardoor niets extra.</li>
             <li>Een vergoeding heeft geen invloed op onze scores, rangschikkingen of vergelijkingen; die volgen de publieke <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>.</li>
-            <li>Actieve betaalde samenwerkingen: MeDirect (via het affiliatenetwerk Awin) en bol.com (boekenlinks, via het partnerprogramma van bol).</li>
+            <li>Actieve betaalde samenwerkingen: MeDirect (via het affiliatenetwerk Awin), bol.com (boekenlinks, via het partnerprogramma van bol) en Krosos (app die de meerwaardebelasting uitrekent; rechtstreekse samenwerking).</li>
           </ul>
         </section>
 
