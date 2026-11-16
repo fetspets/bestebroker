@@ -34,7 +34,7 @@ interface Props {
 export function EtfKostenTabel({ brokers, maandbedragen, eenmalig, id }: Props) {
   return (
     <div className="overflow-x-auto" id={id}>
-      <table className="w-full text-sm min-w-[520px]">
+      <table className={`w-full text-sm ${maandbedragen.length + (eenmalig ? 1 : 0) > 3 ? 'min-w-[520px]' : ''}`}>
         <caption className="sr-only">Transactiekosten per jaar voor een ETF-aankoop per maand, per broker</caption>
         <thead className="text-left border-b border-gray-200">
           <tr>
@@ -58,7 +58,7 @@ export function EtfKostenTabel({ brokers, maandbedragen, eenmalig, id }: Props) 
             <tr key={b.id}>
               <th scope="row" className="py-2.5 pr-3 text-left font-medium text-primary">
                 <Link href={`/reviews/${b.slug}`} className="hover:text-accent hover:underline">{b.name}</Link>
-                {b.id === 'degiro' && <span className="block text-xs font-normal text-gray-500">ETF uit de kernselectie (andere ETF: €3 per order)</span>}
+                {b.id === 'degiro' && <span className="block text-xs font-normal text-gray-500">ETF uit de kernselectie via Tradegate (anders €3 per order)</span>}
               </th>
               {maandbedragen.map(m => {
                 const k = maandelijkseEtfKost(b, m)

@@ -185,31 +185,31 @@ export default function BesteBrokerPage() {
             belastingaangifte zet.
           </p>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm min-w-[560px]">
+            <table className="w-full text-xs sm:text-sm">
               <caption className="sr-only">Inhouding van Belgische taksen per broker</caption>
               <thead className="text-left border-b border-gray-200">
                 <tr>
                   <th scope="col" className="py-3 pr-3 font-semibold text-gray-700">Broker</th>
-                  <th scope="col" className="py-3 px-2 font-semibold text-gray-700">Beurstaks (TOB)</th>
-                  <th scope="col" className="py-3 px-2 font-semibold text-gray-700">Roerende voorheffing</th>
-                  <th scope="col" className="py-3 px-2 font-semibold text-gray-700">Reynderstaks</th>
-                  <th scope="col" className="py-3 px-2 font-semibold text-gray-700">Meerwaardebelasting</th>
-                  <th scope="col" className="py-3 pl-2 font-semibold text-gray-700">Melden bij NBB</th>
+                  <th scope="col" className="py-3 px-1 sm:px-2 font-semibold text-gray-700"><span className="sm:hidden">TOB</span><span className="hidden sm:inline">Beurstaks (TOB)</span></th>
+                  <th scope="col" className="py-3 px-1 sm:px-2 font-semibold text-gray-700"><abbr title="Roerende voorheffing" className="sm:hidden no-underline">RV</abbr><span className="hidden sm:inline">Roerende voorheffing</span></th>
+                  <th scope="col" className="py-3 px-1 sm:px-2 font-semibold text-gray-700"><span className="sm:hidden">Reyn&shy;ders</span><span className="hidden sm:inline">Reynderstaks</span></th>
+                  <th scope="col" className="py-3 px-1 sm:px-2 font-semibold text-gray-700"><span className="sm:hidden">Meer&shy;waarde</span><span className="hidden sm:inline">Meerwaardebelasting</span></th>
+                  <th scope="col" className="py-3 pl-1 sm:pl-2 font-semibold text-gray-700"><span className="sm:hidden">NBB</span><span className="hidden sm:inline">Melden bij NBB</span></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {opScore.map(b => (
                   <tr key={b.id}>
-                    <th scope="row" className="py-2.5 pr-3 text-left font-medium text-primary">{b.name}</th>
-                    <td className="py-2.5 px-2">{b.taxes.tob ? ja : zelf}</td>
-                    <td className="py-2.5 px-2">{b.taxes.dividendTax ? ja : zelf}</td>
-                    <td className="py-2.5 px-2">{b.taxes.reynders ? ja : zelf}</td>
-                    <td className="py-2.5 px-2">
+                    <th scope="row" className="py-2.5 pr-1 sm:pr-3 text-left font-medium text-primary">{b.name}</th>
+                    <td className="py-2.5 px-1 sm:px-2">{b.taxes.tob ? ja : zelf}</td>
+                    <td className="py-2.5 px-1 sm:px-2">{b.taxes.dividendTax ? ja : zelf}</td>
+                    <td className="py-2.5 px-1 sm:px-2">{b.taxes.reynders ? ja : zelf}</td>
+                    <td className="py-2.5 px-1 sm:px-2">
                       {b.taxes.capitalGainsTax ? ja : zelf}
                       {b.id === 'trade-republic' && <span className="block text-xs text-gray-500">als je ervoor kiest</span>}
                       {b.taxes.capitalGainsTax && b.id !== 'trade-republic' && <span className="block text-xs text-gray-500">opt-out mogelijk</span>}
                     </td>
-                    <td className="py-2.5 pl-2">{b.nbbRegistrationRequired ? <span className="text-orange-600 font-semibold">ja</span> : 'nee'}</td>
+                    <td className="py-2.5 pl-1 sm:pl-2">{b.nbbRegistrationRequired ? <span className="text-orange-600 font-semibold">ja</span> : 'nee'}</td>
                   </tr>
                 ))}
               </tbody>
