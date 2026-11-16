@@ -6,12 +6,13 @@ import { EtfKostenTabel, maandelijkseEtfKost } from '@/components/broker/EtfKost
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
+import { EtfJaarkostRekenhulp } from '@/components/tools/EtfJaarkostRekenhulp'
 
 const URL = 'https://www.bestebroker.be/beste-etf-broker-belgie'
-const TITLE = 'Beste ETF-broker België 2026: kosten per maand vergeleken'
+const TITLE = 'Beste ETF-broker België 2026: de taks die je over het hoofd ziet'
 const DESCRIPTION =
-  'Wat kost €100 of €500 per maand in een ETF bij Saxo, Bolero, MeDirect, DEGIRO, Trade Republic en Keytrade? Met spaarplannen, TOB en bronnen.'
-const NAGEKEKEN = '2026-10-23'
+  '€300 per maand in een ETF kost €0 tot €71 per jaar aan de broker. Eén andere keuze weegt vaak zwaarder. Reken het na voor 6 brokers, met bron.'
+const NAGEKEKEN = '2026-11-16'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -40,9 +41,15 @@ const BRON = {
   spaarplannen: 'https://curvo.eu/article/best-etf-savings-plan-belgium',
   keytradeTarieven: 'https://keytradebank.be/en/new-trading-tariffs-2025',
   tob: 'https://curvo.eu/nl/artikel/hoe-je-de-beurstaks-van-een-etf-berekent',
+  degiroKostenEtf: 'https://curvo.eu/nl/artikel/degiro-kosten-etf',
+  goedkoopsteEtf: 'https://curvo.eu/nl/artikel/goedkoopste-broker-belgie-etf',
+  besteEtf: 'https://curvo.eu/nl/artikel/beste-broker-belgie-etf',
 }
 
 const bronnen: Bron[] = [
+  { staaft: 'Kost per ETF-order van €1.000: Saxo €2, Trade Republic €1, DEGIRO €1, MeDirect €0, Bolero €5, Keytrade €5,95; DEGIRO €2,50 per beurs per jaar', label: 'Curvo, beste broker België voor ETF’s (03/11/2026)', href: BRON.besteEtf },
+  { staaft: 'Jaarkost transactie + beurstaks bij €300 per maand (zelfde tarieven)', label: 'Curvo, goedkoopste broker België voor ETF’s (05/11/2026)', href: BRON.goedkoopsteEtf },
+  { staaft: 'DEGIRO: €1 enkel via Tradegate; €2 + €1 behandelingskosten buiten de kernselectie of op een andere beurs', label: 'Curvo, DEGIRO-kosten voor ETF’s (22/10/2026)', href: BRON.degiroKostenEtf },
   { staaft: 'Saxo: 0,08% met minimum €2 per order', label: 'Curvo, Saxo review', href: BRON.saxoReview },
   { staaft: 'Saxo AutoInvest: €2 per maand', label: 'Saxo, AutoInvest', href: BRON.saxoAutoInvest },
   { staaft: 'Spaarplannen Saxo (geen minimum), Trade Republic (kosteloos, vanaf €1) en Bolero (enkel hele stuks)', label: 'Curvo, beste ETF-spaarplan België (22/10/2026)', href: BRON.spaarplannen },
@@ -52,7 +59,7 @@ const bronnen: Bron[] = [
   { staaft: 'DEGIRO: €1 kernselectie (Tradegate), €3 andere ETF’s, TOB ingehouden', label: 'Curvo, DEGIRO review (03/09/2026)', href: BRON.degiroReview },
   { staaft: 'Trade Republic: €1 per order, Belgische rekening sinds 15/09/2026', label: 'Curvo, Trade Republic review (18/09/2026)', href: BRON.trReview },
   { staaft: 'Staffel Keytrade (€2,45 / €5,95 / €14,95)', label: 'Keytrade Bank, tarieven 2025', href: BRON.keytradeTarieven },
-  { staaft: 'TOB-tarieven ETF’s en maxima; VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
+  { staaft: 'TOB-tarieven ETF’s en maxima (0,12% max. €1.300 · 0,35% max. €1.600 · 1,32% max. €4.000); VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
 ]
 
 const spaarplan: Record<string, string> = {
@@ -69,15 +76,19 @@ const eur2 = (n: number) => `€${n.toFixed(2).replace('.', ',')}`
 const faq = [
   {
     q: 'Welke ETF-broker is de beste in België?',
-    a: 'Dat hangt af van hoe je belegt. Koop je zelf, dan telt vooral de kost per order: €0 bij MeDirect, €1 bij Trade Republic en bij DEGIRO (ETF uit de kernselectie). Wil je dat de aankoop elke maand automatisch gebeurt, dan hebben Saxo (AutoInvest) en Trade Republic (spaarplan) dat. Wil je geen belastingaangifte voor je beleggingen, kijk dan of de broker alle Belgische taksen inhoudt: DEGIRO doet dat enkel voor de TOB. Dit is algemene informatie, geen persoonlijk advies.',
+    a: 'Dat hangt af van hoe je belegt. Koop je zelf, dan telt vooral de kost per order: €0 bij MeDirect, €1 bij Trade Republic en bij DEGIRO (ETF uit de kernselectie, via Tradegate). Wil je dat de aankoop elke maand automatisch gebeurt, dan hebben Saxo (AutoInvest) en Trade Republic (spaarplan) dat. Wil je geen belastingaangifte voor je beleggingen, kijk dan of de broker alle Belgische taksen inhoudt: DEGIRO doet dat enkel voor de TOB. Dit is algemene informatie, geen persoonlijk advies.',
   },
   {
     q: 'Wat kost €100 per maand in een ETF?',
-    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} ${eur2(maandelijkseEtfKost(b, 100).perMaand * 12)}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie; een andere ETF kost €3 per order. De beurstaks (TOB) komt er bij elke broker bij: 0,12% voor een ETF die niet in België geregistreerd is, 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE.`,
+    a: `Aan transactiekosten per jaar: ${opScore.map(b => `${b.name} ${eur2(maandelijkseEtfKost(b, 100).perMaand * 12)}`).join(', ')}. Bij DEGIRO geldt dat voor een ETF uit de kernselectie die je via Tradegate koopt; een andere ETF of een andere beurs kost €3 per order. De beurstaks (TOB) komt er bij elke broker bij: 0,12% voor een ETF die niet in België geregistreerd is, 1,32% voor een in België geregistreerde kapitaliserende ETF zoals VWCE.`,
   },
   {
     q: 'Hoeveel beurstaks betaal je op een ETF?',
     a: 'Voor een ETF die in de Europese Economische Ruimte maar niet in België geregistreerd is, 0,12% bij aankoop en verkoop (max. €1.300 per transactie). Is een kapitaliserende ETF in België geregistreerd (bv. VWCE), dan betaal je 1,32% bij aankoop én verkoop (max. €4.000). Voor een ETF van buiten de EER is het 0,35%. In de factsheet zie je waar de ETF geregistreerd is.',
+  },
+  {
+    q: 'Wat weegt zwaarder: de broker of de beurstaks?',
+    a: 'Bij een in België geregistreerde kapitaliserende ETF (zoals VWCE) vaak de beurstaks. Wie €300 per maand belegt, betaalt dan 1,32% of €47,52 per jaar aan beurstaks, bij elke broker. Bij een ETF die niet in België geregistreerd is (zoals IWDA) is dat 0,12% of €4,32 per jaar. Aan de broker betaal je bij dat bedrag €0 tot €71,40 per jaar: bij vier van de zes brokers is de beurstaks op zo’n ETF dus groter dan de makelaarskosten. Welke ETF bij je past, hangt van meer af dan de taks: dit is geen advies.',
   },
   {
     q: 'Kan ik in België automatisch elke maand in een ETF beleggen?',
@@ -121,14 +132,24 @@ export default function BestEtfBrokerPage() {
           <LastUpdated date={NAGEKEKEN} />
         </header>
 
+        <section className="card mb-10 max-w-3xl" aria-labelledby="kort">
+          <h2 id="kort" className="font-display text-xl font-bold text-primary mb-3">In het kort</h2>
+          <ul className="space-y-2 text-gray-700 list-disc pl-5">
+            <li><strong>Kost per aankoop:</strong> €0 (MeDirect) tot €5,95 (Keytrade) voor een ETF-order van €1.000. Saxo en Trade Republic kopen ook automatisch elke maand.</li>
+            <li><strong>Beurstaks:</strong> bij elke broker gelijk, maar 0,12% of 1,32% naargelang de ETF. Bij €300 per maand is dat €4,32 of €47,52 per jaar.</li>
+            <li><strong>Aangifte:</strong> alle zes houden de beurstaks in; enkel bij DEGIRO geef je de rest zelf aan en meld je de rekening bij de Nationale Bank.</li>
+            <li><a href="#rekenhulp" className="text-accent hover:underline">Reken je eigen maandbedrag door</a> (broker + beurstaks).</li>
+          </ul>
+        </section>
+
         {/* Kosten */}
         <section className="mb-10" aria-labelledby="kosten">
           <h2 id="kosten" className="font-display text-2xl font-bold text-primary mb-2">Wat kost een ETF per maand bij elke broker?</h2>
           <p className="text-gray-600 max-w-3xl mb-4">
-            Transactiekosten per jaar voor één aankoop per maand, berekend met de tarieven van oktober 2026. Per broker nemen
+            Transactiekosten per jaar voor één aankoop per maand, berekend met de tarieven nagekeken in november 2026. Per broker nemen
             we de goedkoopste manier (losse order, spaarplan of AutoInvest). Geen van deze brokers rekent bewaarloon.
           </p>
-          <EtfKostenTabel brokers={opScore} maandbedragen={[100, 250, 500]} eenmalig={1000} />
+          <EtfKostenTabel brokers={opScore} maandbedragen={[100, 500]} eenmalig={1000} />
           <p className="text-sm text-gray-500 mt-3 max-w-3xl">
             De tabel volgt de totaalscore van onze <Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>,
             niet de laagste kost. Reken je eigen bedrag na met de{' '}
@@ -136,11 +157,21 @@ export default function BestEtfBrokerPage() {
           </p>
         </section>
 
+        {/* Rekenhulp */}
+        <section className="card mb-10" aria-labelledby="rekenhulp">
+          <h2 id="rekenhulp" className="font-display text-xl font-bold text-primary mb-2">Rekenhulp: wat kost jouw maandbedrag per jaar, beurstaks inbegrepen?</h2>
+          <p className="text-sm text-gray-600 mb-4 max-w-3xl">
+            Vul je maandbedrag in en kies de soort ETF. Je ziet per broker de makelaarskosten (goedkoopste manier: losse order,
+            spaarplan of AutoInvest) en de beurstaks, met de tarieven uit de bronnen onderaan.
+          </p>
+          <EtfJaarkostRekenhulp brokers={opScore} />
+        </section>
+
         {/* Spaarplan */}
         <section className="mb-10" aria-labelledby="spaarplan">
           <h2 id="spaarplan" className="font-display text-2xl font-bold text-primary mb-4">Welke broker heeft een ETF-spaarplan?</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm min-w-[480px]">
+            <table className="w-full text-sm">
               <caption className="sr-only">ETF-spaarplannen per broker</caption>
               <thead className="text-left border-b border-gray-200">
                 <tr>
@@ -163,6 +194,12 @@ export default function BestEtfBrokerPage() {
         {/* Taksen */}
         <section className="mb-10 prose-custom max-w-3xl" aria-labelledby="taksen">
           <h2 id="taksen">Welke taksen betaal je op een ETF?</h2>
+          <p>
+            De keuze van de ETF bepaalt de beurstaks, niet de broker. Twee wereldwijde ETF’s die beleggers vaak vergelijken: IWDA
+            (niet in België geregistreerd, 0,12%) en VWCE (in België geregistreerd en kapitaliserend, 1,32%). Bij €300 per
+            maand is dat €4,32 tegenover €47,52 per jaar aan aankopen, en bij verkoop betaal je opnieuw. In de factsheet of
+            het prospectus van de ETF zie je waar hij geregistreerd is. Dit is een rekenvoorbeeld, geen aanbeveling voor een ETF.
+          </p>
           <p>
             <strong>Beurstaks (TOB).</strong> Bij elke aankoop en verkoop. Voor een ETF die in de Europese Economische Ruimte
             maar niet in België geregistreerd is: 0,12% (max. €1.300 per transactie). Een in België geregistreerde
@@ -202,7 +239,7 @@ export default function BestEtfBrokerPage() {
           ))}
         </section>
 
-        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} />
+        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} datumPerBron />
 
         <nav aria-label="Verder lezen" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {[
