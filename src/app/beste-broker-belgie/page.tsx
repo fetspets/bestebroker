@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
-import { brokers } from '@/data/brokers'
+import { brokers, transactiekost, type Broker } from '@/data/brokers'
 import { BrokerComparisonTable } from '@/components/broker/BrokerComparisonTable'
 import { BrokerCard } from '@/components/broker/BrokerCard'
 import { EtfKostenTabel, maandelijkseEtfKost } from '@/components/broker/EtfKostenTabel'
@@ -12,8 +12,8 @@ import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlo
 const URL = 'https://www.bestebroker.be/beste-broker-belgie'
 const TITLE = 'Beste broker België 2026: wat kost €100 per maand echt?'
 const DESCRIPTION =
-  'Zes brokers naast elkaar: wat je per jaar betaalt, wie TOB en meerwaardebelasting inhoudt en waar je zelf aangifte doet. Met bronnen, oktober 2026.'
-const NAGEKEKEN = '2026-10-23'
+  'Kleine maandbedragen, één grote aankoop of nooit zelf aangifte doen: per situatie verschilt de goedkoopste broker. Zes brokers met bronnen, november 2026.'
+const NAGEKEKEN = '2026-11-17'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -32,6 +32,44 @@ export const metadata: Metadata = {
 const opScore = [...brokers].sort((a, b) => b.rating - a.rating)
 const metNaam = (id: string) => brokers.find(b => b.id === id)!
 
+const eur = (n: number) =>
+  new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR', minimumFractionDigits: n % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 }).format(n)
+
+/** De drie laagste kosten volgens brokers.ts (bij gelijke kost: volgorde van de totaalscore). */
+const laagste = (kost: (b: Broker) => number) =>
+  [...opScore].sort((a, b) => kost(a) - kost(b)).slice(0, 3).map(b => ({ b, kost: kost(b) }))
+
+// Per situatie: welke brokers voldoen, berekend uit src/data/brokers.ts (nooit met de hand ingevuld). Geen aanbeveling.
+const situaties: { vraag: string; antwoord: string; letOp: string; link: { href: string; label: string } }[] = [
+  {
+    vraag: 'Je belegt elke maand €100 of €500 in één ETF',
+    antwoord: laagste(b => maandelijkseEtfKost(b, 100).perMaand * 12).map(({ b, kost }) => `${b.name} ${eur(kost)}`).join(' · ') + ' per jaar',
+    letOp: `${laagste(b => maandelijkseEtfKost(b, 500).perMaand).map(x => x.b.id).join() === laagste(b => maandelijkseEtfKost(b, 100).perMaand).map(x => x.b.id).join() ? 'Bij €500 per maand zijn het dezelfde drie. ' : ''}DEGIRO: enkel voor een ETF uit de kernselectie via Tradegate, anders €3 per order. Trade Republic: via het gratis spaarplan. Bij Bolero en Keytrade stijgt de kost per order met het bedrag: ${eur(maandelijkseEtfKost(metNaam('bolero'), 500).perMaand)} en ${eur(maandelijkseEtfKost(metNaam('keytrade'), 500).perMaand)} per order van €500.`,
+    link: { href: '/beste-etf-broker-belgie', label: 'Rekenhulp ETF-broker met beurstaks' },
+  },
+  {
+    vraag: 'Je koopt in één keer voor €5.000',
+    antwoord: laagste(b => transactiekost(b.fees, 5000)).map(({ b, kost }) => `${b.name} ${eur(kost)}`).join(' · ') + ' per order',
+    letOp: 'De beurstaks komt er bij elke broker bovenop: €6 (0,12%) of €66 (1,32% voor een in België geregistreerde ETF zoals VWCE).',
+    link: { href: '/belgie/tob-uitleg', label: 'Beurstaks (TOB) uitgelegd' },
+  },
+  {
+    vraag: 'Je wil elke maand automatisch beleggen',
+    antwoord: opScore.filter(b => b.features.savingsPlan || b.features.autoInvest).map(b => b.name).join(' · '),
+    letOp: 'Trade Republic koopt ook fracties, zodat je hele bedrag belegd wordt. Bij Bolero gaat het enkel in hele stuks; Saxo AutoInvest kost €2 per maand.',
+    link: { href: '/reviews/trade-republic-belgie', label: 'Trade Republic België review' },
+  },
+  {
+    vraag: 'Je wil zelf geen beleggingen aangeven',
+    antwoord: opScore
+      .filter(b => b.taxes.tob && b.taxes.dividendTax && b.taxes.reynders && b.taxes.capitalGainsTax && !b.nbbRegistrationRequired)
+      .map(b => b.name)
+      .join(' · '),
+    letOp: 'Trade Republic houdt de meerwaardebelasting enkel in als je ervoor kiest. Bij DEGIRO geef je alles behalve de beurstaks zelf aan en meld je de rekening bij de Nationale Bank.',
+    link: { href: '/broker-meerwaardebelasting-2026', label: 'Meerwaardebelasting per broker' },
+  },
+]
+
 const BRON = {
   saxoAutoInvest: 'https://www.home.saxo/nl-be/products/autoinvest',
   saxoReview: 'https://curvo.eu/nl/artikel/saxo-bank-review',
@@ -43,6 +81,8 @@ const BRON = {
   trReview: 'https://curvo.eu/nl/artikel/trade-republic-review',
   trTestAankoop: 'https://www.test-aankoop.be/invest/beleggen/etf/artikels/2026/09/trade-republic-belgie-beoordeling-kosten-fiscaliteit-beleggingen',
   spaarplannen: 'https://curvo.eu/article/best-etf-savings-plan-belgium',
+  besteEtf: 'https://curvo.eu/nl/artikel/beste-broker-belgie-etf',
+  degiroKostenEtf: 'https://curvo.eu/nl/artikel/degiro-kosten-etf',
   keytradeTarieven: 'https://keytradebank.be/en/new-trading-tariffs-2025',
   keytradeReview: 'https://curvo.eu/nl/artikel/keytrade-review',
   tob: 'https://curvo.eu/nl/artikel/hoe-je-de-beurstaks-van-een-etf-berekent',
@@ -50,6 +90,8 @@ const BRON = {
 }
 
 const bronnen: Bron[] = [
+  { staaft: 'Kost per ETF-order van €1.000: Saxo €2, Trade Republic €1, DEGIRO €1, MeDirect €0, Bolero €5, Keytrade €5,95', label: 'Curvo, beste broker België voor ETF’s (03/11/2026)', href: BRON.besteEtf },
+  { staaft: 'DEGIRO: €1 enkel via Tradegate; €2 + €1 behandelingskosten buiten de kernselectie', label: 'Curvo, DEGIRO-kosten voor ETF’s (22/10/2026)', href: BRON.degiroKostenEtf },
   { staaft: 'Transactiekosten Saxo (0,08%, minimum €2) en securities lending', label: 'Curvo, Saxo review', href: BRON.saxoReview },
   { staaft: 'AutoInvest Saxo (€2 per maand)', label: 'Saxo, AutoInvest', href: BRON.saxoAutoInvest },
   { staaft: 'Staffel Bolero (€2,50 tot €250, €5 tot €1.000, €7,50 tot €2.500, €15 per €10.000)', label: 'Bolero, tarievenlijst S101', href: BRON.boleroTarieven },
@@ -59,7 +101,7 @@ const bronnen: Bron[] = [
   { staaft: 'DEGIRO: €1 kernselectie, €3 andere ETF’s, TOB ingehouden, rest zelf, NBB-melding', label: 'Curvo, DEGIRO review (03/09/2026)', href: BRON.degiroReview },
   { staaft: 'Trade Republic: Belgisch bijkantoor sinds 15/09/2026, taksen ingehouden', label: 'Test-Aankoop (15/09/2026)', href: BRON.trTestAankoop },
   { staaft: 'Trade Republic: €1 per order', label: 'Curvo, Trade Republic review (18/09/2026)', href: BRON.trReview },
-  { staaft: 'Spaarplannen Saxo, Trade Republic en Bolero', label: 'Curvo, beste ETF-spaarplan België (22/10/2026)', href: BRON.spaarplannen },
+  { staaft: 'Spaarplannen Saxo, Trade Republic (kosteloos, fracties) en Bolero (enkel hele stuks)', label: 'Curvo, beste ETF-spaarplan België (22/10/2026)', href: BRON.spaarplannen },
   { staaft: 'Staffel Keytrade (€2,45 / €5,95 / €14,95, +€7,50 per €10.000)', label: 'Keytrade Bank, tarieven 2025', href: BRON.keytradeTarieven },
   { staaft: 'Keytrade: taksen, bescherming FGDR', label: 'Curvo, Keytrade review', href: BRON.keytradeReview },
   { staaft: 'TOB-tarieven ETF’s (0,12% / 1,32% / 0,35%) en maxima; VWCE in België geregistreerd', label: 'Curvo, beurstaks ETF (08/10/2026)', href: BRON.tob },
@@ -161,11 +203,30 @@ export default function BesteBrokerPage() {
           </p>
         </section>
 
+        {/* Per situatie */}
+        <section className="mb-10 max-w-3xl" aria-labelledby="situatie">
+          <h2 id="situatie" className="font-display text-2xl font-bold text-primary mb-2">Welke broker past bij welke situatie?</h2>
+          <p className="text-gray-600 mb-4">
+            De goedkoopste broker hangt af van hoe je belegt. Per situatie de brokers die er volgens de tarieven het best
+            uitkomen, met wat je moet weten. Berekend uit dezelfde tarieven als de tabellen hieronder; geen persoonlijk advies.
+          </p>
+          <div className="space-y-3">
+            {situaties.map(s => (
+              <div key={s.vraag} className="card">
+                <h3 className="font-semibold text-primary">{s.vraag}</h3>
+                <p className="text-gray-800 mt-1 tabular-nums">{s.antwoord}</p>
+                <p className="text-sm text-gray-500 mt-1">{s.letOp}</p>
+                <Link href={s.link.href} className="text-sm text-accent hover:underline mt-1 inline-block">{s.link.label}</Link>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Kosten */}
         <section className="mb-10" aria-labelledby="kosten">
           <h2 id="kosten" className="font-display text-2xl font-bold text-primary mb-2">Wat kost beleggen per jaar bij elke broker?</h2>
           <p className="text-gray-600 max-w-3xl mb-4">
-            Transactiekosten voor één ETF-aankoop per maand, berekend met de tarieven van oktober 2026. We nemen telkens de
+            Transactiekosten voor één ETF-aankoop per maand, berekend met de tarieven die we in november 2026 nakeken. We nemen telkens de
             goedkoopste manier bij die broker (losse order, spaarplan of AutoInvest). Geen enkele van de zes rekent
             bewaarloon.
           </p>
@@ -273,7 +334,7 @@ export default function BesteBrokerPage() {
           </p>
         </section>
 
-        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} />
+        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN} datumPerBron />
 
         {/* Internal links */}
         <nav aria-label="Verder lezen" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
