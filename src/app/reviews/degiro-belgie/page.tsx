@@ -10,6 +10,7 @@ import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 import { EtfKostenTabel } from '@/components/broker/EtfKostenTabel'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 const broker = getBrokerById('degiro')!
 const vergelijk = ['degiro', 'bolero', 'saxo', 'trade-republic'].map(id => getBrokerById(id)!)
@@ -215,6 +216,7 @@ export default function DegiroReviewPage() {
             meerwaarde pas bij verkoop. Wil je dat alles voor je geregeld wordt, lees dan{' '}
             <Link href="/broker-meerwaardebelasting-2026" className="text-accent underline">welke broker de meerwaardebelasting voor je inhoudt</Link>.
           </p>
+          <KrososBlok bron="degiro-review" />
 
           <h2>Rekening openen</h2>
           <p>
