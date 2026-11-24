@@ -221,7 +221,7 @@ export function BrokerCard({ broker, variant = 'full', rank, showAffiliate = tru
         </div>
         {broker.nbbRegistrationRequired && (
           <p className="text-xs text-orange-600 mt-1.5 flex items-center gap-1">
-            <span>⚠</span> Jaarlijkse NBB-aangifte buitenlandse rekening vereist
+            <span>⚠</span> Buitenlandse rekening: één keer melden bij de NBB, elk jaar in je aangifte
           </p>
         )}
       </div>
