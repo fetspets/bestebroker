@@ -8,6 +8,7 @@ import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 import { Bronnen, type Bron } from '@/components/ui/Bronnen'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 const broker = getBrokerById('trade-republic')!
 const NAGEKEKEN = '2026-11-17'
@@ -208,6 +209,7 @@ export default function TradeRepublicReviewPage() {
             <li>Vermeld de Duitse rekening nog in je <strong>aangifte van 2027</strong>, omdat ze in 2026 open stond.</li>
             <li>Taksen van vóór de overstap geef je volgens Test-Aankoop <strong>wellicht nog zelf</strong> aan.</li>
           </ul>
+          <KrososBlok bron="trade-republic-review" />
           <p>
             Hoe de overstap in de app precies verloopt en of er een uiterste datum is, vonden we in geen enkele bron: kijk het na
             in de app of het helpcenter van Trade Republic.
