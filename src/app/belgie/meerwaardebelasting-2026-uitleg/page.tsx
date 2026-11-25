@@ -35,7 +35,7 @@ const faqJsonLd = {
       name: 'Welke broker regelt de meerwaardebelasting automatisch?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Belgische brokers zoals Saxo Bank, Bolero en MeDirect regelen de meerwaardebelasting automatisch: ze houden de 10% in bij verkoop (boven de vrijstelling) en storten dit door aan de Belgische belastingdienst. Buitenlandse brokers zoals DEGIRO en Trade Republic doen dit niet — jij moet zelf aangifte doen.',
+        text: 'Belgische brokers zoals Saxo Bank, Bolero en MeDirect regelen de meerwaardebelasting automatisch: ze houden 10% in op de volledige meerwaarde bij verkoop, zonder rekening te houden met je vrijstelling (die vraag je terug via je aangifte), en storten dit door aan de Belgische belastingdienst. Buitenlandse brokers zoals DEGIRO en Trade Republic doen dit niet — jij moet zelf aangifte doen.',
       },
     },
     {
@@ -132,6 +132,12 @@ export default function MeerwaardebelastingUitlegPage() {
             <li>Je verkoopt ETFs met een meerwaarde van €14.000 → <strong>10% op €4.000 = €400 belasting</strong></li>
             <li>Je verkoopt ETFs met een meerwaarde van €50.000 → <strong>10% op €40.000 = €4.000 belasting</strong></li>
           </ul>
+
+          <p>
+            Hoeveel kan je dit jaar nog binnen je vrijstelling verkopen, en wat gaat er op 31 december verloren? Lees{' '}
+            <Link href="/belgie/belastingvrij-verkopen-voor-31-december" className="text-accent underline">belastingvrij verkopen vóór 31 december</Link>{' '}
+            (met voorbeelden voor alleenstaanden en koppels).
+          </p>
 
           <h2>Verrekening van verliezen</h2>
           <p>

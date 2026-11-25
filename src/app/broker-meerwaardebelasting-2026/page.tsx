@@ -150,7 +150,14 @@ export default function MeerwaardebelastingPage() {
             <li>Betaling van de belasting</li>
           </ul>
           <p>
-            Belgische brokers doen dit automatisch voor jou. Geen Excel, geen aangifte — gewoon beleggen.
+            Belgische brokers houden de taks automatisch voor je in. De vrijstelling van €10.000 vraag je wel altijd zelf aan in
+            je aangifte.
+          </p>
+
+          <p>
+            Hoeveel kan je dit jaar nog binnen je vrijstelling verkopen, en wat gaat er op 31 december verloren? Lees{' '}
+            <Link href="/belgie/belastingvrij-verkopen-voor-31-december" className="text-accent underline">belastingvrij verkopen vóór 31 december</Link>{' '}
+            (met voorbeelden voor alleenstaanden en koppels).
           </p>
 
           <KrososBlok bron="broker-mwb-2026" />
