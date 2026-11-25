@@ -93,7 +93,7 @@ export const brokers: Broker[] = [
       transactionFeeFixed: 0,
       transactionFeePercent: 0.0008,
       transactionFeeMin: 2,
-      aandelenTarief: { percent: 0.0008, min: 2 }, // Saxo, invest-for-less (05/11/2026) en nl-be/accounts (06/11/2026), niveau Bronze
+      aandelenTarief: { percent: 0.0008, min: 2 }, // Saxo, invest-for-less (05/11/2026) en nl-be/accounts (06/11/2026), niveau Bronze; Curvo Saxo review (24/11/2026)
       transactionFeeMax: null,
       custodyFeePercent: 0,
       custodyFeeFixed: 0,
@@ -152,7 +152,7 @@ export const brokers: Broker[] = [
     bestFor: ['Wie automatisch maandelijks wil beleggen', 'Wie alle Belgische taksen laat inhouden', 'Wie naast ETF\'s ook obligaties of opties zoekt'],
     transferOutFee: 75,
     nbbRegistrationRequired: false,
-    lastVerified: '2026-10-23',
+    lastVerified: '2026-11-25',
   },
   {
     id: 'bolero',
