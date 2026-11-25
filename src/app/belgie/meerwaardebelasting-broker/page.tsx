@@ -165,12 +165,19 @@ export default function MeerwaardebelastingBrokerPage() {
           <div className="not-prose bg-orange-50 border border-orange-200 rounded-xl p-4 my-4 text-sm">
             <p className="font-semibold text-orange-800 mb-1">📅 Geen automatische inhouding vóór 1 juni 2026</p>
             <p className="text-orange-900 leading-relaxed">
-              Zelfs Belgische brokers zoals Saxo en Bolero starten de automatische bronheffing pas op{' '}
-              <strong>1 juni 2026</strong>. Meerwaarden gerealiseerd tussen 1 januari en 31 mei 2026 moet{' '}
-              <strong>elke belegger zelf aangeven</strong> in de personenbelasting — ongeacht welke broker
-              je gebruikt.
+              Belgische banken en brokers houden de taks pas automatisch in vanaf <strong>1 juni 2026</strong>. Voor
+              verkopen tussen 1 januari en 31 mei 2026 verschilt het per bank: Saxo zou die later alsnog inhouden
+              (eind van de zomer, volgens de Saxo-FAQ van 31/03/2026), Argenta houdt niets in voor die periode
+              (Argenta, 23/04/2026). Kijk in je jaaroverzicht na wat er voor jou werd ingehouden; wat niet werd
+              ingehouden, geef je zelf aan.
             </p>
           </div>
+
+          <p>
+            Hoeveel kan je dit jaar nog binnen je vrijstelling verkopen, en wat gaat er op 31 december verloren? Lees{' '}
+            <Link href="/belgie/belastingvrij-verkopen-voor-31-december" className="text-accent underline">belastingvrij verkopen vóór 31 december</Link>{' '}
+            (met voorbeelden voor alleenstaanden en koppels).
+          </p>
 
           <KrososBlok bron="mwb-broker" />
 

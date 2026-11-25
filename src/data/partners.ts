@@ -21,4 +21,13 @@ export const partners: Partner[] = [
     affiliateActive: true,
     kortingscode: 'BESTEBROKER',
   },
+  {
+    // Tweede rekenhulp van Krosos (belastingvrij verkopen vóór 31/12), voorgesteld door Krosos op 24/11/2026;
+    // zelfde code en voorwaarden als 'krosos' (bewijslogboek 25/11/2026). Eigen id zodat de klikken apart meetbaar zijn.
+    id: 'krosos-eindejaar',
+    name: 'Krosos',
+    affiliateUrl: 'https://krosos.com/nl/belastingvrij-verkopen-berekenen?utm_source=bestebroker',
+    affiliateActive: true,
+    kortingscode: 'BESTEBROKER',
+  },
 ]

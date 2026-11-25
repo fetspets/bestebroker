@@ -304,7 +304,9 @@ export default function BoleroVsSaxoPage() {
             </li>
             <li>
               <strong>Twee brokers, één vrijstelling.</strong> Heb je zowel Bolero als Saxo, dan heb je niet twee keer €10.000: de
-              vrijstelling geldt per persoon, voor al je rekeningen samen (gehuwden onder het wettelijk stelsel: €20.000).
+              vrijstelling geldt per persoon, voor al je rekeningen samen (gehuwden onder het wettelijk stelsel: €20.000). Wat je
+              niet gebruikt, schuift maar voor €1.000 door:{' '}
+              <Link href="/belgie/belastingvrij-verkopen-voor-31-december">belastingvrij verkopen vóór 31 december</Link>.
             </li>
             <li>
               <strong>Minderwaarden en oude aankopen regel je zelf.</strong> Verliezen verrekenen gebeurt enkel in je aangifte, niet bij de
