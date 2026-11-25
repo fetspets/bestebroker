@@ -7,12 +7,13 @@ import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoRekenhulp } from '@/components/tools/SaxoRekenhulp'
+import { KrososBlok } from '@/components/partners/KrososBlok'
 
 const bolero = getBrokerById('bolero')!
 const saxo = getBrokerById('saxo')!
 const medirect = getBrokerById('medirect')!
 
-const NAGEKEKEN = '2026-11-06'
+const NAGEKEKEN = '2026-11-24'
 const URL = 'https://www.bestebroker.be/vergelijking/bolero-vs-saxo'
 const TITLE = 'Bolero vs Saxo (2026): wie is voor jou goedkoper?'
 const DESCRIPTION =
@@ -35,6 +36,10 @@ const BRON = {
   saxoAutoInvest: 'https://www.home.saxo/nl-be/products/autoinvest',
   saxoReview: 'https://curvo.eu/nl/artikel/saxo-bank-review',
   spaarplannen: 'https://curvo.eu/article/best-etf-savings-plan-belgium',
+  boleroMwb: 'https://www.bolero.be/nl/meerwaardebelasting',
+  boleroOptOut: 'https://www.bolero.be/nl/lp/meerwaardebelasting/bronheffing-en-opt-out',
+  boleroVrijstelling: 'https://www.bolero.be/nl/lp/meerwaardebelasting/vrijstelling-en-minderwaarde',
+  saxoMwb: 'https://www.home.saxo/nl-be/campaigns/meerwaardebelasting-arizona-regering',
 }
 
 const rows: { label: string; bolero: string; saxo: string }[] = [
@@ -44,6 +49,7 @@ const rows: { label: string; bolero: string; saxo: string }[] = [
   { label: 'Automatisch spaarplan', bolero: 'Periodiek beleggen, enkel hele stuks; je stort zelf het geld vooraf', saxo: 'AutoInvest: €2 per maand voor alle aankopen samen, uit een selectie ETF’s, enkel hele stuks; je stort zelf het geld vooraf' },
   { label: 'Bewaarloon', bolero: 'Geen', saxo: 'Geen' },
   { label: 'Belgische taksen (TOB, roerende voorheffing, Reynders, meerwaardebelasting)', bolero: 'Ingehouden door Bolero', saxo: 'Ingehouden door Saxo' },
+  { label: 'Inhouding meerwaardebelasting uitzetten (opt-out) en zelf aangeven', bolero: 'Kan, per rekening, in de app of op het platform', saxo: 'Kan (opt-out); Saxo meldt de werkwijze aan zijn klanten' },
   { label: 'Securities lending (effecten uitlenen)', bolero: 'Nee', saxo: 'Enkel als je er zelf voor kiest (opt-in)' },
   { label: 'Bescherming effecten / cash', bolero: '€20.000 / €100.000', saxo: '€20.000 / €100.000 (Deens garantiefonds)' },
   { label: 'Effecten overzetten naar een andere bank', bolero: '€50 per lijn (gratis naar KBC/CBC)', saxo: '€75 per lijn' },
@@ -75,7 +81,15 @@ const faq = [
   },
   {
     q: 'Houden Bolero en Saxo de Belgische belastingen in?',
-    a: 'Ja. Beide houden de beurstaks (TOB), de roerende voorheffing op dividenden, de Reynderstaks en sinds 2026 de meerwaardebelasting in. Je hoeft je rekening niet bij de Nationale Bank te melden.',
+    a: 'Ja. Beide houden de beurstaks (TOB), de roerende voorheffing op dividenden, de Reynderstaks en sinds 2026 de meerwaardebelasting in. Je hoeft je rekening niet bij de Nationale Bank te melden. Bij de meerwaardebelasting houden ze 10% in zonder rekening te houden met je vrijstelling van €10.000; die vraag je zelf terug via je aangifte.',
+  },
+  {
+    q: 'Heb ik bij Bolero en Saxo samen twee keer €10.000 vrijstelling?',
+    a: 'Nee. Volgens Bolero geldt de vrijstelling per persoon, niet per rekening: €10.000 per jaar, samen voor al je rekeningen bij alle banken en brokers. Gehuwden onder het wettelijk stelsel hebben samen €20.000.',
+  },
+  {
+    q: 'Kan ik de inhouding van de meerwaardebelasting bij Bolero of Saxo uitzetten?',
+    a: 'Ja, bij beide kan een opt-out. Bij Bolero vraag je die per rekening aan in de app of op het platform (Instellingen, Opt-out meerwaardebelasting). Ze gaat meteen in, maar als je dit jaar al transacties deed pas op 1 januari van het volgende jaar. Met opt-out houdt de broker niets in en geef je je meerwaarden zelf aan in je personenbelasting.',
   },
   {
     q: 'Leent Saxo mijn aandelen uit?',
@@ -100,6 +114,10 @@ const bronnen: Bron[] = [
   { staaft: 'Selectie ETF’s bij AutoInvest', label: 'Test-Aankoop, verwijzing naar artikel van 15/05/2025 op deze pagina (gelezen 06/11/2026; het aanbod kan intussen gewijzigd zijn)', href: BRON.autoInvestTA },
   { staaft: 'Overdrachtkost, securities lending, bescherming en hele stuks bij AutoInvest, Saxo', label: 'Curvo, Saxo Bank review, 03/09/2026 (gelezen 22/10/2026)', href: BRON.saxoReview },
   { staaft: 'Rekening openen, itsme, overdrachtkosten beide', label: 'Curvo, Bolero vs Saxo Bank, 03/09/2026 (gelezen 06/11/2026)', href: BRON.vergelijkingCurvo },
+  { staaft: 'Inhouding 10% standaard, opt-out per rekening via app of platform, ingang (meteen of 1 januari volgend jaar), keuze loopt door, zelf aangeven bij opt-out', label: 'Bolero, bronheffing en opt-out (gelezen 24/11/2026)', href: BRON.boleroOptOut },
+  { staaft: 'Inhouding vanaf 1/6/2026, vrijstelling zelf aanvragen in de aangifte, terugvragen in de aangifte van midden 2027', label: 'Bolero, meerwaardebelasting (laatste update 20/11/2026, gelezen 24/11/2026)', href: BRON.boleroMwb },
+  { staaft: 'Vrijstelling €10.000 per persoon (niet per rekening), €20.000 voor gehuwden, overdracht max. €1.000 per jaar tot €15.000, minderwaarden enkel in de aangifte, hogere aankoopwaarde vóór 2026 zelf opgeven tot 31/12/2030', label: 'Bolero, vrijstelling en minderwaarde (gelezen 24/11/2026)', href: BRON.boleroVrijstelling },
+  { staaft: 'Saxo houdt standaard in; opt-out-keuze geldt in principe voor het volledige jaar; vrijstelling terugvorderen via de aangifte', label: 'Saxo België, meerwaardebelasting (FAQ op basis van info van 31/03/2026, gelezen 24/11/2026)', href: BRON.saxoMwb },
   { staaft: 'Storting bij AutoInvest en Bolero-spaarplan', label: 'Curvo, ETF-spaarplannen in België, 27/07/2026 (gelezen 22/10/2026)', href: BRON.spaarplannen },
   ...saxo.veiligheid!.sancties.map(s => ({ staaft: 'Boete Saxo', label: `${s.bron.label} (gelezen 23/10/2026)`, href: s.bron.href })),
 ]
@@ -136,6 +154,7 @@ export default function BoleroVsSaxoPage() {
             <li><strong>Kosten:</strong> Saxo rekent 0,08% (minimum €2) per order of €2 per maand met AutoInvest. Bolero rekent €2,50 tot €7,50 per order tot €2.500. Bij één aankoop per maand is Saxo €6 tot €66 per jaar goedkoper. Enkel bij één order tussen €62.500 en €70.000 is Bolero goedkoper.</li>
             <li><strong>Spaarplan:</strong> bij beide stort je zelf het geld. AutoInvest kost een vaste €2 per maand; bij Bolero betaal je per order. Bij beide koop je enkel hele stuks.</li>
             <li><strong>Uitlenen van effecten:</strong> Bolero doet het niet; bij Saxo enkel als je zelf opt-in kiest.</li>
+            <li><strong>Meerwaardebelasting:</strong> beide houden 10% in, maar zonder rekening te houden met je vrijstelling van €10.000; die geldt één keer voor al je rekeningen samen. Uitzetten (opt-out) kan bij beide. <a href="#meerwaardebelasting" className="text-accent hover:underline">Lees de drie valkuilen</a>.</li>
             <li><strong>Vertrekken:</strong> overzetten kost €50 per lijn bij Bolero en €75 per lijn bij Saxo.</li>
             <li><strong>Toezicht:</strong> Bolero is een merk van KBC Bank, met Belgische vergunning. Saxo is een Deense bank met een Belgisch bijkantoor en kreeg in januari 2026 een boete van de Deense toezichthouder.</li>
           </ul>
@@ -273,6 +292,39 @@ export default function BoleroVsSaxoPage() {
             {' '}<Link href="/broker-meerwaardebelasting-2026">meerwaardebelasting 2026 bij brokers</Link>.
           </p>
 
+          <h2 id="meerwaardebelasting">Meerwaardebelasting: laten inhouden of zelf aangeven?</h2>
+          <p>
+            Hier lijken Bolero en Saxo op elkaar, maar er zitten drie valkuilen in die je bij geen van beide vanzelf opgelost krijgt.
+          </p>
+          <ul>
+            <li>
+              <strong>De inhouding kent je vrijstelling niet.</strong> Beide houden standaard 10% in op elke meerwaarde, ook als je
+              onder de vrijstelling van €10.000 per jaar blijft. Wat te veel is ingehouden, vraag je zelf terug via je
+              belastingaangifte; voor 2026 is dat de aangifte van midden 2027.
+            </li>
+            <li>
+              <strong>Twee brokers, één vrijstelling.</strong> Heb je zowel Bolero als Saxo, dan heb je niet twee keer €10.000: de
+              vrijstelling geldt per persoon, voor al je rekeningen samen (gehuwden onder het wettelijk stelsel: €20.000).
+            </li>
+            <li>
+              <strong>Minderwaarden en oude aankopen regel je zelf.</strong> Verliezen verrekenen gebeurt enkel in je aangifte, niet bij de
+              broker. En kocht je vóór 2026 en was je belegging op 31 december 2025 minder waard dan je aankoopprijs, dan geef je die hogere
+              aankoopprijs zelf op (kan voor verkopen tot eind 2030), ook als de broker inhoudt.
+            </li>
+          </ul>
+          <p>
+            <strong>Wil je de inhouding uitzetten?</strong> Dat heet opt-out en kan bij beide. Bij Bolero vraag je het per rekening aan in de
+            app of op het platform (Instellingen, Opt-out meerwaardebelasting). De opt-out gaat meteen in; deed je dit jaar al
+            transacties, dan pas op 1 januari 2027. De keuze loopt door tot je ze zelf wijzigt. Bij Saxo geldt de keuze volgens Saxo in
+            principe voor het volledige jaar; hoe je ze aanvraagt, meldt Saxo aan zijn klanten.
+          </p>
+          <p>
+            Met opt-out houdt de broker niets in en geef je je meerwaarden zelf aan. Beide geven je een overzicht van je gerealiseerde
+            meer- en minderwaarden, maar de berekening per verkoop (en de vrijstelling over meerdere rekeningen) doe je dan zelf.
+            Wie dat niet met de hand wil doen, kan een rekentool gebruiken, zoals die hieronder.
+          </p>
+          <KrososBlok bron="bolero-vs-saxo" />
+
           <h2>Securities lending en bescherming</h2>
           <p>
             Bolero leent geen effecten uit. Bij Saxo gebeurt dat enkel als je er zelf voor kiest. Bij beide is je cash beschermd tot
@@ -287,6 +339,7 @@ export default function BoleroVsSaxoPage() {
             <li><strong>Je hecht aan een Belgische vergunning:</strong> Bolero is een merk van KBC Bank. Saxo is een Deense bank met een Belgisch bijkantoor, en kreeg in 2026 een boete van de Deense toezichthouder.</li>
             <li><strong>Je wil geen uitlening van je effecten:</strong> bij Bolero is dat uitgesloten; bij Saxo laat je de opt-in gewoon uit.</li>
             <li><strong>Je bent al klant bij KBC of CBC:</strong> effecten overzetten naar KBC/CBC is bij Bolero gratis.</li>
+            <li><strong>Je wil de meerwaardebelasting zelf aangeven:</strong> bij Bolero zet je de inhouding per rekening uit in de app; bij Saxo kan het ook. Kijk dan wel <a href="#meerwaardebelasting">de drie valkuilen</a> na.</li>
             <li><strong>Je wil later misschien overstappen:</strong> reken met €50 (Bolero) of €75 (Saxo) per lijn.</li>
           </ul>
           <p>
