@@ -6,7 +6,7 @@ import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 import { partners } from '@/data/partners'
 import { goLink } from '@/lib/affiliateLinks'
 
-const NAGEKEKEN = '2026-11-25'
+const NAGEKEKEN = '2026-11-26'
 const URL = 'https://www.bestebroker.be/belgie/belastingvrij-verkopen-voor-31-december'
 const TITLE = 'Belastingvrij verkopen vóór 31 december: wat gaat verloren?'
 const DESCRIPTION =
@@ -22,8 +22,8 @@ const BRON = {
 }
 
 const bronnen: Bron[] = [
-  { staaft: 'Vrijstelling €10.000 per persoon, enkel via je eigen aangifte; gehuwden onder het wettelijk stelsel €20.000; overdracht tot €1.000 per jaar, maximaal vijf jaar, tot €15.000; ongebruikte vrijstelling van 2026 schuift door naar 2027; minderwaarden niet overdraagbaar, enkel vanaf 2026; startwaarde 31/12/2025, hogere aankoopprijs tot 31/12/2030; de bank houdt geen rekening met minderwaarden', label: 'Bolero, vrijstelling en minderwaarde (gelezen 25/11/2026)', href: BRON.bolero },
-  { staaft: '€10.000 in 2026, jaarlijks geïndexeerd; eerst de overgedragen vrijstelling, dan die van het jaar; elke echtgenoot een eigen vrijstelling, voor de helft van de meerwaarden; bank rekent op het totaal van een gezamenlijke rekening; bank houdt in zonder vrijstelling, minderwaarden of hogere historische waarde; opt-out per jaar', label: 'Belfius, meerwaardebelasting (laatste update 15/06/2026)', href: BRON.belfius },
+  { staaft: 'Vrijstelling €10.000 per persoon, enkel via je eigen aangifte; gehuwden onder het wettelijk stelsel €20.000; enkel het ongebruikte deel van de eerste schijf van €1.000 is overdraagbaar, maximaal vijf jaar, tot €15.000; minderwaarden niet overdraagbaar, enkel vanaf 2026; startwaarde 31/12/2025, hogere aankoopprijs tot 31/12/2030; de bank houdt geen rekening met minderwaarden', label: 'Bolero, vrijstelling en minderwaarde (gelezen 26/11/2026)', href: BRON.bolero },
+  { staaft: '€10.000 in 2026, jaarlijks geïndexeerd; eerst de overgedragen vrijstelling, dan die van het jaar; wie een deel van de eerste €1.000 gebruikt, schuift niets meer door; elke echtgenoot een eigen vrijstelling, voor de helft van de meerwaarden; bank rekent op het totaal van een gezamenlijke rekening; bank houdt in zonder vrijstelling, minderwaarden of hogere historische waarde; opt-out per jaar', label: 'Belfius, meerwaardebelasting (laatste update 15/06/2026)', href: BRON.belfius },
   { staaft: 'Vrijstelling per persoon via de aangifte, ook bij opt-in; gehuwd onder een gemeenschapsstelsel: elk een vrijstelling, ook als de rekening op één naam staat; minderwaarden enkel in hetzelfde jaar; terugkrijgen van te veel ingehouden taks kan tot 2 jaar duren', label: 'Argenta, meerwaardebelasting (laatste update 23/04/2026)', href: BRON.argenta },
   { staaft: 'Jaarlijkse vrijstelling €10.000 met overdraagbaarheid van maximaal €5.000 over vijf jaar; wet gestemd op 3 april 2026', label: 'KPMG, meerwaardebelasting goedgekeurd door het parlement', href: BRON.kpmg },
   { staaft: 'Terugbetaling van de ingehouden meerwaardebelasting kan tot 2,5 jaar duren (Saxo)', label: 'Curvo, Saxo review (24/11/2026)', href: BRON.curvoSaxo },
@@ -41,8 +41,8 @@ const MW1 = 14000
 const taksAlles2026 = Math.max(0, MW1 - VRIJ) * TARIEF
 const helft = MW1 / 2
 const taksGespreid = Math.max(0, helft - VRIJ) * TARIEF * 2
-const ongebruikt2026 = VRIJ - helft
-const overgedragen = Math.min(OVERDRACHT_MAX, ongebruikt2026)
+// Enkel het ongebruikte deel van de eerste schijf van €1.000 schuift door (Bolero, Belfius)
+const overgedragen = Math.max(0, OVERDRACHT_MAX - helft)
 
 // Voorbeeld 2: gehuwd koppel, gezamenlijke rekening, €18.000 meerwaarde in 2026
 const MW2 = 18000
@@ -57,7 +57,7 @@ const faq = [
   },
   {
     q: 'Wat gebeurt er met de vrijstelling die ik dit jaar niet gebruik?',
-    a: `Hoogstens €1.000 schuift door naar volgend jaar. De rest vervalt. Wie vijf jaar na elkaar niets gebruikt, komt zo op maximaal €15.000. Gebruik je in 2026 bijvoorbeeld maar €2.000 van je vrijstelling, dan gaat er €1.000 mee naar 2027 en vervalt €7.000.`,
+    a: `Enkel wat je van de eerste schijf van €1.000 niet gebruikt, schuift door naar volgend jaar. De rest vervalt. Realiseer je in 2026 bijvoorbeeld €200 meerwaarde, dan gaat er €800 mee naar 2027. Realiseer je €1.000 of meer, dan schuift er niets door. Wie vijf jaar na elkaar niets realiseert, komt zo op maximaal €15.000.`,
   },
   {
     q: 'Houdt mijn bank of broker rekening met de vrijstelling?',
@@ -168,7 +168,7 @@ export default function BelastingvrijVerkopenPage() {
           <h2 id="kort" className="font-display text-xl font-bold text-primary mb-3">In het kort</h2>
           <ul className="text-sm text-gray-700 space-y-2 list-disc pl-5">
             <li><strong>€10.000 per persoon per jaar</strong>, voor al je rekeningen samen. Gehuwden: elk €10.000.</li>
-            <li><strong>Niet gebruikt = grotendeels weg:</strong> hoogstens €1.000 schuift door naar volgend jaar.</li>
+            <li><strong>Niet gebruikt = grotendeels weg:</strong> enkel het ongebruikte deel van de eerste €1.000 schuift door. Realiseer je €1.000 of meer, dan schuift er niets door.</li>
             <li><strong>Je broker kent je vrijstelling niet.</strong> Hij houdt 10% in; je vraagt het terug via je aangifte.</li>
             <li>Dit is uitleg over de regel, <strong>geen advies om te verkopen</strong>. Verkopen kost ook beurstaks en makelaarsloon.</li>
           </ul>
@@ -187,15 +187,17 @@ export default function BelastingvrijVerkopenPage() {
             hoger, dan mag je die gebruiken voor verkopen tot 31 december 2030, als je ze kan bewijzen.
           </p>
 
-          <h2 id="overdracht">Wat je niet gebruikt, schuift maar voor €1.000 door</h2>
+          <h2 id="overdracht">Alleen de eerste €1.000 kan doorschuiven</h2>
           <p>
-            Gebruik je je vrijstelling in een jaar niet volledig, dan mag je <strong>hoogstens €1.000</strong> meenemen naar het
-            volgende jaar. Dat kan vijf jaar na elkaar, tot een vrijstelling van maximaal €15.000. Het volgende jaar gebruik je
-            eerst het overgedragen bedrag, en pas daarna de vrijstelling van dat jaar.
+            Van je vrijstelling is enkel de <strong>eerste schijf van €1.000</strong> overdraagbaar. Wat je daarvan in een jaar
+            niet gebruikt, neem je mee naar het volgende jaar. Realiseer je €200 meerwaarde, dan schuift €800 door. Realiseer je
+            €1.000 of meer, dan schuift er niets door, ook al blijf je ver onder €10.000. Dat kan vijf jaar na elkaar, tot een
+            vrijstelling van maximaal €15.000. Het volgende jaar gebruik je eerst het overgedragen bedrag, en pas daarna de
+            vrijstelling van dat jaar.
           </p>
           <ul>
             <li><strong>2026 is het eerste jaar.</strong> Er kan nog niets bijkomen uit vorige jaren: je maximum is dit jaar €10.000.</li>
-            <li><strong>Wat boven de €1.000 ongebruikt blijft, vervalt</strong> op 31 december. Gebruik je in 2026 niets, dan heb je in 2027 de vrijstelling van 2027 plus €1.000, niet plus €10.000.</li>
+            <li><strong>De rest van de €10.000 vervalt</strong> op 31 december. Gebruik je in 2026 niets, dan heb je in 2027 de vrijstelling van 2027 plus €1.000, niet plus €10.000.</li>
           </ul>
 
           <h2 id="voorbeeld-alleen">Voorbeeld 1: alleenstaande</h2>
@@ -209,8 +211,8 @@ export default function BelastingvrijVerkopenPage() {
             </li>
             <li>
               <strong>De helft in december 2026, de helft in januari 2027:</strong> twee keer {eur(helft)}, telkens onder de
-              vrijstelling. Ze betaalt <strong>{eur(taksGespreid)}</strong> meerwaardebelasting. Van de {eur(ongebruikt2026)} die
-              ze in 2026 niet gebruikt, schuift {eur(overgedragen)} door naar 2027.
+              vrijstelling. Ze betaalt <strong>{eur(taksGespreid)}</strong> meerwaardebelasting. Er schuift {overgedragen === 0 ? 'niets' : eur(overgedragen)}{' '}
+              door naar 2027: de eerste schijf van €1.000 is in 2026 al gebruikt.
             </li>
           </ul>
           <p>
