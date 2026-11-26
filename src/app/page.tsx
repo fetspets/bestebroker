@@ -1,11 +1,14 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { brokers } from '@/data/brokers'
+import { brokers, transactiekost } from '@/data/brokers'
 import { BrokerCard } from '@/components/broker/BrokerCard'
+import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 
-const TITLE = 'Beste broker België 2026: 6 brokers vergeleken met bronnen'
+// Zoekwoord van de startpagina: "brokers vergelijken België". "Beste broker België" hoort bij /beste-broker-belgie
+// (geen twee pagina's op hetzelfde zoekwoord; beide titels begonnen tot 26/11/2026 met "Beste broker België 2026").
+const TITLE = 'Brokers vergelijken in België: wie houdt welke taks in?'
 const DESCRIPTION =
-  'Wat kost een order, welke taksen houdt je broker in en waar doe je zelf aangifte? Saxo, Bolero, DEGIRO, MeDirect, Trade Republic en Keytrade.'
+  'Zes brokers naast elkaar: orderkost, beurstaks, meerwaardebelasting en NBB-melding. Bij één ervan regel je bijna alles zelf. Met bron en datum.'
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -26,6 +29,45 @@ const topBrokers = [...brokers].sort((a, b) => b.rating - a.rating).slice(0, 3)
 const NAGEKEKEN = brokers.map(b => b.lastVerified).sort().reverse()[0]
 const MAANDEN = ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december']
 const nagekekenLabel = `${MAANDEN[Number(NAGEKEKEN.slice(5, 7)) - 1]} ${NAGEKEKEN.slice(0, 4)}`
+
+// Overzicht "in één oogopslag": alles berekend uit src/data/brokers.ts, volgorde = totaalscore (geen aanbeveling).
+const opScore = [...brokers].sort((a, b) => b.rating - a.rating)
+const eur = (n: number) =>
+  new Intl.NumberFormat('nl-BE', { style: 'currency', currency: 'EUR', minimumFractionDigits: n % 1 === 0 ? 0 : 2, maximumFractionDigits: 2 }).format(n)
+const REVIEW: Record<string, string> = {
+  saxo: '/reviews/saxo-bank-belgie',
+  bolero: '/reviews/bolero',
+  medirect: '/reviews/medirect',
+  degiro: '/reviews/degiro-belgie',
+  'trade-republic': '/reviews/trade-republic-belgie',
+  keytrade: '/reviews/keytrade-belgie',
+}
+function takslabel(b: (typeof brokers)[number]): { tekst: string; zelf: boolean } {
+  const alles = b.taxes.tob && b.taxes.dividendTax && b.taxes.reynders && b.taxes.capitalGainsTax
+  if (alles && !b.nbbRegistrationRequired) {
+    // Trade Republic: meerwaardebelasting enkel bij opt-in (zie brokers.ts)
+    return { tekst: b.id === 'trade-republic' ? 'Alles ingehouden, meerwaardebelasting als je dat kiest' : 'Alles ingehouden', zelf: false }
+  }
+  if (b.taxes.tob && !b.taxes.dividendTax) return { tekst: 'Enkel beurstaks; rest zelf aangeven + NBB-melding', zelf: true }
+  return { tekst: 'Deels zelf aangeven', zelf: true }
+}
+const overzicht = opScore.map(b => ({ b, etf: transactiekost(b.fees, 1000), taks: takslabel(b) }))
+
+const vergelijkingen = [
+  { href: '/vergelijking/bolero-vs-saxo', title: 'Bolero vs Saxo', sub: 'Vaste staffel of 0,08% per order' },
+  { href: '/vergelijking/saxo-vs-medirect', title: 'Saxo vs MeDirect', sub: 'AutoInvest of €0 per ETF-order' },
+  { href: '/vergelijking/saxo-vs-degiro', title: 'Saxo vs DEGIRO', sub: 'Alles ingehouden of alles zelf aangeven' },
+  { href: '/vergelijking/degiro-vs-bolero', title: 'DEGIRO vs Bolero', sub: '€1 per ETF-order of een Belgische bank' },
+]
+
+const NAGEKEKEN_HOME = '2026-11-26'
+const bronnen: Bron[] = [
+  { staaft: 'Kost per ETF-order van €1.000: Saxo €2, Trade Republic €1, DEGIRO €1 (kernselectie), MeDirect €0, Bolero €5, Keytrade €5,95', label: 'Curvo, beste broker België voor ETF’s (03/11/2026)', href: 'https://curvo.eu/nl/artikel/beste-broker-belgie-etf' },
+  { staaft: 'DEGIRO: €1 enkel voor de kernselectie via Tradegate, anders €3; enkel TOB ingehouden, NBB-melding', label: 'Curvo, DEGIRO-kosten voor ETF’s (22/10/2026)', href: 'https://curvo.eu/nl/artikel/degiro-kosten-etf' },
+  { staaft: 'Trade Republic: Belgische rekening sinds 15/09/2026, taksen ingehouden, meerwaardebelasting bij opt-in', label: 'Test-Aankoop (15/09/2026)', href: 'https://www.test-aankoop.be/invest/beleggen/etf/artikels/2026/09/trade-republic-belgie-beoordeling-kosten-fiscaliteit-beleggingen' },
+  { staaft: 'Staffel Bolero (€5 tot €1.000)', label: 'Bolero, tarievenlijst S101', href: 'https://www.bolero.be/uploads/media/667ecf0aabd9a/101-tarieven-nl.pdf' },
+  { staaft: 'Staffel Keytrade (€5,95 van €250 tot €2.500)', label: 'Keytrade Bank, tarieven 2025', href: 'https://keytradebank.be/en/new-trading-tariffs-2025' },
+]
 
 const stats = [
   { value: '6', label: 'brokers vergeleken' },
@@ -70,7 +112,7 @@ export default function HomePage() {
             Brokerdata nagekeken {nagekekenLabel} · Meerwaardebelasting inbegrepen
           </div>
           <h1 className="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            De beste broker in België — <span className="text-accent">eerlijk vergeleken</span>
+            Brokers vergelijken in België — <span className="text-accent">met bron en datum</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
             100% Nederlandstalig · Belgische fiscale diepgang.
@@ -84,6 +126,58 @@ export default function HomePage() {
               Welke broker past bij mij?
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Overzicht in één oogopslag */}
+      <section className="py-10 md:py-14 bg-white" aria-labelledby="overzicht">
+        <div className="section-container max-w-4xl">
+          <h2 id="overzicht" className="font-display text-2xl md:text-3xl font-bold text-primary mb-2">
+            Zes brokers in één oogopslag
+          </h2>
+          <p className="text-gray-600 mb-5">
+            Twee dingen verschillen het meest: wat één order kost en welke taksen de broker voor je inhoudt. De beurstaks
+            (TOB) houden ze alle zes in. Het verschil zit in de roerende voorheffing, de Reynderstaks, de
+            meerwaardebelasting en de melding bij de Nationale Bank.
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm table-fixed break-words hyphens-auto">
+              <caption className="sr-only">Kost per ETF-order van €1.000 en Belgische taksen per broker</caption>
+              <thead className="text-left border-b border-gray-200">
+                <tr>
+                  <th scope="col" className="py-2 pr-2 w-[34%]">Broker</th>
+                  <th scope="col" className="py-2 pr-2 w-[22%]">ETF-order €1.000</th>
+                  <th scope="col" className="py-2">Taksen</th>
+                </tr>
+              </thead>
+              <tbody>
+                {overzicht.map(({ b, etf, taks }) => (
+                  <tr key={b.id} className="border-b border-gray-100 align-top">
+                    <th scope="row" className="py-3 pr-2 text-left font-semibold text-primary">
+                      <Link href={REVIEW[b.id] ?? '/beste-broker-belgie'} className="hover:text-accent hover:underline">
+                        {b.name}
+                      </Link>
+                      <span className="block text-xs font-normal text-gray-500">score {b.rating.toFixed(1).replace('.', ',')}/5</span>
+                    </th>
+                    <td className="py-3 pr-2">
+                      {eur(etf)}
+                      {b.id === 'degiro' && <span className="block text-xs text-gray-500">kernselectie; anders €3</span>}
+                    </td>
+                    <td className={`py-3 ${taks.zelf ? 'text-orange-700' : 'text-gray-700'}`}>{taks.tekst}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-3">
+            Volgorde = onze totaalscore (<Link href="/methodologie" className="text-accent hover:underline">methodologie</Link>), geen
+            persoonlijk advies. Kosten zonder beurstaks; bronnen onderaan deze pagina.
+          </p>
+          <p className="mt-5 text-gray-700">
+            Wat is de <Link href="/beste-broker-belgie" className="text-accent font-semibold hover:underline">beste broker in België voor jouw situatie</Link>?
+            Daar rekenen we €100 of €500 per maand, één aankoop van €5.000 en automatisch beleggen door. Twijfel je tussen twee
+            brokers? Kies hieronder een rechtstreekse vergelijking.
+          </p>
         </div>
       </section>
 
@@ -188,14 +282,9 @@ export default function HomePage() {
       {/* Quick links */}
       <section className="py-14 bg-gray-50">
         <div className="section-container">
-          <h2 className="font-display text-2xl font-bold text-primary text-center mb-8">Populaire vergelijkingen</h2>
+          <h2 className="font-display text-2xl font-bold text-primary text-center mb-8">Twee brokers rechtstreeks vergelijken</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { href: '/vergelijking/degiro-vs-bolero', title: 'DEGIRO vs Bolero', sub: 'Goedkoop vs Belgisch' },
-              { href: '/vergelijking/saxo-vs-degiro', title: 'Saxo vs DEGIRO', sub: 'Fiscaal compleet vs goedkoop' },
-              { href: '/vergelijking/bolero-vs-saxo', title: 'Bolero vs Saxo', sub: 'KBC-dochter vs Deense bank' },
-              { href: '/vergelijking/saxo-vs-medirect', title: 'Saxo vs MeDirect', sub: 'AutoInvest vs gratis ETFs' },
-            ].map(({ href, title, sub }) => (
+            {vergelijkingen.map(({ href, title, sub }) => (
               <Link
                 key={href}
                 href={href}
@@ -229,6 +318,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="section-container max-w-4xl py-10">
+        <Bronnen bronnen={bronnen} nagekeken={NAGEKEKEN_HOME} datumPerBron />
+      </div>
     </>
   )
 }
