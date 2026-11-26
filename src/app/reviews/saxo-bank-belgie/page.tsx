@@ -213,7 +213,7 @@ export default function SaxoReviewPage() {
           <ol>
             <li>
               <strong>Saxo kent je vrijstelling niet.</strong> Elke belegger heeft een vrijstelling van €10.000 meerwaarde per jaar
-              (overdraagbaar met €1.000 per jaar tot €15.000). Saxo houdt toch 10% in vanaf de eerste euro winst. Verkoop je met
+              (enkel het ongebruikte deel van de eerste €1.000 schuift door, tot €15.000). Saxo houdt toch 10% in vanaf de eerste euro winst. Verkoop je met
               €3.000 winst, dan houdt Saxo €300 in, ook al blijf je onder je vrijstelling.
             </li>
             <li>

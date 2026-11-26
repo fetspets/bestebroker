@@ -185,9 +185,9 @@ export default function MeerwaardebelastingPage() {
 
           <h3>Kan ik de vrijstelling doorschuiven als ik die niet volledig gebruik?</h3>
           <p>
-            Ja. Ongebruikte vrijstelling mag je jaarlijks voor €1.000 doorschuiven,
-            met een cumulatief maximum van €5.000 extra. Na 5 jaar niet volledig benutten
-            kan jouw totale jaarlijkse vrijstelling €15.000 bedragen.
+            Gedeeltelijk. Enkel wat je van de eerste schijf van €1.000 niet gebruikt, schuift door: realiseer je €200
+            meerwaarde, dan gaat €800 mee; realiseer je €1.000 of meer, dan schuift er niets door. Het cumulatieve maximum
+            is €5.000 extra: wie vijf jaar niets realiseert, komt op een vrijstelling van €15.000.
           </p>
         </div>
 

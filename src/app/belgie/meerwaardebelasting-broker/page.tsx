@@ -111,9 +111,9 @@ export default function MeerwaardebelastingBrokerPage() {
 
           <h3>Carry-forward: ongebruikte vrijstelling doorschuiven</h3>
           <p>
-            Als je de €10.000 vrijstelling in een bepaald jaar <em>niet volledig benut</em>, mag je
-            jaarlijks <strong>€1.000 doorschuiven</strong> naar volgende jaren, met een cumulatief maximum
-            van <strong>€5.000</strong>. Na 5 jaar kan jouw totale jaarlijkse vrijstelling dus oplopen
+            Enkel de <strong>eerste schijf van €1.000</strong> van je vrijstelling is overdraagbaar: wat je daarvan in
+            een jaar niet gebruikt, schuift door naar volgende jaren (€200 meerwaarde → €800 door; €1.000 of meer → niets),
+            met een cumulatief maximum van <strong>€5.000</strong>. Na 5 jaar kan jouw totale jaarlijkse vrijstelling dus oplopen
             tot <strong>€15.000</strong>.
           </p>
           <div className="not-prose bg-amber-50 border border-amber-200 rounded-xl p-4 my-4 text-sm">
