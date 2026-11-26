@@ -62,6 +62,8 @@ export default function RootLayout({
       <head>
         {/* Impact requires non-standard `value` attribute; spread as any to bypass TS */}
         <meta name="impact-site-verification" {...({ value: '3d125505-4102-4e5b-8926-0655fd4c139e' } as any)} />
+        {/* Impact-account Kempen Labs (26/11/2026) */}
+        <meta name="impact-site-verification" {...({ value: '3fc91a8b-c430-4a66-a2bb-29c5f3b6ba26' } as any)} />
         {/* Daisycon site-verificatie (media 443234) */}
         <meta name="c4c50f11317f516" content="ed774a31a90d2a1e1e9dd48a94c9f01b" />
       </head>
