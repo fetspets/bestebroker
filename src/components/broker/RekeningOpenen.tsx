@@ -1,4 +1,4 @@
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import type { Broker } from '@/data/brokers'
 
@@ -34,7 +34,7 @@ export function RekeningOpenen({
               rel="sponsored nofollow noopener"
               className="btn-primary w-full justify-center text-center py-3"
             >
-              Rekening openen bij {broker.name} →
+              Rekening openen bij {knopNaam(broker)} →
             </a>
             <AffiliateLabel broker={broker} />
           </div>

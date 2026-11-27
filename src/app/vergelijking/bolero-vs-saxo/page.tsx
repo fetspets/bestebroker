@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { aandelenKost, getBrokerById, transactiekost } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { RekeningOpenen } from '@/components/broker/RekeningOpenen'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
@@ -377,7 +377,7 @@ export default function BoleroVsSaxoPage() {
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={goLink(broker.id, 'bolero-vs-saxo')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Rekening openen bij {broker.name} →</a>
+                <a href={goLink(broker.id, 'bolero-vs-saxo')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Rekening openen bij {knopNaam(broker)} →</a>
               </div>
             )
           ))}
