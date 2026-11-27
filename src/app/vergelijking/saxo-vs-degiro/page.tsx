@@ -8,6 +8,7 @@ import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoDegiroRekenhulp } from '@/components/tools/SaxoDegiroRekenhulp'
 import { KrososBlok } from '@/components/partners/KrososBlok'
+import { EindejaarTip } from '@/components/partners/EindejaarTip'
 
 const saxo = getBrokerById('saxo')!
 const degiro = getBrokerById('degiro')!
@@ -192,6 +193,7 @@ export default function SaxoVsDegiroPage() {
             aangifte. Wie weinig verkoopt, heeft daar weinig werk aan; wie vaak verkoopt of meerdere ETF’s heeft, best wel.
           </p>
           <KrososBlok bron="saxo-vs-degiro" />
+          <EindejaarTip />
 
           <h2>Voor wie is welk verschil belangrijk?</h2>
           <ul>

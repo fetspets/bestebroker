@@ -9,6 +9,7 @@ import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 import { maandelijkseEtfKost } from '@/components/broker/EtfKostenTabel'
+import { EindejaarTip } from '@/components/partners/EindejaarTip'
 
 const broker = getBrokerById('medirect')!
 const URL = 'https://www.bestebroker.be/reviews/medirect'
@@ -294,6 +295,7 @@ export default function MeDirectReviewPage() {
             </li>
           </ul>
           <p>Een melding bij de Nationale Bank is niet nodig: het is een Belgische rekening.</p>
+          <EindejaarTip />
 
           <h2>Rekening openen</h2>
           <p>
