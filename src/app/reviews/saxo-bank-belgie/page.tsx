@@ -7,6 +7,7 @@ import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbN
 import { BookRecommendationBlock } from '@/components/book/BookRecommendationBlock'
 import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
+import { RekeningOpenen } from '@/components/broker/RekeningOpenen'
 import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 import { EtfKostenTabel } from '@/components/broker/EtfKostenTabel'
@@ -144,6 +145,7 @@ export default function SaxoReviewPage() {
             <li><strong>Taksen:</strong> alles ingehouden, geen NBB-melding. Maar de meerwaardebelasting wordt ingehouden <a href="#meerwaardebelasting" className="text-accent hover:underline">zonder je vrijstelling</a>.</li>
             <li><strong>Minpunten:</strong> €75 per lijn om over te stappen, 0,25% wisselkoerskost, geen fracties, geen kinderrekening.</li>
           </ul>
+          <RekeningOpenen brokers={[broker]} bron="saxo-review-kort" className="mt-5" />
         </section>
 
         <ScoreBreakdown broker={broker} />
@@ -187,6 +189,7 @@ export default function SaxoReviewPage() {
             Makelaarsloon per jaar voor één ETF, zonder beurstaks. Reken je eigen bedrag door met de{' '}
             <Link href="/beste-etf-broker-belgie#rekenhulp" className="text-accent underline">ETF-rekenhulp met beurstaks</Link>.
           </p>
+          <RekeningOpenen brokers={[broker]} bron="saxo-review-tabel" className="mt-5" />
         </div>
 
         <div className="prose-custom max-w-3xl mb-10">
@@ -294,7 +297,7 @@ export default function SaxoReviewPage() {
               rel="sponsored nofollow noopener"
               className="btn-primary flex-shrink-0"
             >
-              Naar Saxo →
+              Rekening openen bij Saxo →
             </a>
           </div>
         )}

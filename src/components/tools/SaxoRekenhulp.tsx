@@ -120,7 +120,7 @@ export function SaxoRekenhulp({ saxo, ander, anderKleur, bron }: Props) {
           broker.affiliateUrl && (
             <div key={broker.id}>
               <a href={goLink(broker.id, bron)} target="_blank" rel="sponsored nofollow noopener" className="btn-outline w-full justify-center text-center py-3">
-                Naar {broker.name} →
+                Rekening openen bij {broker.name} →
               </a>
               <AffiliateLabel broker={broker} />
             </div>
