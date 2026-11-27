@@ -85,7 +85,9 @@ export const brokers: Broker[] = [
     type: 'belgisch bijkantoor',
     tagline: 'Belgisch bijkantoor: houdt alle Belgische taksen in, AutoInvest €2 per maand',
     rating: 4.3, // = berekenRating(methodologyScores), zie /methodologie
-    affiliateUrl: 'https://www.home.saxo/be',
+    // Impact, programma Saxo Belgium (goedgekeurd 27/11/2026), €70 per nieuwe handelsklant
+    affiliateUrl: 'https://saxobelgium.pxf.io/NGLne1',
+    affiliateActive: true,
     color: '#003057',
     fees: {
       etfStandard: 0.08,

@@ -262,7 +262,7 @@ export default function BoleroVsSaxoPage() {
           </p>
           <a href={goLink(medirect.id, 'bolero-vs-saxo-alternatief')} target="_blank" rel="sponsored nofollow noopener" className="btn-outline justify-center text-center py-3">Naar MeDirect →</a>
           <AffiliateLabel broker={medirect} />
-          <p className="text-xs text-gray-400 mt-2">MeDirect is een betaalde samenwerking; Bolero en Saxo zijn dat op dit moment niet. Geen gekochte posities: de volgorde op deze site volgt onze vaste score, ook bij brokers waarmee we samenwerken.</p>
+          <p className="text-xs text-gray-400 mt-2">MeDirect en Saxo zijn betaalde samenwerkingen; Bolero is dat op dit moment niet. Geen gekochte posities: de volgorde op deze site volgt onze vaste score, ook bij brokers waarmee we samenwerken.</p>
         </section>
 
         <div className="prose-custom max-w-3xl mb-10">

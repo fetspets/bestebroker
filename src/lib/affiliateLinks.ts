@@ -25,6 +25,11 @@ export function brokerLink(affiliateUrl: string, source: string): string {
       url.searchParams.set('clickref', source)
       return url.toString()
     }
+    if (url.hostname.endsWith('pxf.io') || url.hostname.endsWith('sjv.io') || url.hostname.endsWith('impact.com')) {
+      // Impact: geen UTM-parameters, wel subId1 = plaats van de knop (zichtbaar in de Impact-rapporten)
+      url.searchParams.set('subId1', source)
+      return url.toString()
+    }
     url.searchParams.set('utm_source', 'bestebroker')
     url.searchParams.set('utm_medium', 'affiliate')
     url.searchParams.set('utm_campaign', source)
