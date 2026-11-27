@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { aandelenKost, getBrokerById, transactiekost } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
+import { RekeningOpenen } from '@/components/broker/RekeningOpenen'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoRekenhulp } from '@/components/tools/SaxoRekenhulp'
 import { KrososBlok } from '@/components/partners/KrososBlok'
@@ -158,6 +159,7 @@ export default function BoleroVsSaxoPage() {
             <li><strong>Vertrekken:</strong> overzetten kost €50 per lijn bij Bolero en €75 per lijn bij Saxo.</li>
             <li><strong>Toezicht:</strong> Bolero is een merk van KBC Bank, met Belgische vergunning. Saxo is een Deense bank met een Belgisch bijkantoor en kreeg in januari 2026 een boete van de Deense toezichthouder.</li>
           </ul>
+          <RekeningOpenen brokers={[bolero, saxo]} bron="bolero-vs-saxo-kort" className="mt-5" />
         </section>
 
         <section className="card mb-10" aria-labelledby="rekenhulp">
@@ -192,6 +194,7 @@ export default function BoleroVsSaxoPage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">Tarieven exclusief beurstaks. Bronnen onderaan deze pagina, met de datum waarop we ze lazen. Wisselkoerskosten vergelijken we hier niet.</p>
+          <RekeningOpenen brokers={[bolero, saxo]} bron="bolero-vs-saxo-tabel" className="mt-5" />
         </section>
 
         <section className="card mb-10">
@@ -344,6 +347,7 @@ export default function BoleroVsSaxoPage() {
             <li><strong>Je wil de meerwaardebelasting zelf aangeven:</strong> bij Bolero zet je de inhouding per rekening uit in de app; bij Saxo kan het ook. Kijk dan wel <a href="#meerwaardebelasting">de drie valkuilen</a> na.</li>
             <li><strong>Je wil later misschien overstappen:</strong> reken met €50 (Bolero) of €75 (Saxo) per lijn.</li>
           </ul>
+          <RekeningOpenen brokers={[bolero, saxo]} bron="bolero-vs-saxo-conclusie" className="my-6" />
           <p>
             Meer details: <Link href="/reviews/bolero">review van Bolero</Link>, <Link href="/reviews/saxo-bank-belgie">review van Saxo</Link>{' '}
             en <Link href="/vergelijking/saxo-vs-medirect">Saxo vs MeDirect</Link>.
@@ -367,13 +371,13 @@ export default function BoleroVsSaxoPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[bolero, saxo].map(broker => (
             broker.affiliateUrl && (
-              <div key={broker.id} className="card flex items-center justify-between gap-4">
+              <div key={broker.id} className="card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="font-semibold text-primary">{broker.name}</p>
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={goLink(broker.id, 'bolero-vs-saxo')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Naar {broker.name} →</a>
+                <a href={goLink(broker.id, 'bolero-vs-saxo')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Rekening openen bij {knopNaam(broker)} →</a>
               </div>
             )
           ))}

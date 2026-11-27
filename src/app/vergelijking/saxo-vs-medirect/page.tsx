@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { aandelenKost, getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
+import { RekeningOpenen } from '@/components/broker/RekeningOpenen'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoRekenhulp } from '@/components/tools/SaxoRekenhulp'
 import { EindejaarTip } from '@/components/partners/EindejaarTip'
@@ -149,7 +150,7 @@ export default function SaxoVsMeDirectPage() {
                     rel="sponsored nofollow noopener"
                     className="btn-outline w-full justify-center text-center py-3"
                   >
-                    Naar {broker.name} →
+                    Rekening openen bij {knopNaam(broker)} →
                   </a>
                   <AffiliateLabel broker={broker} />
                 </div>
@@ -188,6 +189,7 @@ export default function SaxoVsMeDirectPage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">Tarieven exclusief beurstaks. Bronnen onderaan deze pagina, nagekeken op 5 november 2026.</p>
+          <RekeningOpenen brokers={[saxo, medirect]} bron="saxo-vs-medirect-tabel" className="mt-5" />
         </section>
 
         <section className="card mb-10">
@@ -279,6 +281,7 @@ export default function SaxoVsMeDirectPage() {
             <li><strong>Je belegt ook in aandelen, obligaties of opties:</strong> vergelijk de tarieven per product; Saxo heeft het bredere aanbod.</li>
             <li><strong>Je wil later misschien overstappen:</strong> reken met €50 (MeDirect) of €75 (Saxo) per lijn.</li>
           </ul>
+          <RekeningOpenen brokers={[saxo, medirect]} bron="saxo-vs-medirect-conclusie" className="my-6" />
           <p>
             Nog twijfels over de broker zelf? Op onze <Link href="/methodologie">methodologiepagina</Link> staat hoe we toezicht en boetes wegen.
             Meer details: <Link href="/reviews/medirect">review van MeDirect</Link>, <Link href="/reviews/saxo-bank-belgie">review van Saxo</Link>{' '}
@@ -303,13 +306,13 @@ export default function SaxoVsMeDirectPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[saxo, medirect].map(broker => (
             broker.affiliateUrl && (
-              <div key={broker.id} className="card flex items-center justify-between gap-4">
+              <div key={broker.id} className="card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="font-semibold text-primary">{broker.name}</p>
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={goLink(broker.id, 'saxo-vs-medirect-onder')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Naar {broker.name} →</a>
+                <a href={goLink(broker.id, 'saxo-vs-medirect-onder')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Rekening openen bij {knopNaam(broker)} →</a>
               </div>
             )
           ))}

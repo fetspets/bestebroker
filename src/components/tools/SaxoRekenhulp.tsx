@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { aandelenKost, transactiekost, type Broker } from '@/data/brokers'
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 
 const eur = (n: number) =>
@@ -120,7 +120,7 @@ export function SaxoRekenhulp({ saxo, ander, anderKleur, bron }: Props) {
           broker.affiliateUrl && (
             <div key={broker.id}>
               <a href={goLink(broker.id, bron)} target="_blank" rel="sponsored nofollow noopener" className="btn-outline w-full justify-center text-center py-3">
-                Naar {broker.name} →
+                Rekening openen bij {knopNaam(broker)} →
               </a>
               <AffiliateLabel broker={broker} />
             </div>

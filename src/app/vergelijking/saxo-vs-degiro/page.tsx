@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { getBrokerById } from '@/data/brokers'
 import { LastUpdated } from '@/components/ui/LastUpdated'
 import { BreadcrumbNav, breadcrumbJsonLd } from '@/components/layout/BreadcrumbNav'
-import { goLink } from '@/lib/affiliateLinks'
+import { goLink, knopNaam } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
+import { RekeningOpenen } from '@/components/broker/RekeningOpenen'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoDegiroRekenhulp } from '@/components/tools/SaxoDegiroRekenhulp'
 import { KrososBlok } from '@/components/partners/KrososBlok'
@@ -132,6 +133,7 @@ export default function SaxoVsDegiroPage() {
             <li><strong>Overstappen:</strong> effecten overzetten kost €20 per lijn bij DEGIRO en €75 bij Saxo.</li>
             <li><strong>Rekening:</strong> Saxo opent met itsme en heeft ook een gezamenlijke en bedrijfsrekening; DEGIRO enkel een individueel account.</li>
           </ul>
+          <RekeningOpenen brokers={[saxo, degiro]} bron="saxo-vs-degiro-kort" className="mt-5" />
         </section>
 
         <section className="card mb-10">
@@ -157,6 +159,7 @@ export default function SaxoVsDegiroPage() {
             </table>
           </div>
           <p className="text-xs text-gray-400 mt-3">Tarieven exclusief beurstaks. Bronnen onderaan deze pagina, nagekeken op 23 november 2026.</p>
+          <RekeningOpenen brokers={[saxo, degiro]} bron="saxo-vs-degiro-tabel" className="mt-5" />
         </section>
 
         <section className="card mb-10" aria-labelledby="rekenhulp">
@@ -202,6 +205,7 @@ export default function SaxoVsDegiroPage() {
             <li><strong>Je koopt vooral ETF’s uit de kernselectie:</strong> dan is DEGIRO met €1 per order het goedkoopst per order.</li>
             <li><strong>Je wil later misschien overstappen:</strong> overzetten kost €20 per lijn bij DEGIRO en €75 bij Saxo.</li>
           </ul>
+          <RekeningOpenen brokers={[saxo, degiro]} bron="saxo-vs-degiro-conclusie" className="my-6" />
           <p>
             Meer details: <Link href="/reviews/saxo-bank-belgie">review van Saxo</Link>, <Link href="/reviews/degiro-belgie">review van DEGIRO</Link>{' '}
             en <Link href="/vergelijking/degiro-vs-bolero">DEGIRO vs Bolero</Link>.
@@ -225,13 +229,13 @@ export default function SaxoVsDegiroPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {[saxo, degiro].map(broker => (
             broker.affiliateUrl && (
-              <div key={broker.id} className="card flex items-center justify-between gap-4">
+              <div key={broker.id} className="card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="font-semibold text-primary">{broker.name}</p>
                   <p className="text-sm text-gray-500">{broker.tagline}</p>
                   <AffiliateLabel broker={broker} />
                 </div>
-                <a href={goLink(broker.id, 'saxo-vs-degiro')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Naar {broker.name} →</a>
+                <a href={goLink(broker.id, 'saxo-vs-degiro')} target="_blank" rel="sponsored nofollow noopener" className="btn-primary flex-shrink-0 text-sm py-2">Rekening openen bij {knopNaam(broker)} →</a>
               </div>
             )
           ))}

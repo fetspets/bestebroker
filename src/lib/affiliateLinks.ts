@@ -46,3 +46,8 @@ export function brokerLink(affiliateUrl: string, source: string): string {
 export function goLink(brokerId: string, source: string): string {
   return `/go/${encodeURIComponent(brokerId)}?bron=${encodeURIComponent(source)}`
 }
+
+/** Korte merknaam voor knopteksten: "Saxo Bank" → "Saxo", "Keytrade Bank" → "Keytrade". */
+export function knopNaam(broker: { name: string }): string {
+  return broker.name.replace(/ Bank$/, '')
+}
