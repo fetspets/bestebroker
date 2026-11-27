@@ -11,6 +11,7 @@ import { ScoreBreakdown } from '@/components/broker/ScoreBreakdown'
 import { Bronnen, type Bron } from '@/components/ui/Bronnen'
 import { EtfKostenTabel } from '@/components/broker/EtfKostenTabel'
 import { KrososBlok } from '@/components/partners/KrososBlok'
+import { EindejaarTip } from '@/components/partners/EindejaarTip'
 
 const broker = getBrokerById('saxo')!
 const bolero = getBrokerById('bolero')!
@@ -234,6 +235,7 @@ export default function SaxoReviewPage() {
             en <Link href="/broker-meerwaardebelasting-2026" className="text-accent underline">wat elke broker inhoudt</Link>.
           </p>
           <KrososBlok bron="saxo-review" />
+          <EindejaarTip />
 
           <h2>Rekening openen</h2>
           <p>

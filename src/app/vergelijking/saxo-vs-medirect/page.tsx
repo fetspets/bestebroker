@@ -7,6 +7,7 @@ import { goLink } from '@/lib/affiliateLinks'
 import { AffiliateLabel } from '@/components/ui/AffiliateLabel'
 import { Bronnen, articleJsonLd, type Bron } from '@/components/ui/Bronnen'
 import { SaxoRekenhulp } from '@/components/tools/SaxoRekenhulp'
+import { EindejaarTip } from '@/components/partners/EindejaarTip'
 
 const saxo = getBrokerById('saxo')!
 const medirect = getBrokerById('medirect')!
@@ -269,6 +270,7 @@ export default function SaxoVsMeDirectPage() {
             Beide houden de beurstaks, de roerende voorheffing, de Reynderstaks en de meerwaardebelasting in. Je hoeft je rekening niet bij de
             Nationale Bank te melden. Meer uitleg: <Link href="/broker-meerwaardebelasting-2026">meerwaardebelasting 2026 bij brokers</Link>.
           </p>
+          <EindejaarTip />
 
           <h2>Voor wie is welk verschil belangrijk?</h2>
           <ul>
